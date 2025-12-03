@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Minimal base styles for the app */
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    background-color: #F9FAFB; /* Tailwind gray-50 */
+    color: #111827; /* Tailwind gray-900 */
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+}

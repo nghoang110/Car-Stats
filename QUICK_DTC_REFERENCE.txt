@@ -1,0 +1,63 @@
+// 🚀 QUICK REFERENCE - THÊM/SỬA LỖI DTC
+// Vị trí file: src/data/dtcData.js
+
+// ✅ CÁC LỖI HIỆN CÓ & CÁCH TÌM:
+
+/*
+TOYOTA
+├─ Camry (10 lỗi)
+├─ Corolla (8 lỗi)  
+└─ Fortuner (8 lỗi)
+
+HONDA
+├─ Civic (8 lỗi)
+├─ Accord (8 lỗi)
+└─ CR-V (6 lỗi)
+
+HYUNDAI
+├─ Elantra (6 lỗi)
+└─ Tucson (6 lỗi)
+
+KIA
+├─ Cerato (4 lỗi)
+└─ Sorento (5 lỗi)
+
+MAZDA
+├─ Mazda 3 (4 lỗi)
+└─ Mazda CX-5 (5 lỗi)
+
+FORD
+├─ Focus (3 lỗi)
+└─ Ranger (5 lỗi)
+
+MITSUBISHI
+├─ Outlander (4 lỗi)
+└─ Xpander (3 lỗi)
+*/
+
+// 📝 COPY-PASTE TEMPLATE ĐỂ THÊM LỖI MỚI:
+
+// { code: 'PXXXX', description: 'Mô tả tiếng Việt ở đây', severity: 'high' }
+
+// ⚠️ SEVERITY COLORS:
+// - high   : 🔴 Đỏ (lỗi nghiêm trọng)
+// - medium : 🟡 Vàng (lỗi cảnh báo)
+// - low    : 🟢 Xanh (thông tin)
+
+// 💾 CÁCH THÊM:
+// 1. Mở file: src/data/dtcData.js
+// 2. Tìm hãng xe → tìm dòng xe → tìm mảng dtcCodes
+// 3. Thêm object mới vào mảng (trước dấu ]})
+// 4. Reload trình duyệt (Ctrl+R) để xem thay đổi
+
+// 🔍 VÍ DỤ:
+// TRƯỚC:
+// dtcCodes: [
+//   { code: 'P0101', description: 'Cảm biến luồng không khí bị lỗi', severity: 'high' },
+// ]
+//
+// SAU:
+// dtcCodes: [
+//   { code: 'P0101', description: 'Cảm biến luồng không khí bị lỗi', severity: 'high' },
+//   { code: 'P0999', description: 'Lỗi mới của tôi', severity: 'medium' },  // ← Thêm đây
+// ]
