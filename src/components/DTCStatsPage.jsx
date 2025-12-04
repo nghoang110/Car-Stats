@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { defaultDtcData, reloadDTCData, getModelsByBrand, getDTCByModel, getSeverityColor, getSeverityBadge } from '../data/dtcData'
 import AddDTCForm from './AddDTCForm'
+import Car3DViewer from './Car3DViewer'
+import { get3DModelPath } from '../utils/get3DModelPath'
 
 export default function DTCStatsPage() {
   const [dtcData, setDtcData] = useState(reloadDTCData())
@@ -62,8 +65,8 @@ export default function DTCStatsPage() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex justify-between items-center flex-wrap gap-4">
             <div>
-              <h1 className="text-4xl font-bold mb-2">🔧 DTC Statistics</h1>
-              <p className="text-red-100">Thống kê lỗi DTC (Diagnostic Trouble Code) của các dòng xe</p>
+          <h1 className="text-4xl font-bold mb-2">🔧 DTC Statistics</h1>
+          <p className="text-red-100">Thống kê lỗi DTC (Diagnostic Trouble Code) của các dòng xe</p>
             </div>
             <button
               onClick={() => setShowAddForm(true)}
@@ -77,7 +80,7 @@ export default function DTCStatsPage() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
           {/* Left: Brand Selection */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
@@ -100,7 +103,7 @@ export default function DTCStatsPage() {
             </div>
           </div>
 
-          {/* Right: Models and DTC Details */}
+          {/* Middle: Models and DTC Details */}
           <div className="lg:col-span-3">
             {!selectedBrand ? (
               <div className="bg-white rounded-lg shadow-lg p-12 text-center">
@@ -236,6 +239,16 @@ export default function DTCStatsPage() {
               </div>
             )}
           </div>
+
+          {/* Right: 3D Model Viewer */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">🚗 Mô hình 3D</h2>
+              <div className="w-full" style={{ height: '600px' }}>
+                <Car3DViewer modelPath={selectedBrand && selectedModel ? get3DModelPath(selectedBrand, selectedModel) : null} />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Info Section */}
@@ -258,6 +271,16 @@ export default function DTCStatsPage() {
           </p>
         </div>
       </footer>
+
+      {/* Navigation Button - Back to Home */}
+      <div className="fixed bottom-8 right-8">
+        <Link
+          to="/"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block"
+        >
+          ← Quay lại Home
+        </Link>
+      </div>
 
       {/* Add DTC Form Modal */}
       {showAddForm && (

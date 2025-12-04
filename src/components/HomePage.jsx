@@ -1,13 +1,11 @@
 import React from 'react'
-import { useStore } from '../store/useStore'
+import { Link } from 'react-router-dom'
 import VehicleLineChart from './VehicleLineChart'
 import VietnamMapHeatmap from './VietnamMapHeatmap'
 import StatsOverview from './StatsOverview'
 import CarTypeBreakdown from './CarTypeBreakdown'
 
 export default function HomePage() {
-  const { setCurrentPage } = useStore()
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -19,12 +17,12 @@ export default function HomePage() {
               Thống kê số lượng xe ô tô tại các tỉnh thành Việt Nam (2000-2025)
             </p>
           </div>
-          <button
-            onClick={() => setCurrentPage('dtc')}
+          <Link
+            to="/car-dtcs"
             className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
           >
             🔧 Xem DTC Stats
-          </button>
+          </Link>
         </div>
       </header>
 
