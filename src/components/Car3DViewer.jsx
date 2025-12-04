@@ -33,8 +33,8 @@ function Model({ url }) {
   console.log('Loading 3D model from URL:', url)
   
   try {
-    // GLTFLoader tự động resolve file .bin dựa trên base path của file .gltf
-    // Với Vite, URL đã được resolve đúng, nên loader sẽ tự tìm file scene.bin
+    // GLTFLoader tự động resolve file .bin và textures dựa trên base path của file .gltf
+    // Với absolute path từ public folder, loader sẽ tự tìm file .bin và textures trong cùng thư mục
     const gltf = useLoader(GLTFLoader, url)
     
     console.log('Model loaded via useLoader:', gltf)

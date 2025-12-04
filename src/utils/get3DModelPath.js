@@ -1,21 +1,19 @@
-// Import các model 3D có sẵn
-// Thêm import mới khi có model 3D mới
-import porsche911 from '../assets/3D/porsche/911/911-3D.gltf?url'
-import porscheCayenne from '../assets/3D/porsche/cayenne/scene.gltf?url'
-import porscheMacan from '../assets/3D/porsche/macan/macan-3D.gltf?url'
-import toyotaCamry from '../assets/3D/toyota/camry/camry-3D.gltf?url'
-
 /**
  * Mapping các model 3D có sẵn
- * Format: 'brand:model' -> import path
+ * Format: 'brand:model' -> absolute path từ public folder
+ * 
+ * Lưu ý: File 3D được đặt trong public/assets/3D/ để:
+ * - Không bị hash tên file khi build
+ * - Đường dẫn tương đối (.bin, textures) hoạt động đúng
+ * - Tất cả file được copy vào dist/ khi build
  */
 const model3DMap = {
-  'porsche:911': porsche911,
-  'porsche:cayenne': porscheCayenne,
-  'porsche:macan': porscheMacan,
-  'toyota:camry': toyotaCamry,
+  'porsche:911': '/assets/3D/porsche/911/911-3D.gltf',
+  'porsche:cayenne': '/assets/3D/porsche/cayenne/scene.gltf',
+  'porsche:macan': '/assets/3D/porsche/macan/macan-3D.gltf',
+  'toyota:camry': '/assets/3D/toyota/camry/camry-3D.gltf',
   // Thêm các model khác ở đây khi có
-  // 'toyota:camry': toyotaCamry,
+  // Format: 'brand:model': '/assets/3D/brand/model/file.gltf',
 }
 
 /**
