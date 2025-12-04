@@ -26,7 +26,8 @@ export default function DashboardPage() {
                 Car-Stats Dashboard
               </h1>
               <p className="text-gray-300 text-lg">
-                Thống kê số lượng xe ô tô tại các tỉnh thành Việt Nam (2000-2025)
+                Thống kê số lượng xe ô tô tại các tỉnh thành Việt Nam (2000-2025) <br />
+                (Đây là dữ liệu mock, chưa phải thực tế )
               </p>
             </div>
           </div>

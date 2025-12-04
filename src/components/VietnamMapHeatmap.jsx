@@ -108,6 +108,7 @@ export default function VietnamMapHeatmap() {
       <MapContainer
         center={[16.5, 107]}
         zoom={6}
+        minZoom={5}
         style={{ height: '500px', width: '100%', borderRadius: '8px', zIndex: 0 }}
       >
         <TileLayer
