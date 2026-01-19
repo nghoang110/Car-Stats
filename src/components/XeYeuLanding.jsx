@@ -1,5 +1,13 @@
 import React from 'react';
 
+// Images
+import habitImg from '../assets/landing/habit.png';
+import obdPhoneImg from '../assets/landing/OBDII&phone.png';
+import assistantImg from '../assets/landing/assistant.png';
+import engineImg from '../assets/landing/engine.png';
+import walletImg from '../assets/landing/wallet.png';
+import driverImg from '../assets/landing/driver.png';
+
 // Icons
 const EngineIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +94,7 @@ export default function XeYeuLanding() {
                         {/* Item 1 */}
                         <div className="flex flex-col items-center">
                             <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-500/10 border border-blue-50">
-                                <img src="/src/assets/landing/engine.png" alt="Engine Issue" className="w-28 h-28 object-contain" />
+                                <img src={engineImg} alt="Engine Issue" className="w-28 h-28 object-contain" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-800">Hiểu rõ "bệnh" của xe?</h3>
                         </div>
@@ -94,7 +102,7 @@ export default function XeYeuLanding() {
                         {/* Item 2 */}
                         <div className="flex flex-col items-center">
                             <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-500/10 border border-blue-50">
-                                <img src="/src/assets/landing/wallet.png" alt="Cost Worry" className="w-28 h-28 object-contain" />
+                                <img src={walletImg} alt="Cost Worry" className="w-28 h-28 object-contain" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-800">Lo lắng chi phí sửa chữa?</h3>
                         </div>
@@ -102,7 +110,7 @@ export default function XeYeuLanding() {
                         {/* Item 3 */}
                         <div className="flex flex-col items-center">
                             <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-500/10 border border-blue-50">
-                                <img src="/src/assets/landing/driver.png" alt="Driver Anxiety" className="w-28 h-28 object-contain" />
+                                <img src={driverImg} alt="Driver Anxiety" className="w-28 h-28 object-contain" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-800">Bất an trên mỗi chuyến đi?</h3>
                         </div>
@@ -138,7 +146,7 @@ export default function XeYeuLanding() {
                         <div className="w-full md:w-1/2 relative bg-emerald-50 rounded-3xl p-8 md:p-12 flex justify-center items-center group">
                             <div className="absolute inset-0 bg-[#00CBA9]/10 rounded-3xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
                             <img
-                                src="/src/assets/landing/habit.png"
+                                src={habitImg}
                                 alt="Driving Score App Screen"
                                 className="relative z-10 w-full max-w-[280px] md:max-w-sm rounded-[2.5rem] shadow-2xl border-8 border-gray-900"
                             />
@@ -166,7 +174,7 @@ export default function XeYeuLanding() {
                         <div className="w-full md:w-1/2 relative bg-emerald-50 rounded-3xl p-8 md:p-12 flex justify-center items-center group">
                             <div className="absolute inset-0 bg-[#00CBA9]/10 rounded-3xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
                             <img
-                                src="/src/assets/landing/OBDII&phone.png"
+                                src={obdPhoneImg}
                                 alt="OBD Device & Phone"
                                 className="relative z-10 w-full max-w-[280px] md:max-w-sm rounded-[2.5rem] shadow-2xl border-8 border-gray-900"
                             />
@@ -194,7 +202,7 @@ export default function XeYeuLanding() {
                         <div className="w-full md:w-1/2 relative bg-emerald-50 rounded-3xl p-8 md:p-12 flex justify-center items-center group">
                             <div className="absolute inset-0 bg-[#00CBA9]/10 rounded-3xl transform -rotate-3 transition-transform group-hover:-rotate-6"></div>
                             <img
-                                src="/src/assets/landing/assistant.png"
+                                src={assistantImg}
                                 alt="Technical Assistant App Screen"
                                 className="relative z-10 w-full max-w-[280px] md:max-w-sm rounded-[2.5rem] shadow-2xl border-8 border-gray-900"
                             />
