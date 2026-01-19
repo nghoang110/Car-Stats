@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Images
 import habitImg from '../assets/landing/habit.png';
@@ -7,6 +7,9 @@ import assistantImg from '../assets/landing/assistant.png';
 import engineImg from '../assets/landing/engine.png';
 import walletImg from '../assets/landing/wallet.png';
 import driverImg from '../assets/landing/driver.png';
+import plugInImg from '../assets/landing/plug-in.png';
+import connectedImg from '../assets/landing/connected.png';
+import deviceImg from '../assets/landing/device.png';
 
 // Icons
 const EngineIcon = () => (
@@ -24,6 +27,343 @@ const WorriedDriverIcon = () => (
         <circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" />
     </svg>
 ); // Placeholder
+
+// Connection Steps Component
+const ConnectionSteps = () => {
+    const [activeStep, setActiveStep] = useState(0);
+
+    const steps = [
+        {
+            id: 0,
+            title: "Chuẩn Bị Thiết Bị",
+            description: "Chuẩn bị thiết bị phần cứng có kết nối Bluetooth. ",
+            image: deviceImg,
+            icon: "📱"
+        },
+        {
+            id: 1,
+            title: "Cắm Vào Cổng OBDII",
+            description: "Tìm cổng OBDII trên xe (thường nằm dưới táp-lô phía ghế lái) và cắm thiết bị vào. Đèn LED sẽ sáng khi kết nối thành công.",
+            image: plugInImg,
+            icon: "🔌"
+        },
+        {
+            id: 2,
+            title: "Mở App & Kết Nối",
+            description: "Mở ứng dụng Xế Yêu, bật Bluetooth trên điện thoại và chọn thiết bị để kết nối. Chỉ mất vài giây là xong!",
+            image: connectedImg,
+            icon: "✅"
+        }
+    ];
+
+    // Auto-rotate steps every 4 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveStep((prev) => (prev + 1) % steps.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, [steps.length]);
+
+    return (
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left: Vertical Timeline Steps */}
+            <div className="relative">
+                {/* Vertical Line Background */}
+                <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gray-200"></div>
+
+                {/* Animated Progress Line */}
+                <div
+                    className="absolute left-8 top-12 w-0.5 bg-[#00CBA9] transition-all duration-700 ease-in-out"
+                    style={{
+                        height: `${(activeStep / (steps.length - 1)) * 100}%`,
+                        maxHeight: 'calc(100% - 96px)'
+                    }}
+                ></div>
+
+                {/* Steps */}
+                <div className="space-y-12">
+                    {steps.map((step, index) => (
+                        <div
+                            key={step.id}
+                            onClick={() => setActiveStep(index)}
+                            className="relative flex items-start gap-6 cursor-pointer group"
+                        >
+                            {/* Step Circle/Icon */}
+                            <div className="relative z-10 flex-shrink-0">
+                                <div
+                                    className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl transition-all duration-500 ${activeStep === index
+                                        ? 'bg-[#00CBA9] shadow-lg shadow-[#00CBA9]/30 scale-110'
+                                        : activeStep > index
+                                            ? 'bg-[#00CBA9] shadow-md'
+                                            : 'bg-white border-2 border-gray-300 group-hover:border-[#00CBA9]'
+                                        }`}
+                                >
+                                    {activeStep > index ? (
+                                        <span className="text-white text-2xl font-bold">✓</span>
+                                    ) : (
+                                        <span className={`font-bold text-2xl ${activeStep === index ? 'text-white' : 'text-gray-600'
+                                            }`}>
+                                            {index + 1}
+                                        </span>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Step Content */}
+                            <div className="flex-1 pt-2">
+                                <h3
+                                    className={`text-2xl font-bold mb-2 transition-all duration-300 ${activeStep === index
+                                        ? 'text-[#00CBA9] scale-105'
+                                        : 'text-gray-800'
+                                        }`}
+                                >
+                                    {step.title}
+                                </h3>
+                                <p
+                                    className={`text-base leading-relaxed transition-colors duration-300 ${activeStep === index ? 'text-gray-700' : 'text-gray-500'
+                                        }`}
+                                >
+                                    {step.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Right: Image Display */}
+            <div className="relative h-[500px] md:h-[600px] flex items-center justify-center">
+                {steps.map((step, index) => (
+                    <div
+                        key={step.id}
+                        className={`absolute inset-0 transition-all duration-700 ${activeStep === index
+                            ? 'opacity-100 scale-100 z-10'
+                            : 'opacity-0 scale-95 z-0'
+                            }`}
+                    >
+                        <div className="relative w-full h-full bg-gradient-to-br from-[#00CBA9]/10 to-[#002B49]/10 rounded-3xl p-8 flex items-center justify-center overflow-hidden">
+                            {/* Decorative Background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#00CBA9]/5 to-transparent"></div>
+
+                            {/* Image */}
+                            <img
+                                src={step.image}
+                                alt={step.title}
+                                className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl"
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+// Product Categories Component
+const ProductCategories = () => {
+    const [activeCategory, setActiveCategory] = useState(0);
+
+    const categories = [
+        {
+            id: 0,
+            name: "Phân Khúc Phổ Thông",
+            description: "Phù hợp cho người dùng cá nhân, xe gia đình muốn theo dõi cơ bản tình trạng xe và thói quen lái.",
+            priceRange: "300.000đ - 800.000đ",
+            products: [
+                {
+                    name: "ELM327 Bluetooth",
+                    price: "350.000đ",
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop",
+                    features: ["Bluetooth 2.0", "Đọc mã lỗi cơ bản", "Tương thích đa dòng xe"]
+                },
+                {
+                    name: "Vgate iCar Pro",
+                    price: "650.000đ",
+                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&auto=format&fit=crop",
+                    features: ["Bluetooth 4.0", "Đọc dữ liệu thời gian thực", "Hỗ trợ iOS & Android"]
+                },
+                {
+                    name: "OBDLink LX",
+                    price: "750.000đ",
+                    image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&auto=format&fit=crop",
+                    features: ["Kết nối ổn định", "Pin tự động ngắt", "Bảo hành 1 năm"]
+                }
+            ]
+        },
+        {
+            id: 1,
+            name: "Phân Khúc Trung Cấp",
+            description: "Dành cho người dùng chuyên nghiệp, cần phân tích chi tiết và tính năng nâng cao.",
+            priceRange: "1.000.000đ - 2.500.000đ",
+            products: [
+                {
+                    name: "BlueDriver Pro",
+                    price: "1.200.000đ",
+                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&auto=format&fit=crop",
+                    features: ["Chẩn đoán chuyên sâu", "Cập nhật firmware", "Hỗ trợ kỹ thuật 24/7"]
+                },
+                {
+                    name: "Carista OBD2",
+                    price: "1.800.000đ",
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop",
+                    features: ["Tùy chỉnh xe", "Đọc ABS/Airbag", "App cao cấp"]
+                },
+                {
+                    name: "OBDLink MX+",
+                    price: "2.200.000đ",
+                    image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&auto=format&fit=crop",
+                    features: ["Bluetooth 5.0", "Tốc độ cao", "Tương thích rộng"]
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: "Phân Khúc Cao Cấp",
+            description: "Thiết bị chuyên nghiệp cho garage, thợ sửa xe hoặc người dùng có nhu cầu cao nhất.",
+            priceRange: "3.000.000đ - 8.000.000đ",
+            products: [
+                {
+                    name: "Autel MaxiCOM",
+                    price: "5.500.000đ",
+                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&auto=format&fit=crop",
+                    features: ["Màn hình cảm ứng", "Chẩn đoán toàn hệ thống", "Cập nhật trọn đời"]
+                },
+                {
+                    name: "Launch X431",
+                    price: "6.800.000đ",
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop",
+                    features: ["Đa ngôn ngữ", "Cloud service", "Hỗ trợ xe châu Âu"]
+                },
+                {
+                    name: "Bosch KTS 590",
+                    price: "7.500.000đ",
+                    image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&auto=format&fit=crop",
+                    features: ["Chuẩn garage", "Độ chính xác cao", "Bảo hành 3 năm"]
+                }
+            ]
+        }
+    ];
+
+    return (
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+            {/* Left: Products Display */}
+            <div className="relative h-[600px] flex items-center justify-center order-2 md:order-1">
+                {categories.map((category, catIndex) => (
+                    <div
+                        key={category.id}
+                        className={`absolute inset-0 transition-all duration-700 ${activeCategory === catIndex
+                            ? 'opacity-100 scale-100 z-10'
+                            : 'opacity-0 scale-95 z-0'
+                            }`}
+                    >
+                        <div className="grid grid-cols-1 gap-6 h-full">
+                            {category.products.map((product, prodIndex) => (
+                                <div
+                                    key={prodIndex}
+                                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                                >
+                                    <div className="flex gap-4 p-4">
+                                        {/* Product Image */}
+                                        <div className="w-32 h-32 flex-shrink-0 bg-gray-100 rounded-xl overflow-hidden">
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                            />
+                                        </div>
+
+                                        {/* Product Info */}
+                                        <div className="flex-1">
+                                            <h4 className="text-lg font-bold text-gray-900 mb-1">
+                                                {product.name}
+                                            </h4>
+                                            <div className="text-[#00CBA9] font-bold text-xl mb-2">
+                                                {product.price}
+                                            </div>
+                                            <ul className="space-y-1">
+                                                {product.features.map((feature, idx) => (
+                                                    <li key={idx} className="text-sm text-gray-600 flex items-center gap-2">
+                                                        <span className="text-[#00CBA9]">✓</span>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Right: Category Timeline */}
+            <div className="relative order-1 md:order-2">
+                {/* Vertical Line Background */}
+                <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gray-200"></div>
+
+                {/* Animated Progress Line */}
+                <div
+                    className="absolute left-8 top-12 w-0.5 bg-[#00CBA9] transition-all duration-700 ease-in-out"
+                    style={{
+                        height: `${(activeCategory / (categories.length - 1)) * 100}%`,
+                        maxHeight: 'calc(100% - 96px)'
+                    }}
+                ></div>
+
+                {/* Categories */}
+                <div className="space-y-12">
+                    {categories.map((category, index) => (
+                        <div
+                            key={category.id}
+                            onClick={() => setActiveCategory(index)}
+                            className="relative flex items-start gap-6 cursor-pointer group"
+                        >
+                            {/* Category Circle Number */}
+                            <div className="relative z-10 flex-shrink-0">
+                                <div
+                                    className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-500 ${activeCategory === index
+                                            ? 'bg-[#00CBA9] text-white shadow-lg shadow-[#00CBA9]/30 scale-110'
+                                            : 'bg-white border-2 border-gray-300 text-gray-600 group-hover:border-[#00CBA9]'
+                                        }`}
+                                >
+                                    {index + 1}
+                                </div>
+                            </div>
+
+                            {/* Category Content */}
+                            <div className="flex-1 pt-2">
+                                <h3
+                                    className={`text-2xl font-bold mb-2 transition-all duration-300 ${activeCategory === index
+                                        ? 'text-[#00CBA9] scale-105'
+                                        : 'text-gray-800'
+                                        }`}
+                                >
+                                    {category.name}
+                                </h3>
+                                <p
+                                    className={`text-base leading-relaxed mb-3 transition-colors duration-300 ${activeCategory === index ? 'text-gray-700' : 'text-gray-500'
+                                        }`}
+                                >
+                                    {category.description}
+                                </p>
+                                <div
+                                    className={`inline-block px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300 ${activeCategory === index
+                                        ? 'bg-[#00CBA9] text-white'
+                                        : 'bg-gray-100 text-gray-600'
+                                        }`}
+                                >
+                                    {category.priceRange}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default function XeYeuLanding() {
     return (
@@ -212,7 +552,39 @@ export default function XeYeuLanding() {
                 </div>
             </section>
 
-            {/* 4. Mission Section */}
+            {/* 4. Connection Guide Section */}
+            <section className="py-24 px-4 bg-gradient-to-br from-gray-50 to-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                            Hướng Dẫn Kết Nối
+                        </h2>
+                        <p className="text-lg text-gray-600">
+                            Chỉ 3 bước đơn giản để bắt đầu hành trình cùng Xế Yêu
+                        </p>
+                    </div>
+
+                    <ConnectionSteps />
+                </div>
+            </section>
+
+            {/* 5. Product Categories Section */}
+            <section className="py-24 px-4 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                            Thiết Bị Phần Cứng Đề Xuất
+                        </h2>
+                        <p className="text-lg text-gray-600">
+                            Xế Yêu giới thiệu các thiết bị OBD2 phù hợp với từng nhu cầu sử dụng
+                        </p>
+                    </div>
+
+                    <ProductCategories />
+                </div>
+            </section>
+
+            {/* 6. Mission Section */}
             <section className="py-20 px-8 bg-[#002B49] text-center text-white">
                 <div className="max-w-4xl mx-auto space-y-8">
                     <h2 className="text-4xl font-bold">Sứ Mệnh Của Chúng Tôi</h2>
