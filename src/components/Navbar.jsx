@@ -26,6 +26,7 @@ export default function Navbar() {
       isLink: false,
       children: [
         { path: '/landing-xe-yeu', label: 'Xế Yêu' },
+        { path: '/landing-xe-yeu-2', label: 'Xế Yêu 2' },
         { path: '/landing-my-gara', label: 'My Gara' },
       ]
     },

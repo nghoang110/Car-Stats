@@ -5,6 +5,7 @@ import HomePage from './components/HomePage'
 import DashboardPage from './components/DashboardPage'
 import DTCStatsPage from './components/DTCStatsPage'
 import XeYeuLanding from './components/XeYeuLanding'
+import XeYeuLanding2 from './components/XeYeuLanding2'
 import MyGaraLanding from './components/MyGaraLanding'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/car-dashboard" element={<DashboardPage />} />
         <Route path="/car-dtcs" element={<DTCStatsPage />} />
         <Route path="/landing-xe-yeu" element={<XeYeuLanding />} />
+        <Route path="/landing-xe-yeu-2" element={<XeYeuLanding2 />} />
         <Route path="/landing-my-gara" element={<MyGaraLanding />} />
         {/* Redirect unknown routes to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
