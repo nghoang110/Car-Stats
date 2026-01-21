@@ -1,15 +1,74 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #0c7ae9;
+  --color-background-light: #f5f7f8;
+  --color-surface-light: #ffffff;
+  --color-border-light: #e5e7eb;
+  --color-slate-muted: #64748b;
+
+  /* Xe Yêu 2 Colors */
+  --color-xe-primary: #a4ec13;
+  --color-xe-bg-light: #f7f8f6;
+  --color-xe-dark-accent: #1c2210;
+  --color-xe-dark-card: #171b0d;
+
+  /* Xe Yêu 2 Shadow */
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 25px rgba(164, 236, 19, 0.35);
+
+  /* Font family */
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+@layer components {
+  .card-premium {
+    @apply border border-gray-100 dark:border-white/5 rounded-2xl shadow-soft;
+  }
+
+  .btn-primary-xe {
+    @apply bg-xe-primary text-xe-dark-accent font-bold px-8 py-3 rounded-full hover:shadow-glow transition-all duration-300 active:scale-95;
+  }
+
+  .btn-outline-xe {
+    @apply border-2 border-xe-dark-accent dark:border-xe-primary text-xe-dark-accent dark:text-xe-primary font-bold px-8 py-3 rounded-full hover:bg-xe-dark-accent dark:hover:bg-xe-primary hover:text-white dark:hover:text-xe-dark-accent transition-all duration-300;
+  }
+
+  .input-field-xe {
+    @apply w-full bg-white dark:bg-xe-dark-accent border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-xe-primary focus:border-transparent outline-none dark:text-white;
+  }
+}
+
+
 /* Minimal base styles for the app */
 @layer base {
-  html, body, #root {
+
+  html,
+  body,
+  #root {
     height: 100%;
   }
+
   body {
-    background-color: #F9FAFB; /* Tailwind gray-50 */
-    color: #111827; /* Tailwind gray-900 */
+    @apply bg-background-light text-[14px] md:text-[16px] text-slate-900;
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1 {
+    @apply text-[28px] md:text-[44px] font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-[20px] md:text-[32px] font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-[18px] md:text-[20px] font-bold;
+  }
+
+  p {
+    @apply text-slate-muted;
   }
 }

@@ -1,367 +1,481 @@
 import React, { useState } from 'react';
 
 export default function MyGaraLanding() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
-        <div className="min-h-screen bg-white font-sans text-gray-900">
+        <div className="selection:bg-primary/30 min-h-screen bg-background-light">
+            <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light shadow-sm">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-16">
+                        <div className="flex items-center gap-2">
+                            <div className="text-primary">
+                                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+                                </svg>
+                            </div>
+                            <span className="text-xl font-bold tracking-tight uppercase">MyGara</span>
+                        </div>
 
-            {/* 1. Hero Section - Split Screen */}
-            <section className="flex flex-col lg:flex-row min-h-[600px] lg:h-[85vh]">
-                {/* Left Content */}
-                <div className="lg:w-1/2 bg-[#003366] flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
-                    <div className="relative z-10 max-w-xl text-white space-y-6">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                            My Gara - Nâng Tầm<br />
-                            Xưởng Dịch Vụ Của Bạn<br />
-                            Bằng Dữ Liệu Thực
-                        </h1>
-                        <p className="text-lg md:text-xl leading-relaxed opacity-90">
-                            Kết nối trực tiếp với hàng ngàn chủ xe "Xế Yêu". Chủ động nhắc lịch,
-                            minh bạch sửa chữa và tối ưu vận hành xưởng chỉ trên một nền tảng duy nhất.
-                        </p>
+                        <button
+                            className="md:hidden p-2 text-slate-600 cursor-pointer"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            <span className="material-symbols-outlined !text-2xl">menu</span>
+                        </button>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <button className="px-8 py-4 bg-[#FFB347] text-[#003366] rounded-lg font-bold text-lg hover:bg-[#FFA500] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                Đăng Ký Tư Vấn Miễn Phí
+                        <nav className="hidden md:flex items-center gap-6">
+                            <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#problems">Vấn đề</a>
+                            <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#features">Tính năng</a>
+                            <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#xeyeu-connection">Kết nối</a>
+                            <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#pricing">Giá cả</a>
+                            <a className="flex items-center gap-1 px-4 py-2 bg-[#f0f2f5] text-[#111418] rounded-lg text-sm font-bold transition-colors" href="https://xeyeu.x18.io">
+                                <span className="material-symbols-outlined text-slate-muted">directions_car</span>
+                                Xế Yêu
+                            </a>
+                            <button className="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold shadow-sm">
+                                Cài MyGara
                             </button>
-                            <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-[#003366] transition-all duration-300">
-                                Xem Demo Sản Phẩm
+                        </nav>
+
+                        {/* Mobile Menu */}
+                        <div className={`${isMenuOpen ? 'flex' : 'hidden'} absolute top-16 left-0 w-full bg-white border-b border-border-light md:hidden shadow-lg flex-col p-4 space-y-4`}>
+                            <a className="text-base font-medium text-slate-700" href="#problems" onClick={() => setIsMenuOpen(false)}>Vấn đề</a>
+                            <a className="text-base font-medium text-slate-700" href="#features" onClick={() => setIsMenuOpen(false)}>Tính năng</a>
+                            <a className="text-base font-medium text-slate-700" href="#xeyeu-connection" onClick={() => setIsMenuOpen(false)}>Kết nối</a>
+                            <a className="text-base font-medium text-slate-700" href="#pricing" onClick={() => setIsMenuOpen(false)}>Giá cả</a>
+                            <hr className="border-border-light" />
+                            <a className="flex items-center justify-center gap-2 w-full py-3 bg-[#f0f2f5] text-[#111418] rounded-lg font-bold" href="https://xeyeu.x18.io">
+                                <span className="material-symbols-outlined">directions_car</span>
+                                Xế Yêu
+                            </a>
+                            <button className="w-full bg-primary text-white py-3 rounded-lg font-bold">
+                                Cài MyGara
                             </button>
                         </div>
                     </div>
-                    {/* Decorative Navy Glow */}
-                    <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
                 </div>
+            </header>
 
-                {/* Right Image */}
-                <div className="lg:w-1/2 relative bg-gray-100 h-96 lg:h-auto">
-                    <img
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                        alt="Modern Garage Manager"
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#003366]/10"></div>
-                </div>
-            </section>
-
-            {/* 2. Pain Points Section */}
-            <section className="py-20 px-4 bg-gray-50 text-center">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Gara của bạn có đang gặp phải những "điểm nghẽn" này?
-                    </h2>
-
-                    <div className="grid md:grid-cols-3 gap-8 mt-12">
-                        {/* Pain Point 1 */}
-                        <div className="flex flex-col items-center">
-                            <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl border border-gray-100">
-                                <svg className="w-24 h-24 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-3">Doanh thu thụ động, chờ khách đến</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Không biết khi nào khách cần bảo dưỡng, bỏ lỡ cơ hội upsell vì thiếu thông tin lịch sử xe.
-                            </p>
-                        </div>
-
-                        {/* Pain Point 2 */}
-                        <div className="flex flex-col items-center">
-                            <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl border border-gray-100">
-                                <svg className="w-24 h-24 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-3">Khó xây dựng lòng tin</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Khách hàng nghi ngờ vẽ bệnh, khó chứng minh hiệu quả trước và sau khi sửa chữa.
-                            </p>
-                        </div>
-
-                        {/* Pain Point 3 */}
-                        <div className="flex flex-col items-center">
-                            <div className="bg-white rounded-full p-6 w-48 h-48 flex items-center justify-center mb-6 hover:scale-105 transition-transform duration-300 shadow-xl border border-gray-100">
-                                <svg className="w-24 h-24 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-3">Vận hành lãng phí, khó quản lý thợ</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Không đo lường được năng suất thực tế của thợ, tỷ lệ xe quay lại bảo hành cao nhưng không rõ nguyên nhân.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            {/* 4. Key Benefits Section */}
-            <section className="py-24 px-4 bg-gray-50 overflow-hidden">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-20">
-                        Lợi Ích Cốt Lõi Cho Gara
-                    </h2>
-
-                    {/* Benefit 1: Revenue Growth */}
-                    <div className="flex flex-col md:flex-row gap-12 items-center mb-24">
-                        {/* Left: Image/Dashboard */}
-                        <div className="w-full md:w-1/2 relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
-                            <img
-                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
-                                alt="Dashboard Analytics"
-                                className="w-full rounded-2xl"
-                            />
-                            <div className="absolute top-12 right-12 bg-[#FFB347] text-[#003366] px-4 py-2 rounded-lg font-bold shadow-lg">
-                                +35% Doanh thu
-                            </div>
-                        </div>
-
-                        {/* Right: Content */}
-                        <div className="w-full md:w-1/2 space-y-4">
-                            <div className="inline-block px-4 py-2 bg-[#FFB347]/10 text-[#FFB347] rounded-lg font-semibold text-sm">
-                                TĂNG TRƯỞNG DOANH THU CHỦ ĐỘNG
-                            </div>
-                            <h3 className="text-3xl font-bold text-gray-900">
-                                Nhắc Lịch Đúng Lúc - Upsell Đúng Chỗ
-                            </h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Dựa trên số ODO và tình trạng thực tế, hệ thống tự động đề xuất các gói bảo dưỡng phù hợp.
-                                Gửi thông báo nhắc nhở khách hàng ngay trên app Xế Yêu.
-                            </p>
-                            <div className="bg-[#003366]/5 border-l-4 border-[#003366] p-4 rounded">
-                                <p className="text-[#003366] font-semibold">
-                                    Biến khách vãng lai thành khách hàng thân thiết, tối đa hóa giá trị vòng đời khách hàng.
+            <main className="max-w-7xl mx-auto bg-white">
+                <section className="px-4 py-8 md:py-24 bg-surface-light border-b border-border-light">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div className="space-y-6 md:space-y-8">
+                            <div className="space-y-4">
+                                <h1 className="text-[#0c7ae9]">MyGara – Giữ khách cũ, có thêm việc đều cho gara độc lập</h1>
+                                <p className="max-w-xl text-base text-slate-muted">
+                                    MyGara giúp gara theo dõi tình trạng xe của khách sau khi rời gara, nhắc bảo dưỡng đúng lúc, để khách quay lại đúng gara quen.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Benefit 2: Trust & Transparency */}
-                    <div className="flex flex-col md:flex-row-reverse gap-12 items-center mb-24">
-                        {/* Right: Image */}
-                        <div className="w-full md:w-1/2 relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
-                            <img
-                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop"
-                                alt="Transparent Report"
-                                className="w-full rounded-2xl"
-                            />
-                            <div className="absolute top-12 left-12 bg-[#003366] text-white px-4 py-2 rounded-lg font-bold shadow-lg">
-                                100% Minh bạch
+                            <div className="space-y-3">
+                                <div className="flex items-center gap-3">
+                                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                                    <span className="font-medium text-slate-700">Không mất dấu xe của khách</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                                    <span className="font-medium text-slate-700">Chủ động gọi khách trước khi xe hỏng</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                                    <span className="font-medium text-slate-700">Thợ chuẩn bị trước, làm nhanh và chính xác hơn</span>
+                                </div>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                                <button className="w-full sm:w-auto bg-primary text-white px-8 py-4 md:py-3 rounded-lg text-base font-bold shadow-sm">
+                                    Cài MyGara cho gara
+                                </button>
+                                <button className="w-full sm:w-auto bg-[#f0f2f5] text-[#111418] px-8 py-4 md:py-3 rounded-lg text-base font-bold">
+                                    Xem cách mời khách cài app Xế Yêu
+                                </button>
                             </div>
                         </div>
-
-                        {/* Left: Content */}
-                        <div className="w-full md:w-1/2 space-y-4">
-                            <div className="inline-block px-4 py-2 bg-[#003366]/10 text-[#003366] rounded-lg font-semibold text-sm">
-                                GIỮ CHÂN KHÁCH BẰNG SỰ MINH BẠCH
+                        <div className="relative order-first lg:order-last">
+                            <div
+                                className="aspect-video rounded-xl overflow-hidden shadow-sm border border-border-light bg-slate-200"
+                                style={{
+                                    backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLPLPATrl8zqFp9Rmxp-xH1o33JD6PfcB7O1_qc2Og8OeNAtKs18hnQAmJzNdwWFP65-ak3-KnLmkOjwyEf3qZCOLIFrLQRj7vHLVf89VzmnRGi0qatfwKAe1RdQ8dQHgAR1v9E7qACbIgFQfeICul-FxKji6Cgh97XaJkW7Kf1tvaWib8wVbGnZbdVWGaxO1x-0e9r1PF_4t_Arkxr9vNAweevfUc_wACqr1IgPx2zPSkqwRYSQKyJeaidv8rkJHshOnMk-M3sn3f')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}
+                            >
                             </div>
-                            <h3 className="text-3xl font-bold text-gray-900">
-                                Bằng Chứng Số - Niềm Tin Thực
-                            </h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Cung cấp cho khách hàng "Hồ sơ bệnh án" điện tử đầy đủ hình ảnh, video hiện trạng hư hỏng
-                                và kết quả sau sửa chữa. Mọi hạng mục thay thế đều rõ ràng.
-                            </p>
-                            <div className="bg-[#003366]/5 border-l-4 border-[#003366] p-4 rounded">
-                                <p className="text-[#003366] font-semibold">
-                                    Loại bỏ nghi ngờ, khách hàng an tâm tuyệt đối và sẵn sàng giới thiệu gara của bạn.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Benefit 3: Operations Optimization */}
-                    <div className="flex flex-col md:flex-row gap-12 items-center">
-                        {/* Left: Image */}
-                        <div className="w-full md:w-1/2 relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
-                            <img
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop"
-                                alt="Team Management"
-                                className="w-full rounded-2xl"
-                            />
-                            <div className="absolute top-12 right-12 bg-[#FFB347] text-[#003366] px-4 py-2 rounded-lg font-bold shadow-lg">
-                                -40% Lãng phí
-                            </div>
-                        </div>
-
-                        {/* Right: Content */}
-                        <div className="w-full md:w-1/2 space-y-4">
-                            <div className="inline-block px-4 py-2 bg-[#FFB347]/10 text-[#FFB347] rounded-lg font-semibold text-sm">
-                                TỐI ƯU VẬN HÀNH & CHẤT LƯỢNG
-                            </div>
-                            <h3 className="text-3xl font-bold text-gray-900">
-                                Quản Lý Đội Ngũ Thợ Bài Bản
-                            </h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Theo dõi tiến độ sửa chữa theo thời gian thực. Đánh giá năng suất và chất lượng tay nghề
-                                của từng thợ dựa trên dữ liệu xe quay lại do lỗi tái phát (re-work).
-                            </p>
-                            <div className="bg-[#003366]/5 border-l-4 border-[#003366] p-4 rounded">
-                                <p className="text-[#003366] font-semibold">
-                                    Nâng cao tay nghề đội ngũ, giảm thiểu lãng phí thời gian và chi phí bảo hành.
-                                </p>
+                            <div className="absolute -bottom-4 -left-4 bg-blue-50 text-primary border border-blue-100 px-4 py-2 rounded-lg shadow-sm hidden md:block">
+                                <p className="font-bold text-sm text-primary">Chiết khấu</p>
+                                <p className="text-[10px] font-bold uppercase tracking-wider">Hấp dẫn cho đối tác</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 5. Software Packages Section */}
-            <section className="py-24 px-4 bg-[#F9FAFB]">
-                <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-[#003366] mb-4">
-                            Bảng giá phần mềm
-                        </h2>
-                        <p className="text-lg text-gray-600">
-                            Kích hoạt sức mạnh đầy đủ của My Gara để quản lý xưởng toàn diện.
-                        </p>
+                <section className="px-4 py-8 md:py-20 bg-background-light" id="problems">
+                    <div className="text-center mb-8 md:mb-16 space-y-4">
+                        <h2 className="uppercase tracking-tight text-slate-900 font-bold">Thực tế mà gara nào cũng gặp</h2>
                     </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                        <div className="p-6 bg-white rounded-lg shadow-sm border border-border-light">
+                            <span className="material-symbols-outlined text-slate-muted text-3xl mb-4">person_off</span>
+                            <h3 className="text-base font-bold mb-2">Khách không quay lại</h3>
+                            <p className="leading-relaxed text-slate-muted">Không biết khi nào khách cần bảo dưỡng để gọi, dẫn đến mất khách vào tay đối thủ.</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-lg shadow-sm border border-border-light">
+                            <span className="material-symbols-outlined text-slate-muted text-3xl mb-4">emergency_home</span>
+                            <h3 className="text-base font-bold mb-2">Xe hỏng bất ngờ</h3>
+                            <p className="leading-relaxed text-slate-muted">Khách gọi cứu hộ bên khác vì không nhớ gara quen khi gặp sự cố trên đường.</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-lg shadow-sm border border-border-light">
+                            <span className="material-symbols-outlined text-slate-muted text-3xl mb-4">database_off</span>
+                            <h3 className="text-base font-bold mb-2">Thiếu dữ liệu xe</h3>
+                            <p className="leading-relaxed text-slate-muted">Không nắm được lịch sử sửa chữa chi tiết của xe khách sau khi họ rời gara.</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-lg shadow-sm border border-border-light">
+                            <span className="material-symbols-outlined text-slate-muted text-3xl mb-4">link_off</span>
+                            <h3 className="text-base font-bold mb-2">Mất kết nối</h3>
+                            <p className="leading-relaxed text-slate-muted">Khách rời đi sau khi sửa xong mà không có cách nào duy trì liên lạc tự động.</p>
+                        </div>
+                    </div>
+                    <div className="mt-12 md:mt-16 text-center">
+                        <p className="text-lg md:text-xl font-bold text-slate-800 italic">"Gara mất việc không phải vì tay nghề, mà vì mất kết nối với xe của khách."</p>
+                    </div>
+                </section>
 
-                    <div className="flex flex-col lg:flex-row gap-8 items-stretch justify-center">
-                        {/* PRICING CARD */}
-                        <div className="flex-1 bg-white rounded-[40px] p-10 shadow-xl border border-gray-100 flex flex-col justify-between max-w-xl">
+                <section className="px-4 py-8 md:py-20 bg-surface-light border-y border-border-light" id="features">
+                    <h2 className="text-center mb-8 md:mb-16 text-slate-900 font-bold text-[20px] md:text-[32px]">MyGara giúp gara làm được những việc này</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-border-light">
+                            <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                                <span className="material-symbols-outlined text-primary">monitoring</span>
+                            </div>
+                            <h3 className="text-lg font-bold mb-4">1. Theo dõi xe của khách</h3>
+                            <p className="mb-6 italic text-sm">(Khi khách đồng ý thông qua kết nối Xế Yêu)</p>
+                            <ul className="space-y-4">
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Biết xe có lỗi, có đèn báo</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Biết xe sắp đến kỳ bảo dưỡng</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Không cần đợi xe hỏng mới biết</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-border-light">
+                            <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                                <span className="material-symbols-outlined text-primary">notifications_active</span>
+                            </div>
+                            <h3 className="text-lg font-bold mb-4">2. Nhắc khách quay lại đúng lúc</h3>
+                            <ul className="space-y-4 md:pt-4">
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Nhắc thay dầu, kiểm tra, bảo dưỡng</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Gara chủ động gọi khách</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Khách thấy gara quan tâm, dễ quay lại</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-border-light">
+                            <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                                <span className="material-symbols-outlined text-primary">handyman</span>
+                            </div>
+                            <h3 className="text-lg font-bold mb-4">3. Thợ làm việc dễ hơn</h3>
+                            <ul className="space-y-4 md:pt-4">
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Có thông tin xe trước khi khách tới</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Chuẩn bị sẵn phương án sửa chữa</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">check</span>
+                                    <span className="text-slate-700">Giảm thời gian đoán bệnh</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="px-4 py-8 md:py-20 bg-background-light" id="xeyeu-connection">
+                    <div className="bg-surface-light p-6 md:p-12 rounded-lg border border-border-light shadow-sm">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+                            <div className="space-y-6 md:space-y-8">
+                                <h2 className="text-slate-900 font-bold">Vì sao MyGara có thể giúp gara giữ chân khách hàng?</h2>
+                                <p className="text-base text-slate-muted">MyGara làm được điều này không phải nhờ thiết bị phức tạp, mà nhờ kết nối trực tiếp với app Xế Yêu của khách hàng. Khi khách hàng cài app Xế Yêu, gara và khách được kết nối với nhau một cách tự nhiên.</p>
+                                <div className="space-y-4">
+                                    <h3 className="text-lg font-bold text-primary">Xế Yêu là “trợ lý số thông minh” cho chủ xe</h3>
+                                    <ul className="space-y-4">
+                                        <li className="flex items-start gap-3">
+                                            <span className="material-symbols-outlined text-slate-muted">auto_awesome</span>
+                                            <span className="text-slate-700">Xế Yêu hiểu hàng triệu thông điệp mà xe nói mỗi ngày</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <span className="material-symbols-outlined text-slate-muted">health_and_safety</span>
+                                            <span className="text-slate-700">Xế Yêu biết khi nào xe mệt, khi nào xe cần được chăm sóc và báo cho chủ xe biết trước</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <span className="material-symbols-outlined text-slate-muted">speed</span>
+                                            <span className="text-slate-700">Xế Yêu hiểu cách vận hành xe và giúp chủ xe vận hành xe đúng cách, tăng tuổi thọ cho xe</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <span className="material-symbols-outlined text-slate-muted">stars</span>
+                                            <span className="text-slate-700">Xế Yêu cung cấp những trải nghiệm số thú vị cho chủ xe</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="bg-background-light p-6 md:p-8 rounded-lg border border-border-light space-y-6">
+                                <p className="text-base text-slate-900 font-medium">Khi chủ xe tin và dùng Xế Yêu mỗi ngày, MyGara trở thành cầu nối giúp gara chăm sóc xe của khách tốt hơn.</p>
+                                <ul className="space-y-4">
+                                    <li className="flex items-center gap-4">
+                                        <div className="w-8 h-8 flex-shrink-0 bg-white border border-border-light rounded-lg flex items-center justify-center">
+                                            <span className="material-symbols-outlined text-primary">event_repeat</span>
+                                        </div>
+                                        <span className="text-slate-700">Gara biết thời điểm phù hợp để nhắc khách quay lại</span>
+                                    </li>
+                                    <li className="flex items-center gap-4">
+                                        <div className="w-8 h-8 flex-shrink-0 bg-white border border-border-light rounded-lg flex items-center justify-center">
+                                            <span className="material-symbols-outlined text-primary">volunteer_activism</span>
+                                        </div>
+                                        <span className="text-slate-700">Gara chủ động chăm sóc xe, không chỉ chờ xe hỏng</span>
+                                    </li>
+                                    <li className="flex items-center gap-4">
+                                        <div className="w-8 h-8 flex-shrink-0 bg-white border border-border-light rounded-lg flex items-center justify-center">
+                                            <span className="material-symbols-outlined text-primary">engineering</span>
+                                        </div>
+                                        <span className="text-slate-700">Thợ làm việc có chuẩn bị, ít đoán mò, ít sai sót</span>
+                                    </li>
+                                </ul>
+                                <div className="pt-4">
+                                    <a className="flex items-center justify-center gap-2 w-full md:w-auto md:inline-flex bg-primary text-white px-6 py-4 md:py-3 rounded-lg font-bold shadow-sm" href="https://xeyeu.x18.io">
+                                        Xem chi tiết app Xế Yêu
+                                        <span className="material-symbols-outlined text-white">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="px-4 py-12 md:py-24 text-center bg-surface-light">
+                    <h2 className="text-slate-900 mb-8 md:mb-16 font-bold">MyGara và Xế Yêu đi cùng nhau</h2>
+                    <div className="flex flex-col md:flex-row justify-center items-start gap-8 max-w-5xl mx-auto mb-12 md:mb-16">
+                        <div className="flex-1 space-y-4 w-full">
+                            <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center text-xl font-bold mx-auto shadow-sm">1</div>
+                            <h4 className="font-bold text-lg">Gara cài MyGara</h4>
+                            <p className="text-slate-muted">Đăng ký tài khoản và thiết lập thông tin gara của bạn.</p>
+                        </div>
+                        <div className="hidden md:block pt-4 text-slate-300">
+                            <span className="material-symbols-outlined">arrow_forward</span>
+                        </div>
+                        <div className="md:hidden flex justify-center text-slate-300">
+                            <span className="material-symbols-outlined">arrow_downward</span>
+                        </div>
+                        <div className="flex-1 space-y-4 w-full">
+                            <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center text-xl font-bold mx-auto shadow-sm">2</div>
+                            <h4 className="font-bold text-lg">Mời khách cài Xế Yêu</h4>
+                            <p className="text-slate-muted">Gara mời khách cài app Xế Yêu để kết nối và nhận dữ liệu xe.</p>
+                        </div>
+                        <div className="hidden md:block pt-4 text-slate-300">
+                            <span className="material-symbols-outlined">arrow_forward</span>
+                        </div>
+                        <div className="md:hidden flex justify-center text-slate-300">
+                            <span className="material-symbols-outlined">arrow_downward</span>
+                        </div>
+                        <div className="flex-1 space-y-4 w-full">
+                            <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center text-xl font-bold mx-auto shadow-sm">3</div>
+                            <h4 className="font-bold text-lg">Gặt hái doanh thu</h4>
+                            <p className="text-slate-muted">Khách quay lại bảo dưỡng định kỳ và sửa chữa thường xuyên.</p>
+                        </div>
+                    </div>
+                    <a className="text-primary font-bold hover:underline flex items-center justify-center gap-1 text-sm md:text-base" href="https://xeyeu.x18.io">
+                        Tìm hiểu thêm về app Xế Yêu cho khách hàng
+                        <span className="material-symbols-outlined">open_in_new</span>
+                    </a>
+                </section>
+
+                <section className="px-4 py-8 md:py-20 bg-background-light" id="pricing">
+                    <div className="text-center mb-8 md:mb-16 space-y-4">
+                        <h2 className="uppercase text-slate-900 font-bold">Ưu đãi dành riêng cho gara tham gia sớm</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-border-light">
+                            <span className="material-symbols-outlined text-primary text-4xl mb-6">featured_seasonal_and_gifts</span>
+                            <h3 className="text-xl mb-4 font-bold">Quà tặng đặc biệt cho những gara đối tác đầu tiên</h3>
+                            <ul className="space-y-3 text-sm">
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                                    <span className="font-bold text-slate-700">Tặng 10 licence Xế Yêu trọn đời</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">info</span>
+                                    <span className="text-slate-muted">Áp dụng cho 100 gara đầu tiên đăng ký tham gia đối tác</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-slate-muted">card_giftcard</span>
+                                    <span className="text-slate-muted">Gara dùng để tặng khách hàng thân thiết</span>
+                                </li>
+                                <li className="flex items-start gap-3 italic text-slate-500">
+                                    <span className="material-symbols-outlined text-primary">timer</span>
+                                    <span className="text-slate-muted">Số lượng có giới hạn.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-border-light flex flex-col justify-between">
                             <div>
-                                <div className="flex justify-between items-start mb-8">
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-[#003366]">My Gara Software</h3>
-                                        <p className="text-gray-500 text-sm">Trợ lý ảo cho mọi chủ xưởng</p>
-                                    </div>
-                                    <div className="w-10 h-10 bg-[#FFB347]/20 rounded-xl flex items-center justify-center">
-                                        <svg className="w-6 h-6 text-[#FFB347]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-4 mb-10">
-                                    {/* Option 1 */}
-                                    <div className="relative p-6 rounded-2xl bg-gray-50 border border-gray-200 cursor-pointer group hover:border-[#003366]/30 transition-all">
-                                        <div className="flex justify-between items-center">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">ĐĂNG KÝ 6 THÁNG</p>
-                                                <div className="flex items-baseline gap-1">
-                                                    <span className="text-2xl font-black text-[#003366]">10 USD</span>
-                                                    <span className="text-gray-400 text-sm italic">/ tháng</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Option 2 (Active/Best Saver) */}
-                                    <div className="relative p-6 rounded-2xl bg-[#003366]/5 border-2 border-[#FFB347] shadow-[0_0_20px_rgba(255,179,71,0.15)] cursor-pointer transition-all">
-                                        <div className="absolute -top-3 right-6 bg-[#003366] text-[#FFB347] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">
-                                            TIẾT KIỆM HƠN
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#FFB347] uppercase tracking-widest mb-1">GÓI 3 NĂM</p>
-                                                <div className="flex items-baseline gap-1">
-                                                    <span className="text-2xl font-black text-[#003366]">549 USD</span>
-                                                    <span className="text-gray-400 text-sm italic">/ 3 năm</span>
-                                                </div>
-                                            </div>
-                                            <div className="w-6 h-6 bg-[#FFB347] rounded-full flex items-center justify-center">
-                                                <svg className="w-4 h-4 text-[#003366]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <span className="material-symbols-outlined text-primary text-4xl mb-6">percent</span>
+                                <h3 className="text-xl mb-4 font-bold">Mô hình đại lý</h3>
+                                <p className="text-base font-bold text-primary mb-4 italic text-[#0c7ae9]">Được hưởng chiết khấu hấp dẫn khi phân phối gói Xế Yêu</p>
+                                <p className="text-slate-muted">Trở thành đối tác chiến lược giai đoạn đầu để nhận được chính sách hỗ trợ tốt nhất từ x18 Technology.</p>
                             </div>
-
-                            <button className="w-full py-5 bg-[#003366] text-white rounded-2xl font-bold text-lg hover:bg-black transition-colors">
-                                Bắt đầu ngay
-                            </button>
-                        </div>
-
-                        {/* OFFER CARD */}
-                        <div className="flex-1 bg-[#003366] rounded-[40px] p-12 relative overflow-hidden flex flex-col justify-between max-w-md shadow-2xl">
-                            {/* Glow effect */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#FFB347]/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-                            <div className="relative z-10">
-                                <div className="inline-block px-4 py-1.5 bg-white/10 border border-[#FFB347]/30 rounded-full mb-8">
-                                    <p className="text-[#FFB347] text-[10px] font-bold uppercase tracking-widest">LAUNCH OFFER</p>
-                                </div>
-
-                                <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-                                    Miễn phí trọn đời cho <span className="text-[#FFB347]">10 gara</span> đầu tiên
-                                </h3>
-
-                                <p className="text-white/70 text-lg leading-relaxed mb-12">
-                                    Đăng ký sớm để nhận quyền lợi cao cấp nhất mà không tốn bất kỳ chi phí nào.
-                                </p>
-                            </div>
-
-                            <button className="relative z-10 w-full py-5 bg-[#FFB347] text-[#003366] rounded-2xl font-black text-xl hover:scale-[1.02] transition-transform shadow-[0_0_30px_rgba(255,179,71,0.4)]">
-                                Đăng ký giữ chỗ
-                            </button>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 6. Footer CTA */}
-            <section className="bg-[#003366] py-20 px-4 text-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                        Sẵn Sàng Chuyển Đổi Số Gara Của Bạn?
-                    </h2>
-                    <p className="text-xl text-white/90 mb-12 leading-relaxed">
-                        Đừng để gara của bạn tụt hậu. Hãy để My Gara trở thành đối tác công nghệ tin cậy,
-                        giúp bạn tăng trưởng bền vững.
-                    </p>
+                <section className="px-4 py-12 md:py-20 text-center max-w-3xl mx-auto bg-surface-light">
+                    <h2 className="mb-8 font-bold">MyGara chỉ thu phí khi gara có lợi</h2>
+                    <div className="p-6 md:p-8 bg-background-light rounded-lg border border-border-light shadow-sm">
+                        <p className="text-base leading-relaxed text-slate-700">
+                            Chúng tôi áp dụng mô hình <span className="text-primary font-bold">Value-based Pricing</span>. Gara chỉ bắt đầu thanh toán phí dịch vụ sau khi đã đạt được số lượng kết nối khách hàng thành công và thấy rõ hiệu quả kinh doanh.
+                        </p>
+                    </div>
+                </section>
 
-                    {/* Registration Form */}
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-2xl mx-auto">
-                        <div className="grid md:grid-cols-3 gap-4 mb-6">
-                            <input
-                                type="text"
-                                placeholder="Tên Gara"
-                                className="px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#FFB347]"
-                            />
-                            <input
-                                type="tel"
-                                placeholder="Số điện thoại"
-                                className="px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#FFB347]"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#FFB347]"
-                            />
+                <section className="px-4 py-12 md:py-24 bg-background-light border-y border-border-light">
+                    <h2 className="text-center mb-8 md:mb-16 text-slate-900 font-bold">Gara trở thành đối tác phân phối Xế Yêu</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                        <div className="bg-white p-6 md:p-8 rounded-lg border border-border-light shadow-sm space-y-6">
+                            <div className="flex items-center gap-3 text-primary">
+                                <span className="material-symbols-outlined font-bold">military_tech</span>
+                                <h4 className="text-sm font-bold uppercase tracking-wide">Quyền lợi</h4>
+                            </div>
+                            <ul className="space-y-4 text-sm text-slate-muted">
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
+                                    <span>Doanh thu trực tiếp từ việc cung cấp gói giải pháp Xế Yêu</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
+                                    <span>Doanh thu ổn định từ dịch vụ bảo dưỡng định kỳ</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
+                                    <span>Nâng tầm thương hiệu Gara Chuyên nghiệp - Công nghệ</span>
+                                </li>
+                            </ul>
                         </div>
-                        <button className="w-full px-8 py-4 bg-[#FFB347] text-[#003366] rounded-lg font-bold text-lg hover:bg-[#FFA500] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            Nhận Tư Vấn & Demo Miễn Phí Ngay
+                        <div className="bg-white p-6 md:p-8 rounded-lg border border-border-light shadow-sm space-y-6">
+                            <div className="flex items-center gap-3 text-slate-700">
+                                <span className="material-symbols-outlined font-bold">assignment_ind</span>
+                                <h4 className="text-sm font-bold uppercase tracking-wide">Trách nhiệm</h4>
+                            </div>
+                            <ul className="space-y-4 text-sm text-slate-muted">
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Tư vấn và hướng dẫn khách hàng cài đặt app Xế Yêu</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Hỗ trợ kỹ thuật cơ bản khi khách hàng kết nối</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Đảm bảo chất lượng sửa chữa khi khách quay lại</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="bg-white p-6 md:p-8 rounded-lg border border-border-light shadow-sm space-y-6">
+                            <div className="flex items-center gap-3 text-slate-700">
+                                <span className="material-symbols-outlined font-bold">handshake</span>
+                                <h4 className="text-sm font-bold uppercase tracking-wide">Vai trò x18 Tech</h4>
+                            </div>
+                            <ul className="space-y-4 text-sm text-slate-muted">
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Cung cấp và cập nhật phần mềm MyGara & Xế Yêu</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Đào tạo sử dụng hệ thống và kỹ năng tư vấn công nghệ</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="material-symbols-outlined text-slate-muted text-base">check_circle</span>
+                                    <span>Hỗ trợ marketing và truyền thông cho đối tác Gara</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="px-4 py-12 md:py-24 text-center max-w-4xl mx-auto bg-surface-light">
+                    <h2 className="mb-8 font-bold">Bắt đầu từ những khách quen của bạn</h2>
+                    <p className="text-base text-slate-muted mb-8 md:mb-12 max-w-2xl mx-auto">Đừng để khách hàng thân thiết rời đi chỉ vì một sơ suất nhỏ trong việc giữ liên lạc. Số hóa gara ngay hôm nay.</p>
+                    <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-4">
+                        <button className="w-full md:w-auto bg-primary text-white px-10 py-4 rounded-lg text-lg font-bold shadow-sm">
+                            Đăng ký MyGara
+                        </button>
+                        <button className="w-full md:w-auto bg-[#f0f2f5] text-[#111418] px-10 py-4 rounded-lg text-lg font-bold">
+                            Tìm hiểu đại lý
+                        </button>
+                        <button className="w-full md:w-auto bg-slate-900 text-white px-10 py-4 rounded-lg text-lg font-bold">
+                            Liên hệ x18
                         </button>
                     </div>
+                </section>
+            </main>
 
-                    {/* Contact Info */}
-                    <div className="mt-12 flex flex-col md:flex-row justify-center gap-8 text-white/80">
-                        <div className="flex items-center gap-2">
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            <span>Hotline B2B: 1900-xxxx</span>
+            <footer className="bg-white border-t border-border-light pt-12 md:pt-16 pb-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-2">
+                                <div className="text-primary">
+                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 48 48">
+                                        <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+                                    </svg>
+                                </div>
+                                <span className="text-lg font-bold tracking-tight uppercase">MyGara</span>
+                            </div>
+                            <p className="text-sm leading-relaxed text-slate-muted">Giải pháp quản lý và giữ chân khách hàng dành riêng cho gara sửa chữa ô tô độc lập tại Việt Nam.</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <span>b2b@mygara.vn</span>
+                        <div>
+                            <h5 className="font-bold mb-4 md:mb-6 uppercase text-[10px] tracking-widest text-slate-400">Ứng dụng</h5>
+                            <ul className="space-y-3 md:space-y-4">
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="#">MyGara App</a></li>
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="https://xeyeu.x18.io">Xế Yêu App</a></li>
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="#">Hỗ trợ kết nối</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 className="font-bold mb-4 md:mb-6 uppercase text-[10px] tracking-widest text-slate-400">Liên kết</h5>
+                            <ul className="space-y-3 md:space-y-4">
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="#">Về chúng tôi</a></li>
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="#">Chính sách bảo mật</a></li>
+                                <li><a className="text-sm text-slate-muted hover:text-primary transition-colors" href="#">Điều khoản dịch vụ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 className="font-bold mb-4 md:mb-6 uppercase text-[10px] tracking-widest text-slate-400">Liên hệ</h5>
+                            <p className="text-sm text-slate-muted mb-2">x18 Technology Co., Ltd.</p>
+                            <p className="text-sm text-slate-muted">Email: contact@x18.io</p>
+                            <p className="text-sm text-slate-muted mt-4">Hotline: (84) 1800-xxxx</p>
                         </div>
                     </div>
-
-                    {/* Copyright */}
-                    <div className="mt-12 pt-8 border-t border-white/20 text-white/60 text-sm">
-                        © 2026 My Gara. Giải pháp quản lý gara thông minh.
+                    <div className="text-center pt-8 border-t border-border-light text-[10px] text-slate-400">
+                        © 2024 x18 Technology. All rights reserved. MyGara and Xế Yêu are registered trademarks.
                     </div>
                 </div>
-            </section>
+            </footer>
         </div>
     );
 }

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Xế Yêu - Thấu hiểu xế yêu của bạn</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a4ec13",
+                        "bg-light": "#f7f8f6",
+                        "dark-accent": "#1c2210",
+                        "dark-card": "#171b0d",
+                    },
+                    fontFamily: {
+                        "display": ["'Space Grotesk'", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "2xl": "1.25rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 25px rgba(164, 236, 19, 0.35)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .card-premium {
+                @apply bg-white dark:bg-dark-card border border-gray-100 dark:border-white/5 rounded-2xl shadow-soft;
+            }
+            .btn-primary {
+                @apply bg-primary text-dark-accent font-bold px-8 py-3 rounded-full hover:shadow-glow transition-all duration-300 active:scale-95;
+            }
+            .btn-outline {
+                @apply border-2 border-dark-accent dark:border-primary text-dark-accent dark:text-primary font-bold px-8 py-3 rounded-full hover:bg-dark-accent dark:hover:bg-primary hover:text-white dark:hover:text-dark-accent transition-all duration-300;
+            }
+            .input-field {
+                @apply w-full bg-white dark:bg-dark-accent border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none dark:text-white;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg-light dark:bg-black font-display text-dark-accent dark:text-gray-100 selection:bg-primary/30">
+    <nav
+        class="sticky top-0 z-50 bg-bg-light/90 dark:bg-black/90 backdrop-blur-xl border-b border-gray-200/50 dark:border-white/10">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-dark-accent shadow-sm">
+                    <span class="material-symbols-outlined text-2xl font-bold">directions_car</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight text-dark-accent dark:text-white">Xế Yêu</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center bg-gray-200 dark:bg-white/10 rounded-full p-1">
+                    <button
+                        class="px-3 py-1 rounded-full text-xs font-bold bg-white dark:bg-primary text-dark-accent shadow-sm">VI</button>
+                    <button
+                        class="px-3 py-1 rounded-full text-xs font-bold text-gray-500 dark:text-gray-400">EN</button>
+                </div>
+                <button
+                    class="p-2 bg-gray-200 dark:bg-white/10 rounded-full text-gray-600 dark:text-gray-300 hover:text-dark-accent">
+                    <span class="material-symbols-outlined text-xl">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-[1440px] mx-auto px-4 md:px-8 py-8 md:py-12 space-y-24 md:space-y-32">
+        <section class="relative">
+            <div class="card-premium p-8 md:p-24 relative overflow-hidden bg-white">
+                <div
+                    class="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/10 blur-[120px] rounded-full translate-x-1/4 -translate-y-1/4">
+                </div>
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 md:space-y-8">
+                        <div class="inline-flex items-center gap-2 bg-primary/20 px-4 py-1.5 rounded-full">
+                            <span
+                                class="material-symbols-outlined text-[16px] text-dark-accent dark:text-primary">hub</span>
+                            <span
+                                class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.1em] dark:text-white">2,5
+                                - 5 triệu bản tin mỗi ngày</span>
+                        </div>
+                        <h2 class="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+                            Xe của bạn <br /><span class="text-gray-400">biết nói</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
+                            Xế Yêu kết nối trực tiếp với dữ liệu ECU, dịch các mã kỹ thuật phức tạp thành lời nhắc thông
+                            minh để bạn luôn làm chủ hành trình.
+                        </p>
+                        <div class="space-y-4">
+                            <button class="btn-primary text-base md:text-lg w-full md:w-auto">
+                                Tải Xế Yêu – Miễn phí trọn đời
+                            </button>
+                            <p class="text-xs text-gray-400 font-medium md:ml-4 italic">
+                                Dành cho 500 người dùng đầu tiên đăng ký
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative hidden md:block">
+                        <div
+                            class="aspect-square bg-gray-50 dark:bg-dark-accent rounded-[40px] flex items-center justify-center overflow-hidden border border-gray-100 dark:border-white/5">
+                            <span class="material-symbols-outlined text-[280px] text-primary/30">monitoring</span>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-primary/10">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-12 md:space-y-16">
+            <div class="text-center space-y-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Xe là người bạn đường lâu năm</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-base md:text-lg">Không chỉ là sắt thép, đó là sự gắn kết
+                    trên từng cây số.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="card-premium p-8 md:p-10 space-y-6">
+                    <div class="w-14 h-14 bg-bg-light dark:bg-white/5 rounded-2xl flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">family_restroom</span>
+                    </div>
+                    <h3 class="text-xl font-bold">Gia đình</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Đảm bảo an toàn tuyệt đối cho người thân
+                        trên mọi nẻo đường phố hay những chuyến về quê.</p>
+                </div>
+                <div class="card-premium p-8 md:p-10 space-y-6">
+                    <div class="w-14 h-14 bg-bg-light dark:bg-white/5 rounded-2xl flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">business_center</span>
+                    </div>
+                    <h3 class="text-xl font-bold">Công việc</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Giữ cho phương tiện kinh doanh luôn bền
+                        bỉ, không để sự cố máy móc làm lỡ cuộc họp quan trọng.</p>
+                </div>
+                <div class="card-premium p-8 md:p-10 space-y-6">
+                    <div class="w-14 h-14 bg-bg-light dark:bg-white/5 rounded-2xl flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">explore</span>
+                    </div>
+                    <h3 class="text-xl font-bold">Đường dài</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Người bạn đồng hành số tin cậy giúp bạn
+                        khám phá những vùng đất mới mà không lo hỏng hóc dọc đường.</p>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-12 md:space-y-16">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Tại sao bạn cần Xế Yêu?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-primary">
+                    <span
+                        class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">emergency_home</span>
+                    <div>
+                        <h4 class="font-bold text-lg md:text-xl mb-1">Đèn cảnh báo</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">Biết ngay đó là lỗi nhỏ hay lỗi
+                            nghiêm trọng cần cứu hộ gấp.</p>
+                    </div>
+                </div>
+                <div class="card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-primary">
+                    <span class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">handshake</span>
+                    <div>
+                        <h4 class="font-bold text-lg md:text-xl mb-1">Tin tưởng Garage</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">Nắm rõ tình trạng xe trước khi
+                            vào xưởng để tránh bị thay đồ không cần thiết.</p>
+                    </div>
+                </div>
+                <div class="card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-primary">
+                    <span
+                        class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">event_note</span>
+                    <div>
+                        <h4 class="font-bold text-lg md:text-xl mb-1">Bảo trì bảo dưỡng</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">Không bao giờ quên lịch thay
+                            dầu, đăng kiểm hay mua bảo hiểm.</p>
+                    </div>
+                </div>
+                <div class="card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-primary">
+                    <span
+                        class="material-symbols-outlined text-3xl text-dark-accent dark:text-primary">local_gas_station</span>
+                    <div>
+                        <h4 class="font-bold text-lg md:text-xl mb-1">Tiêu thụ nhiên liệu</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">Theo dõi mức tiêu hao xăng dầu
+                            thực tế và cảnh báo những biến động bất thường.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-12 border-y border-gray-100 dark:border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <div class="absolute top-1/2 left-0 w-full h-px bg-gray-100 dark:bg-white/5 -z-10 hidden md:block">
+                </div>
+                <div class="text-center space-y-4 md:space-y-6 bg-bg-light dark:bg-black px-4">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-dark-accent text-primary rounded-full mx-auto flex items-center justify-center text-xl md:text-2xl font-bold">
+                        1</div>
+                    <h4 class="font-bold text-lg">Cắm thiết bị OBD</h4>
+                    <p class="text-sm text-gray-500">Kết nối bộ đọc vào cổng OBD-II dưới vô lăng xe</p>
+                </div>
+                <div class="text-center space-y-4 md:space-y-6 bg-bg-light dark:bg-black px-4">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-dark-accent text-primary rounded-full mx-auto flex items-center justify-center text-xl md:text-2xl font-bold">
+                        2</div>
+                    <h4 class="font-bold text-lg">Mở ứng dụng Xế Yêu</h4>
+                    <p class="text-sm text-gray-500">Kết nối qua Bluetooth và bắt đầu đồng bộ dữ liệu</p>
+                </div>
+                <div class="text-center space-y-4 md:space-y-6 bg-bg-light dark:bg-black px-4">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-dark-accent text-primary rounded-full mx-auto flex items-center justify-center text-xl md:text-2xl font-bold">
+                        3</div>
+                    <h4 class="font-bold text-lg">Nhận cảnh báo sớm</h4>
+                    <p class="text-sm text-gray-500">Nghe xe "nói" và xử lý các cảnh báo kịp thời</p>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-16">
+            <div class="text-center space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Lựa chọn phần cứng</h2>
+                <div
+                    class="inline-flex items-center gap-2 px-6 py-2 bg-primary/10 text-dark-accent dark:text-primary font-bold rounded-full border border-primary/30">
+                    <span class="material-symbols-outlined text-sm">info</span>
+                    Xế Yêu không bán thiết bị
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Bạn có thể tự do mua sắm tại bất kỳ sàn
+                    TMĐT nào. Ứng dụng của chúng tôi tương thích với hầu hết các bộ đọc OBD-II Bluetooth.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-premium p-8 flex flex-col">
+                    <div class="mb-8">
+                        <h4 class="text-2xl font-bold">Cơ bản</h4>
+                        <p class="text-primary font-bold mt-2 text-xl">200 – 500 nghìn đồng</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Đọc mã lỗi
+                            tiêu chuẩn</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Bluetooth 4.0
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-premium p-8 flex flex-col relative border-2 border-primary">
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-dark-accent px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">
+                        Phổ biến nhất</div>
+                    <div class="mb-8">
+                        <h4 class="text-2xl font-bold">Tiêu chuẩn</h4>
+                        <p class="text-primary font-bold mt-2 text-xl">1,2 – 2,5 triệu đồng</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Bluetooth 5.0
+                            LE tiết kiệm pin</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Tốc độ truyền
+                            tải dữ liệu cao</li>
+                    </ul>
+                </div>
+                <div class="card-premium p-8 flex flex-col">
+                    <div class="mb-8">
+                        <h4 class="text-2xl font-bold">Cao cấp</h4>
+                        <p class="text-primary font-bold mt-2 text-xl">Trên 3 triệu đồng</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Chip xử lý
+                            tốc độ cực nhanh</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400"><span
+                                class="material-symbols-outlined text-primary text-xl">check_circle</span> Hỗ trợ các
+                            dòng xe đời mới 2024</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="max-w-4xl mx-auto card-premium p-8 md:p-10 bg-white dark:bg-dark-card border-2 border-primary/20">
+                <div class="text-center mb-8">
+                    <h4 class="text-lg font-bold">Chọn xe để gợi ý OBD</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <select class="input-field">
+                        <option disabled="" selected="">Hãng xe</option>
+                        <option>Toyota</option>
+                        <option>Honda</option>
+                        <option>Mazda</option>
+                        <option>Kia/Hyundai</option>
+                    </select>
+                    <select class="input-field">
+                        <option disabled="" selected="">Dòng xe</option>
+                        <option>Vios</option>
+                        <option>City</option>
+                        <option>CX-5</option>
+                        <option>Santa Fe</option>
+                    </select>
+                    <select class="input-field">
+                        <option disabled="" selected="">Năm sản xuất</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>Trước 2020</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="card-premium p-8 md:p-12 bg-dark-accent text-white overflow-hidden relative">
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                <div class="flex-1 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight">Chăm xe không chỉ có bạn</h2>
+                    <p class="text-gray-400 text-base md:text-lg leading-relaxed">
+                        Ủy quyền cho garage tin cậy của bạn xem dữ liệu sức khỏe xe qua Số điện thoại hoặc Zalo. Họ có
+                        thể theo dõi tình trạng xe từ xa để đưa ra lời khuyên bảo dưỡng chính xác nhất.
+                    </p>
+                    <div class="flex items-center gap-4 text-primary font-bold">
+                        <span class="material-symbols-outlined">security</span>
+                        <span>Quyền sở hữu dữ liệu thuộc về bạn 100%</span>
+                    </div>
+                </div>
+                <div class="flex-1 grid grid-cols-2 gap-4 w-full md:w-auto">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
+                        <span class="material-symbols-outlined text-primary mb-4 text-4xl">contact_phone</span>
+                        <p class="font-bold text-sm">Nhập SĐT Garage</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
+                        <span class="material-symbols-outlined text-primary mb-4 text-4xl">share_reviews</span>
+                        <p class="font-bold text-sm">Chia sẻ qua Zalo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-16">
+            <div class="text-center space-y-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Phần mềm thông minh, giá cả minh bạch</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-base md:text-lg">Một gói đăng ký duy nhất để mở khóa
+                    toàn bộ sức mạnh của Xế Yêu.</p>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+                <div class="md:col-span-3 card-premium p-8 md:p-12 space-y-10">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold">Xế Yêu Premium</h3>
+                            <p class="text-gray-400 text-sm mt-1">Đầy đủ tính năng, không giới hạn</p>
+                        </div>
+                        <span class="material-symbols-outlined text-4xl text-primary">workspace_premium</span>
+                    </div>
+                    <div class="space-y-4">
+                        <label class="block cursor-pointer group">
+                            <input checked="" class="hidden peer" name="plan" type="radio" />
+                            <div
+                                class="flex items-center justify-between p-6 rounded-2xl border-2 border-gray-100 dark:border-white/10 peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Gói
+                                        Tháng</p>
+                                    <p class="text-2xl font-bold">199.000 đồng <span
+                                            class="text-base font-normal text-gray-400">/ tháng</span></p>
+                                </div>
+                                <div
+                                    class="size-6 rounded-full border-2 border-gray-200 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+                                    <div class="size-2 bg-white rounded-full"></div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer group">
+                            <input class="hidden peer" name="plan" type="radio" />
+                            <div
+                                class="flex items-center justify-between p-6 rounded-2xl border-2 border-gray-100 dark:border-white/10 peer-checked:border-primary peer-checked:bg-primary/5 transition-all relative">
+                                <span
+                                    class="absolute -top-3 right-8 bg-dark-accent text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">Tiết
+                                    kiệm 20%</span>
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Gói 3
+                                        Năm</p>
+                                    <p class="text-2xl font-bold">5.999.000 đồng <span
+                                            class="text-base font-normal text-gray-400">/ 3 năm</span></p>
+                                </div>
+                                <div
+                                    class="size-6 rounded-full border-2 border-gray-200 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+                                    <div class="size-2 bg-white rounded-full"></div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <button class="w-full btn-primary py-5 text-lg">Kích hoạt ngay</button>
+                </div>
+                <div
+                    class="md:col-span-2 bg-dark-card rounded-2xl p-8 md:p-10 text-white flex flex-col justify-center gap-8 shadow-2xl relative overflow-hidden border border-white/5">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+                    <div class="space-y-4">
+                        <span
+                            class="inline-block px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-md">Ưu
+                            đãi ra mắt</span>
+                        <h4 class="text-3xl font-bold leading-tight">Miễn phí trọn đời cho 500 chủ xe</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Chương trình tri ân những người dùng đầu tiên. Đăng ký ngay để nhận tài khoản trọn đời.
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary w-[85%]"></div>
+                        </div>
+                        <p class="text-[11px] text-gray-500 font-bold text-right">Chỉ còn 72 suất</p>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-dark-accent py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-glow">Nhận
+                        ưu đãi</button>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 border-y border-gray-100 dark:border-white/5">
+                <div class="text-center space-y-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">Dữ liệu
+                        bảo mật</p>
+                </div>
+                <div class="text-center space-y-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">Hỗ trợ
+                        24/7</p>
+                </div>
+                <div class="text-center space-y-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">Mã lỗi
+                        chính xác</p>
+                </div>
+                <div class="text-center space-y-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">minor_crash</span>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">50+ Hãng
+                        xe hỗ trợ</p>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <h3 class="text-3xl font-bold text-center">Câu hỏi thường gặp</h3>
+                <div class="space-y-4">
+                    <details class="group card-premium p-6 cursor-pointer" open="">
+                        <summary class="flex items-center justify-between font-bold list-none">
+                            Xế Yêu có bán kèm thiết bị OBD không?
+                            <span
+                                class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                            Hiện tại, Xế Yêu tập trung vào phát triển phần mềm và trải nghiệm người dùng. Chúng tôi
+                            <strong>không bán thiết bị</strong> để đảm bảo tính khách quan, nhưng có gợi ý các thiết bị
+                            tốt nhất thị trường để bạn lựa chọn.
+                        </p>
+                    </details>
+                    <details class="group card-premium p-6 cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold list-none">
+                            Các dòng xe cũ có dùng được không?
+                            <span
+                                class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                            Hầu hết các xe sản xuất sau năm 2000 đều có cổng OBD-II. Tuy nhiên, lượng dữ liệu truyền tải
+                            sẽ khác nhau tùy đời xe. Xế Yêu hoạt động tốt nhất cho các dòng xe từ năm 2012 trở lại đây.
+                        </p>
+                    </details>
+                    <details class="group card-premium p-6 cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold list-none">
+                            Tại sao mức giá lại có gói 3 năm?
+                            <span
+                                class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                            Gói 3 năm (tương ứng 5.999.000 đồng) là mức cam kết để chúng tôi duy trì hệ thống máy chủ xử
+                            lý hàng triệu bản tin mỗi ngày và cập nhật liên tục thư viện mã lỗi. Đây là mức đầu tư dài
+                            hạn cho sự an toàn của xế yêu.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div
+                class="bg-dark-card rounded-3xl p-10 md:p-24 text-center text-white space-y-10 relative overflow-hidden border border-white/5 shadow-2xl">
+                <div class="absolute inset-0 opacity-[0.05]"
+                    style="background-image: radial-gradient(circle at 2px 2px, #a4ec13 1px, transparent 0); background-size: 40px 40px;">
+                </div>
+                <div class="relative z-10 space-y-8 md:space-y-10">
+                    <h2 class="text-3xl md:text-6xl font-bold max-w-4xl mx-auto leading-[1.1]">
+                        Xe đã gắn bó với bạn bao năm. <span class="text-primary">Bạn có muốn nghe xe "nói" không?</span>
+                    </h2>
+                    <div class="flex flex-col sm:row gap-5 justify-center">
+                        <button
+                            class="bg-primary text-dark-accent px-8 md:px-12 py-4 md:py-5 rounded-full font-bold text-lg md:text-xl shadow-glow hover:scale-105 transition-transform">
+                            Tải ứng dụng ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="mt-32 border-t border-gray-100 dark:border-white/5 py-16 md:py-20 bg-white dark:bg-dark-accent">
+        <div class="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-dark-accent">
+                        <span class="material-symbols-outlined text-xl font-bold">directions_car</span>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight dark:text-white">Xế Yêu</span>
+                </div>
+                <p class="text-gray-400 max-w-sm leading-relaxed text-sm">
+                    Ứng dụng hàng đầu Việt Nam về chăm sóc sức khỏe ô tô qua dữ liệu OBD-II. Giúp chủ xe thấu hiểu người
+                    bạn đồng hành hơn bao giờ hết.
+                </p>
+            </div>
+            <div class="space-y-6">
+                <h5 class="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">Liên kết</h5>
+                <div class="flex flex-col gap-3 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a class="hover:text-primary transition-colors" href="#">Tính năng</a>
+                    <a class="hover:text-primary transition-colors" href="#">Phần cứng</a>
+                    <a class="hover:text-primary transition-colors" href="#">Bảng giá</a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h5 class="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">Pháp lý</h5>
+                <div class="flex flex-col gap-3 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a class="hover:text-primary transition-colors" href="#">Điều khoản sử dụng</a>
+                    <a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+                    <p class="mt-4 text-xs text-gray-500 font-normal">© 2024 Xế Yêu Team. Made with pride in Vietnam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
