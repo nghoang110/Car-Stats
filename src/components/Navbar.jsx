@@ -28,6 +28,7 @@ export default function Navbar() {
         { path: '/landing-xe-yeu', label: 'Xế Yêu' },
         { path: '/landing-xe-yeu-2', label: 'Xế Yêu 2' },
         { path: '/landing-my-gara', label: 'My Gara' },
+        { path: '/landing-my-gara-2', label: 'My Gara 2' },
       ]
     },
     { path: '/car-dashboard', label: 'Dashboard', isLink: true },

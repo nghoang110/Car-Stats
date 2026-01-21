@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import DashboardPage from './components/DashboardPage'
@@ -7,11 +7,15 @@ import DTCStatsPage from './components/DTCStatsPage'
 import XeYeuLanding from './components/XeYeuLanding'
 import XeYeuLanding2 from './components/XeYeuLanding2'
 import MyGaraLanding from './components/MyGaraLanding'
+import MyGaraLanding2 from './components/MyGaraLanding2'
 
 export default function App() {
+  const location = useLocation()
+  const isLandingPage = location.pathname.startsWith('/landing-')
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      {!isLandingPage && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/car-dashboard" element={<DashboardPage />} />
@@ -19,6 +23,7 @@ export default function App() {
         <Route path="/landing-xe-yeu" element={<XeYeuLanding />} />
         <Route path="/landing-xe-yeu-2" element={<XeYeuLanding2 />} />
         <Route path="/landing-my-gara" element={<MyGaraLanding />} />
+        <Route path="/landing-my-gara-2" element={<MyGaraLanding2 />} />
         {/* Redirect unknown routes to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

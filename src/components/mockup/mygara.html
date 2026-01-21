@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MyGara - Canonical V2.1 Landing Page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0c7ae9",
+                        "bg-light": "#f8fafc",
+                        "surface-light": "#ffffff",
+                        "border-light": "#e2e8f0",
+                        "bg-dark": "#0f172a",
+                        "surface-dark": "#1e293b",
+                        "border-dark": "#334155",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        lg: "8px",
+                        xl: "12px",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        [data-i18n] { display: none; }
+        body[data-lang="vi"] [data-i18n="vi"] { display: block; }
+        body[data-lang="vi"] span[data-i18n="vi"], 
+        body[data-lang="vi"] a[data-i18n="vi"],
+        body[data-lang="vi"] strong[data-i18n="vi"] { display: inline; }
+        body[data-lang="en"] [data-i18n="en"] { display: block; }
+        body[data-lang="en"] span[data-i18n="en"],
+        body[data-lang="en"] a[data-i18n="en"],
+        body[data-lang="en"] strong[data-i18n="en"] { display: inline; }
+        .glass-header { @apply sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 dark:bg-bg-dark/90 border-b border-border-light dark:border-border-dark; }
+        .surface-card { @apply bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark shadow-sm rounded-xl transition-all duration-200; }
+        .btn-primary { @apply bg-primary text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2; }
+        .btn-outline { @apply border border-border-light dark:border-border-dark px-6 py-3 rounded-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2; }body[data-lang="vi"] #btn-vi { @apply bg-white dark:bg-slate-700 shadow-sm text-primary; }
+        body[data-lang="en"] #btn-en { @apply bg-white dark:bg-slate-700 shadow-sm text-primary; }
+    </style>
+</head>
+
+<body class="bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-200"
+    data-lang="vi">
+    <header class="glass-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-sm">directions_car</span>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-primary">MyGara</span>
+            </div>
+            <nav class="hidden lg:flex items-center gap-8">
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#problems">
+                    <span data-i18n="vi">Vấn đề</span><span data-i18n="en">Problems</span>
+                </a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#features">
+                    <span data-i18n="vi">Tính năng</span><span data-i18n="en">Features</span>
+                </a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#xeyeu-connection">
+                    <span data-i18n="vi">Kết nối</span><span data-i18n="en">Connection</span>
+                </a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#pricing">
+                    <span data-i18n="vi">Giá cả</span><span data-i18n="en">Pricing</span>
+                </a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+                    <button class="px-3 py-1 text-xs font-bold rounded-md transition-all" id="btn-vi"
+                        onclick="setLanguage('vi')">VI</button>
+                    <button class="px-3 py-1 text-xs font-bold rounded-md transition-all" id="btn-en"
+                        onclick="setLanguage('en')">EN</button>
+                </div>
+                <button
+                    class="p-2 rounded-lg border border-border-light dark:border-border-dark hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    id="theme-toggle">
+                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <a class="hidden sm:inline-flex bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity"
+                    href="#">
+                    <span data-i18n="vi">Đăng ký MyGara</span><span data-i18n="en">Register MyGara</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section
+            class="relative pt-20 pb-24 overflow-hidden bg-gradient-to-b from-primary/10 to-transparent border-b border-primary/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative z-10">
+                        <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+                            <span data-i18n="vi">Khách đã đến sẽ còn quay lại</span>
+                            <span data-i18n="en">Customers who come will stay</span>
+                        </h1>
+                        <p class="text-lg text-slate-700 dark:text-slate-300 mb-8 max-w-xl font-medium">
+                            <span data-i18n="vi">Phần mềm giúp gara liên tục nhận dữ liệu từ xe của khách hàng sau khi
+                                rời gara, nhắc bảo dưỡng đúng lúc, giảm sửa chữa “chữa cháy”, tăng việc đều đặn</span>
+                            <span data-i18n="en">Software that helps garages continuously receive data from customers'
+                                vehicles after leaving, reminding maintenance on time, reducing "firefighting" repairs,
+                                and increasing steady workflow</span>
+                        </p>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200" data-i18n="vi">Không mất
+                                    dấu xe của khách sau khi rời gara</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200" data-i18n="en">No losing
+                                    track of customer vehicles after leaving the garage</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200" data-i18n="vi">Chủ động
+                                    nhắc đúng lúc, khách quay lại đúng gara quen</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200"
+                                    data-i18n="en">Proactively remind at the right time, customers return to the
+                                    familiar garage</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200" data-i18n="vi">Thợ có
+                                    thông tin trước, làm nhanh hơn, ít đoán mò</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200" data-i18n="en">Mechanics
+                                    have advance info, work faster, less guesswork</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="btn-primary h-14 px-8 text-lg">
+                                <span data-i18n="vi">Đăng ký MyGara cho gara</span>
+                                <span data-i18n="en">Register MyGara for Garage</span>
+                            </button>
+                            <button class="btn-outline h-14 px-8 text-lg">
+                                <span data-i18n="vi">Xem cách mời khách cài Xế Yêu</span>
+                                <span data-i18n="en">How to invite customers to Xế Yêu</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="surface-card p-4 aspect-video flex flex-col items-center justify-center relative bg-white dark:bg-slate-900 border-2 border-primary/20 overflow-hidden shadow-2xl">
+                            <span class="material-symbols-outlined text-[140px] text-primary/10 mb-4">analytics</span>
+                            <div class="text-center px-6">
+                                <div class="font-black text-3xl text-primary mb-2" data-i18n="vi">Gia tăng 40% tỷ lệ
+                                    quay lại</div>
+                                <div class="font-black text-3xl text-primary mb-2" data-i18n="en">Increase retention by
+                                    40%</div>
+                                <div class="text-sm text-slate-500 font-medium" data-i18n="vi">Dựa trên dữ liệu thực tế
+                                    từ các đối tác sử dụng MyGara</div>
+                                <div class="text-sm text-slate-500 font-medium" data-i18n="en">Based on real data from
+                                    MyGara partners</div>
+                            </div>
+                            <div
+                                class="absolute top-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider shadow-lg">
+                                <span data-i18n="vi">Đối tác tin dùng</span>
+                                <span data-i18n="en">Trusted Partner</span>
+                            </div>
+                        </div>
+                        <div class="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-primary/10 blur-[80px] rounded-full">
+                        </div>
+                        <div
+                            class="absolute -z-10 -bottom-10 -left-10 w-48 h-48 bg-blue-400/10 blur-[60px] rounded-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24" id="problems">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                    <span data-i18n="vi">Thực tế mà gara nào cũng gặp</span>
+                    <span data-i18n="en">Realities every garage faces</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="surface-card p-8 hover:-translate-y-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900/20 text-red-600 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined">person_off</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="vi">Khách không quay lại</h3>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="en">Customers don't return</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="vi">Gara mất liên lạc hoàn toàn sau
+                            khi khách thanh toán và rời xưởng</p>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="en">Garages lose all contact after
+                            the customer pays and leaves the workshop</p>
+                    </div>
+                    <div class="surface-card p-8 hover:-translate-y-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/20 text-orange-600 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined">car_repair</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="vi">Xe hỏng bất ngờ</h3>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="en">Unexpected breakdowns</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="vi">Khách gặp sự cố trên đường
+                            nhưng không nhớ đến số hotline của bạn</p>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="en">Customers have issues on the
+                            road but don't remember your hotline number</p>
+                    </div>
+                    <div class="surface-card p-8 hover:-translate-y-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined">database</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="vi">Thiếu thông tin xe</h3>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="en">Lack of vehicle info</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="vi">Không nắm rõ lịch sử bảo dưỡng
+                            khiến việc tư vấn trở nên thụ động</p>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="en">Not knowing maintenance history
+                            makes consultations passive</p>
+                    </div>
+                    <div class="surface-card p-8 hover:-translate-y-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/20 text-purple-600 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined">leak_remove</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="vi">Mất kết nối sau sửa</h3>
+                        <h3 class="text-lg font-bold mb-3" data-i18n="en">Disconnected after repair</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="vi">Gặp khó khăn trong việc nhắc
+                            lịch thay dầu, bảo trì định kỳ cho khách</p>
+                        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="en">Difficulty in reminding
+                            customers about oil changes or periodic maintenance</p>
+                    </div>
+                </div>
+                <div class="max-w-3xl mx-auto p-8 rounded-xl bg-primary/5 border-l-4 border-primary italic text-center">
+                    <p class="text-lg font-medium text-slate-700 dark:text-slate-300" data-i18n="vi">"Gara thường mất
+                        kết nối hoàn toàn với khách hàng ngay sau khi họ thanh toán và rời xưởng"</p>
+                    <p class="text-lg font-medium text-slate-700 dark:text-slate-300" data-i18n="en">"Garages often lose
+                        all connection with customers immediately after they pay and leave the workshop"</p>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-white dark:bg-surface-dark/30" id="features">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                    <span data-i18n="vi">MyGara giúp gara làm được những việc này</span>
+                    <span data-i18n="en">What MyGara helps your garage achieve</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <div
+                            class="w-20 h-20 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-8">
+                            <span class="material-symbols-outlined text-4xl">monitoring</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="vi">Theo dõi xe của khách</h3>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="en">Monitor customer vehicles</h3>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="vi">Số hóa toàn bộ hồ sơ xe, theo dõi
+                            hành trình bảo dưỡng của từng khách hàng dễ dàng</p>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="en">Digitize all vehicle profiles,
+                            easily track the maintenance journey of each customer</p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-20 h-20 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-8">
+                            <span class="material-symbols-outlined text-4xl">notifications_active</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="vi">Nhắc khách quay lại đúng lúc</h3>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="en">Timely return reminders</h3>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="vi">Hệ thống tự động thông báo lịch
+                            bảo trì, thay nhớt định kỳ cho chủ xe</p>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="en">Automatic notification system for
+                            maintenance schedules and periodic oil changes for owners</p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-20 h-20 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-8">
+                            <span class="material-symbols-outlined text-4xl">engineering</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="vi">Thợ làm việc dễ hơn</h3>
+                        <h3 class="text-xl font-bold mb-4" data-i18n="en">Easier workflow for mechanics</h3>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="vi">Tra cứu thông tin nhanh chóng, quy
+                            trình chuẩn hóa giúp tối ưu hiệu suất làm việc</p>
+                        <p class="text-slate-500 leading-relaxed px-4" data-i18n="en">Quick information lookup and
+                            standardized processes optimize work efficiency</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-primary/5 dark:bg-blue-900/10 border-y border-primary/10" id="xeyeu-connection">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">
+                        <span data-i18n="vi">Vì sao MyGara giúp gara giữ chân khách hàng</span>
+                        <span data-i18n="en">Why MyGara helps garages retain customers</span>
+                    </h2>
+                    <p class="text-xl text-slate-700 dark:text-slate-300 mb-10 leading-relaxed">
+                        <span data-i18n="vi">Bí quyết nằm ở ứng dụng <strong>Xế Yêu</strong> - người bạn đồng hành của
+                            chủ xe. Khi gara dùng MyGara, khách hàng của bạn sẽ được trải nghiệm</span>
+                        <span data-i18n="en">The secret lies in the <strong>Xế Yêu</strong> app - the vehicle owner's
+                            companion. When a garage uses MyGara, your customers experience</span>
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start p-4 bg-white dark:bg-surface-dark rounded-xl shadow-sm">
+                            <div
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shrink-0">
+                                <span class="material-symbols-outlined text-xl">history</span>
+                            </div>
+                            <p class="text-lg font-bold text-slate-800 dark:text-slate-100" data-i18n="vi">Xem lại toàn
+                                bộ lịch sử sửa chữa, hình ảnh phụ tùng thay thế ngay trên điện thoại</p>
+                            <p class="text-lg font-bold text-slate-800 dark:text-slate-100" data-i18n="en">View full
+                                repair history and images of replaced parts directly on their phone</p>
+                        </div>
+                        <div class="flex gap-4 items-start p-4 bg-white dark:bg-surface-dark rounded-xl shadow-sm">
+                            <div
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shrink-0">
+                                <span class="material-symbols-outlined text-xl">notifications</span>
+                            </div>
+                            <p class="text-lg font-bold text-slate-800 dark:text-slate-100" data-i18n="vi">Nhận thông
+                                báo nhắc lịch tự động, không lo quên ngày bảo trì định kỳ</p>
+                            <p class="text-lg font-bold text-slate-800 dark:text-slate-100" data-i18n="en">Receive
+                                automated schedule notifications, never worry about missing maintenance dates</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="surface-card p-10 border-2 border-primary shadow-2xl relative overflow-hidden bg-white dark:bg-slate-900">
+                    <h3 class="text-2xl font-black mb-8 text-primary flex items-center gap-3">
+                        <span class="material-symbols-outlined">hub</span>
+                        <span data-i18n="vi">Khi chủ xe tin và dùng Xế Yêu</span>
+                        <span data-i18n="en">When owners trust and use Xế Yêu</span>
+                    </h3>
+                    <ul class="space-y-6 mb-10">
+                        <li class="flex items-center gap-5 p-5 bg-primary/5 rounded-xl border border-primary/10">
+                            <span class="text-3xl font-black text-primary/30">01</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="vi">Họ tin
+                                tưởng gara hơn</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="en">They trust
+                                the garage more</span>
+                        </li>
+                        <li class="flex items-center gap-5 p-5 bg-primary/5 rounded-xl border border-primary/10">
+                            <span class="text-3xl font-black text-primary/30">02</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="vi">Họ coi
+                                gara là "trạm dừng chân" duy nhất</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="en">They
+                                consider your garage their only "pit stop"</span>
+                        </li>
+                        <li class="flex items-center gap-5 p-5 bg-primary/5 rounded-xl border border-primary/10">
+                            <span class="text-3xl font-black text-primary/30">03</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="vi">Họ dễ dàng
+                                giới thiệu gara cho bạn bè</span>
+                            <span class="font-bold text-lg text-slate-800 dark:text-slate-100" data-i18n="en">They
+                                easily recommend your garage to friends</span>
+                        </li>
+                    </ul>
+                    <a class="flex items-center justify-center gap-2 w-full bg-slate-900 dark:bg-primary text-white py-5 rounded-xl font-bold hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg"
+                        href="https://xeyeu.x18.io" target="_blank">
+                        <span data-i18n="vi">Xem chi tiết app Xế Yêu</span>
+                        <span data-i18n="en">View Xế Yêu App Details</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-20">
+                    <span data-i18n="vi">MyGara và Xế Yêu đi cùng nhau</span>
+                    <span data-i18n="en">MyGara and Xế Yêu go together</span>
+                </h2>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12 relative">
+                    <div
+                        class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -z-10 -translate-y-1/2">
+                    </div>
+                    <div class="text-center group bg-bg-light dark:bg-bg-dark px-8">
+                        <div
+                            class="w-28 h-28 rounded-full border-4 border-slate-100 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 group-hover:border-primary transition-colors bg-white dark:bg-slate-900 shadow-md">
+                            <span class="material-symbols-outlined text-5xl text-primary">storefront</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="vi">Gara dùng MyGara</h4>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="en">Garage uses MyGara</h4>
+                        <p class="text-sm text-slate-500" data-i18n="vi">Quản lý lệnh sửa chữa &amp; khách hàng</p>
+                        <p class="text-sm text-slate-500" data-i18n="en">Manage repair orders &amp; customers</p>
+                    </div>
+                    <div class="text-center group bg-bg-light dark:bg-bg-dark px-8">
+                        <div
+                            class="w-32 h-32 rounded-full bg-primary/10 border-4 border-primary flex items-center justify-center mx-auto mb-6 shadow-xl relative">
+                            <span class="material-symbols-outlined text-6xl text-primary">sync</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="vi">Đồng bộ dữ liệu</h4>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="en">Data synchronization</h4>
+                        <p class="text-sm text-slate-500" data-i18n="vi">Kết nối thời gian thực 24/7</p>
+                        <p class="text-sm text-slate-500" data-i18n="en">24/7 Real-time connection</p>
+                    </div>
+                    <div class="text-center group bg-bg-light dark:bg-bg-dark px-8">
+                        <div
+                            class="w-28 h-28 rounded-full border-4 border-slate-100 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 group-hover:border-primary transition-colors bg-white dark:bg-slate-900 shadow-md">
+                            <span class="material-symbols-outlined text-5xl text-primary">smartphone</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="vi">Khách dùng Xế Yêu</h4>
+                        <h4 class="font-bold text-xl mb-2" data-i18n="en">Customer uses Xế Yêu</h4>
+                        <p class="text-sm text-slate-500" data-i18n="vi">Nhận thông báo và xem hồ sơ xe</p>
+                        <p class="text-sm text-slate-500" data-i18n="en">Receive notifications &amp; view profiles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-slate-100/50 dark:bg-slate-900/50" id="pricing">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                    <span data-i18n="vi">Chính sách &amp; Ưu đãi</span>
+                    <span data-i18n="en">Policies &amp; Offers</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div
+                        class="surface-card p-12 relative overflow-hidden group hover:shadow-xl hover:border-primary/30">
+                        <div class="absolute -right-8 -top-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <span class="material-symbols-outlined text-[160px]">redeem</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="vi">Quà tặng đặc biệt</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="en">Special gift</h3>
+                        <p class="text-slate-500 mb-8 text-lg" data-i18n="vi">Dành cho 50 Gara đăng ký sớm nhất trong
+                            tháng này. Liên hệ để nhận bộ giải pháp chăm sóc khách hàng VIP</p>
+                        <p class="text-slate-500 mb-8 text-lg" data-i18n="en">For the first 50 Garages registering this
+                            month. Contact us to receive a VIP customer care solution pack</p>
+                        <button
+                            class="font-bold text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            <span data-i18n="vi">Tìm hiểu thêm</span><span data-i18n="en">Learn more</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+                    </div>
+                    <div
+                        class="surface-card p-12 relative overflow-hidden group hover:shadow-xl hover:border-primary/30">
+                        <div class="absolute -right-8 -top-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <span class="material-symbols-outlined text-[160px]">handshake</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="vi">Mô hình đại lý</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="en">Agency model</h3>
+                        <p class="text-slate-500 mb-8 text-lg" data-i18n="vi">Chương trình hợp tác dành cho các đối tác
+                            phụ tùng, dầu nhớt và phụ kiện ô tô muốn gia tăng giá trị cho khách hàng</p>
+                        <p class="text-slate-500 mb-8 text-lg" data-i18n="en">Partnership program for spare parts,
+                            lubricants, and car accessory partners looking to increase customer value</p>
+                        <button
+                            class="font-bold text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            <span data-i18n="vi">Trở thành đối tác</span><span data-i18n="en">Become a partner</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="max-w-4xl mx-auto bg-primary text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden text-center md:text-left">
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
+                        <div class="flex-1">
+                            <h3 class="text-3xl font-black mb-6" data-i18n="vi">Giá trị thực tế từ MyGara</h3>
+                            <h3 class="text-3xl font-black mb-6" data-i18n="en">Real value from MyGara</h3>
+                            <p class="text-white/90 text-lg mb-8 leading-relaxed" data-i18n="vi">Chúng tôi không bán
+                                phần mềm, chúng tôi cung cấp giải pháp gia tăng doanh thu. Chi phí được tính toán dựa
+                                trên quy mô và giá trị thực tế mà MyGara mang lại cho doanh nghiệp của bạn</p>
+                            <p class="text-white/90 text-lg mb-8 leading-relaxed" data-i18n="en">We don't just sell
+                                software; we provide revenue-increasing solutions. Costs are calculated based on the
+                                scale and actual value MyGara brings to your business</p>
+                            <div
+                                class="inline-block px-8 py-4 bg-white/20 backdrop-blur-md rounded-xl border border-white/30 font-bold text-xl">
+                                <span data-i18n="vi">Liên hệ để nhận báo giá cá nhân hóa</span>
+                                <span data-i18n="en">Contact us for a personalized quote</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -ml-20 -mb-20 blur-3xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="surface-card p-8 border-none bg-transparent shadow-none">
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="vi">Quyền
+                            lợi</h4>
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="en">
+                            Benefits</h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Chiết khấu hấp dẫn</span>
+                                <span class="font-medium" data-i18n="en">Attractive discounts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Hỗ trợ đào tạo thợ</span>
+                                <span class="font-medium" data-i18n="en">Mechanic training support</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Marketing chung</span>
+                                <span class="font-medium" data-i18n="en">Co-marketing support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="surface-card p-8 border-none bg-transparent shadow-none">
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="vi">Trách
+                            nhiệm</h4>
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="en">
+                            Responsibilities</h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Chuẩn hóa quy trình</span>
+                                <span class="font-medium" data-i18n="en">Process standardization</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Bảo mật dữ liệu khách</span>
+                                <span class="font-medium" data-i18n="en">Customer data security</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Phản hồi dịch vụ</span>
+                                <span class="font-medium" data-i18n="en">Service feedback</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="surface-card p-8 border-none bg-transparent shadow-none">
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="vi">Vai trò
+                            x18</h4>
+                        <h4 class="text-xl font-black mb-8 text-primary uppercase tracking-wider" data-i18n="en">x18
+                            role</h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Phát triển hạ tầng số</span>
+                                <span class="font-medium" data-i18n="en">Digital infrastructure development</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Bảo trì hệ thống 24/7</span>
+                                <span class="font-medium" data-i18n="en">24/7 System maintenance</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <span class="font-medium" data-i18n="vi">Cập nhật tính năng mới</span>
+                                <span class="font-medium" data-i18n="en">Feature updates</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-primary text-white text-center relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 relative z-10">
+                <h2 class="text-4xl md:text-5xl font-black mb-8">
+                    <span data-i18n="vi">Bắt đầu từ những khách quen của bạn</span>
+                    <span data-i18n="en">Start with your regular customers</span>
+                </h2>
+                <p class="text-xl text-white/80 mb-12 leading-relaxed max-w-2xl mx-auto">
+                    <span data-i18n="vi">Đừng để mất kết nối với khách hàng tiềm năng. MyGara giúp bạn xây dựng hệ sinh
+                        thái chăm sóc xe chuyên nghiệp nhất</span>
+                    <span data-i18n="en">Don't lose connection with potential customers. MyGara helps you build the most
+                        professional car care ecosystem</span>
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <button
+                        class="bg-white text-primary px-10 py-5 rounded-xl font-black shadow-2xl hover:scale-105 active:scale-100 transition-all text-lg">
+                        <span data-i18n="vi">Đăng ký MyGara</span><span data-i18n="en">Register MyGara</span>
+                    </button>
+                    <button
+                        class="bg-white/10 border border-white/30 text-white px-10 py-5 rounded-xl font-black hover:bg-white/20 transition-all text-lg">
+                        <span data-i18n="vi">Liên hệ x18 Technology</span><span data-i18n="en">Contact x18
+                            Technology</span>
+                    </button>
+                </div>
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-white/5 rounded-full pointer-events-none">
+            </div>
+        </section>
+    </main>
+    <footer class="py-16 bg-white dark:bg-bg-dark border-t border-border-light dark:border-border-dark">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="max-w-md">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-sm">directions_car</span>
+                    </div>
+                    <span class="font-black text-2xl text-primary tracking-tighter">MyGara</span>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                    <span data-i18n="vi">Giải pháp chuyển đổi số cho ngành dịch vụ ô tô Việt Nam. Tăng trưởng bền vững
+                        dựa trên niềm tin khách hàng</span>
+                    <span data-i18n="en">Digital transformation solution for the Vietnamese automotive service industry.
+                        Sustainable growth based on customer trust</span>
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">public</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <p class="font-black text-slate-900 dark:text-white text-lg">x18 Technology Co., Ltd.</p>
+                <div class="space-y-2 text-slate-600 dark:text-slate-400">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">mail</span>
+                        <span>Email: contact@x18.io</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">phone_in_talk</span>
+                        <span>Hotline: (84) 1800-xxxx</span>
+                    </div>
+                    <p class="pt-6 text-xs text-slate-400">© 2024 x18 Technology. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const html = document.documentElement;
+        const body = document.body;
+        // Theme Logic
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        }
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const currentTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(currentTheme);
+        });
+        // Language Logic
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            localStorage.setItem('lang', lang);
+            document.title = lang === 'vi' ? 'MyGara - Giải pháp quản lý Gara' : 'MyGara - Garage Management Solution';
+        }
+        const savedLang = localStorage.getItem('lang') || 'vi';
+        setLanguage(savedLang);
+    </script>
+
+</body>
+
+</html>
