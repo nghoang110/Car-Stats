@@ -1,20 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import logoX18 from '../assets/landing/logo-x18.png';
 
 export default function MyGaraLanding() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // Handle scroll for navbar z-index
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="selection:bg-primary/30 min-h-screen bg-background-light">
-            <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light shadow-sm">
+            <header className={`sticky top-0 transition-all duration-300 w-full bg-white border-b border-border-light shadow-sm ${isScrolled ? 'z-[100]' : 'z-30'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
-                        <div className="flex items-center gap-2">
-                            <div className="text-primary">
-                                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
-                                </svg>
+                        <div className="flex items-center gap-3 group px-1">
+                            <div className="size-10 rounded-full flex items-center justify-center bg-slate-900 shadow-lg border border-white/10">
+                                <img src={logoX18} alt="MyGara Logo" className="size-7 object-contain transition-transform group-hover:scale-110" />
                             </div>
-                            <span className="text-xl font-bold tracking-tight uppercase">MyGara</span>
+                            <span className="text-xl font-black tracking-tight uppercase text-slate-900">MyGara</span>
                         </div>
 
                         <button
@@ -29,7 +38,7 @@ export default function MyGaraLanding() {
                             <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#features">Tính năng</a>
                             <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#xeyeu-connection">Kết nối</a>
                             <a className="text-sm font-medium text-slate-muted hover:text-primary transition-colors" href="#pricing">Giá cả</a>
-                            <a className="flex items-center gap-1 px-4 py-2 bg-[#f0f2f5] text-[#111418] rounded-lg text-sm font-bold transition-colors" href="https://xeyeu.x18.io">
+                            <a className="flex items-center gap-1 px-4 py-2 bg-[#f0f2f5] text-[#111418] rounded-lg text-sm font-bold transition-colors" href="https://hoanguyen.online/landing-xe-yeu-2">
                                 <span className="material-symbols-outlined text-slate-muted">directions_car</span>
                                 Xế Yêu
                             </a>
@@ -45,7 +54,7 @@ export default function MyGaraLanding() {
                             <a className="text-base font-medium text-slate-700" href="#xeyeu-connection" onClick={() => setIsMenuOpen(false)}>Kết nối</a>
                             <a className="text-base font-medium text-slate-700" href="#pricing" onClick={() => setIsMenuOpen(false)}>Giá cả</a>
                             <hr className="border-border-light" />
-                            <a className="flex items-center justify-center gap-2 w-full py-3 bg-[#f0f2f5] text-[#111418] rounded-lg font-bold" href="https://xeyeu.x18.io">
+                            <a className="flex items-center justify-center gap-2 w-full py-3 bg-[#f0f2f5] text-[#111418] rounded-lg font-bold" href="https://hoanguyen.online/landing-xe-yeu-2">
                                 <span className="material-symbols-outlined">directions_car</span>
                                 Xế Yêu
                             </a>
@@ -298,7 +307,7 @@ export default function MyGaraLanding() {
                             <p className="text-slate-muted">Khách quay lại bảo dưỡng định kỳ và sửa chữa thường xuyên.</p>
                         </div>
                     </div>
-                    <a className="text-primary font-bold hover:underline flex items-center justify-center gap-1 text-sm md:text-base" href="https://xeyeu.x18.io">
+                    <a className="text-primary font-bold hover:underline flex items-center justify-center gap-1 text-sm md:text-base" href="https://hoanguyen.online/landing-xe-yeu-2">
                         Tìm hiểu thêm về app Xế Yêu cho khách hàng
                         <span className="material-symbols-outlined">open_in_new</span>
                     </a>
@@ -438,13 +447,11 @@ export default function MyGaraLanding() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
                         <div className="space-y-6">
-                            <div className="flex items-center gap-2">
-                                <div className="text-primary">
-                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 48 48">
-                                        <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
-                                    </svg>
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 rounded-full flex items-center justify-center bg-slate-900 shadow-md">
+                                    <img src={logoX18} alt="MyGara Logo" className="size-7 object-contain" />
                                 </div>
-                                <span className="text-lg font-bold tracking-tight uppercase">MyGara</span>
+                                <span className="text-lg font-black tracking-tight uppercase text-slate-900">MyGara</span>
                             </div>
                             <p className="text-sm leading-relaxed text-slate-muted">Giải pháp quản lý và giữ chân khách hàng dành riêng cho gara sửa chữa ô tô độc lập tại Việt Nam.</p>
                         </div>
