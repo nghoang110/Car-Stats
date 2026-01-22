@@ -7,24 +7,33 @@ import logoX18 from '../assets/landing/logo-x18.png';
 
 export default function XeYeuLanding2() {
     const [darkMode, setDarkMode] = useState(false);
-    const [lang, setLang] = useState('vi');
+    const [lang, setLang] = useState(() => {
+        const saved = localStorage.getItem('lang');
+        return saved || 'vi';
+    });
     const [activeStep, setActiveStep] = useState(0);
     const [isScrolled, setIsScrolled] = useState(false);
 
     const steps = [
         {
-            title: "Cắm thiết bị OBD",
-            description: "Cắm vào cổng OBD-II. Thiết bị sẽ \"nghe\" dữ liệu xe phát ra khi vận hành.",
+            titleVi: "Cắm thiết bị OBD",
+            titleEn: "Plug in OBD device",
+            descriptionVi: "Cắm vào cổng OBD-II. Thiết bị sẽ \"nghe\" dữ liệu xe phát ra khi vận hành.",
+            descriptionEn: "Plug into the OBD-II port. The device will \"listen\" to the data your car emits during operation.",
             image: plugInImg
         },
         {
-            title: "Mở ứng dụng Xế Yêu",
-            description: "Ứng dụng phiên dịch tín hiệu ECU thành thông tin dễ hiểu: xe đang ổn hay có gì cần chú ý.",
+            titleVi: "Mở ứng dụng Xế Yêu",
+            titleEn: "Open Xế Yêu app",
+            descriptionVi: "Ứng dụng phiên dịch tín hiệu ECU thành thông tin dễ hiểu: xe đang ổn hay có gì cần chú ý.",
+            descriptionEn: "The app translates ECU signals into easy-to-understand information: whether your car is fine or needs attention.",
             image: deviceImg
         },
         {
-            title: "Nhận cảnh báo sớm",
-            description: "Khi có dấu hiệu bất thường, Xế Yêu báo sớm để bạn xử lý trước khi thành sự cố.",
+            titleVi: "Nhận cảnh báo sớm",
+            titleEn: "Get early warnings",
+            descriptionVi: "Khi có dấu hiệu bất thường, Xế Yêu báo sớm để bạn xử lý trước khi thành sự cố.",
+            descriptionEn: "When there are abnormal signs, Xế Yêu alerts you early so you can handle it before it becomes a problem.",
             image: connectedImg
         }
     ];
@@ -44,6 +53,13 @@ export default function XeYeuLanding2() {
             document.documentElement.classList.remove('dark');
         }
     }, [darkMode]);
+
+    useEffect(() => {
+        localStorage.setItem('lang', lang);
+        document.title = lang === 'vi' ? 'Xế Yêu - Trợ lý thông minh cho xe' : 'Xế Yêu - Smart Assistant for Your Car';
+    }, [lang]);
+
+    const t = (vi, en) => (lang === 'vi' ? vi : en);
 
     // Handle scroll for navbar z-index
     useEffect(() => {
@@ -70,10 +86,10 @@ export default function XeYeuLanding2() {
 
                     {/* Center: Desktop Navigation */}
                     <div className="hidden lg:flex items-center justify-center gap-8">
-                        <a href="#giup-gi" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">Giúp gì chủ xe</a>
-                        <a href="#thiet-bi" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">Thiết bị phù hợp</a>
-                        <a href="#gia" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">Giá Xế Yêu</a>
-                        <a href="#faq" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">Câu hỏi thường gặp</a>
+                        <a href="#giup-gi" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">{t('Giúp gì chủ xe', 'For Car Owners')}</a>
+                        <a href="#thiet-bi" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">{t('Thiết bị phù hợp', 'Compatible Devices')}</a>
+                        <a href="#gia" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">{t('Giá Xế Yêu', 'Pricing')}</a>
+                        <a href="#faq" className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-xe-primary transition-colors">{t('Câu hỏi thường gặp', 'FAQ')}</a>
                     </div>
 
                     {/* Right: Toggles */}
@@ -114,23 +130,21 @@ export default function XeYeuLanding2() {
                                 <div className="inline-flex items-center gap-2 bg-xe-primary/20 px-4 py-1.5 rounded-full">
                                     <span className="material-symbols-outlined text-[16px] text-xe-dark-accent dark:text-xe-primary">hub</span>
                                     <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-[0.1em] ${darkMode ? 'text-white' : 'text-xe-dark-accent font-black'}`}>
-                                        2,5 - 5 triệu bản tin mỗi ngày
+                                        {t('2,5 - 5 triệu bản tin mỗi ngày', '2.5 - 5 million messages per day')}
                                     </span>
                                 </div>
                                 <h2 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
-                                    Xe của bạn <br /><span className="text-gray-400">biết nói</span>
+                                    {t('Xe của bạn', 'Your car')} <br /><span className="text-gray-400">{t('biết nói', 'can speak')}</span>
                                 </h2>
                                 <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
-                                    Các thiết bị bên trong xe trao đổi 2,5–5 triệu bản tin mỗi ngày.
-                                    Bạn không nghe thấy. Và dữ liệu đó thường không được lưu lại để bạn hiểu.
-                                    Xế Yêu ghi nhận, phiên dịch và cảnh báo bằng ngôn ngữ dễ hiểu,
-                                    để bạn hành động kịp lúc.                                </p>
+                                    {t('Các thiết bị bên trong xe trao đổi 2,5–5 triệu bản tin mỗi ngày. Bạn không nghe thấy. Và dữ liệu đó thường không được lưu lại để bạn hiểu. Xế Yêu ghi nhận, phiên dịch và cảnh báo bằng ngôn ngữ dễ hiểu, để bạn hành động kịp lúc.', 'Devices inside your car exchange 2.5–5 million messages every day. You don\'t hear them. And that data is usually not saved for you to understand. Xế Yêu records, translates, and alerts in easy-to-understand language, so you can act in time.')}
+                                </p>
                                 <div className="space-y-4">
                                     <button className="btn-primary-xe text-base md:text-lg w-full md:w-auto">
-                                        Tải Xế Yêu – Miễn phí trọn đời
+                                        {t('Tải Xế Yêu – Miễn phí trọn đời', 'Download Xế Yêu – Free for Life')}
                                     </button>
                                     <p className="text-xs text-gray-400 font-medium md:ml-4 italic">
-                                        Áp dụng cho 500 chủ xe đầu tiên cài đặt thành công.
+                                        {t('Áp dụng cho 500 chủ xe đầu tiên cài đặt thành công.', 'For the first 500 car owners who successfully install.')}
                                     </p>
                                 </div>
                             </div>
@@ -160,17 +174,15 @@ export default function XeYeuLanding2() {
                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-white/5 group-hover:bg-xe-primary/20' : 'bg-xe-bg-light group-hover:bg-xe-primary/10'}`}>
                                 <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">family_restroom</span>
                             </div>
-                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">Gia đình</h3>
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">Giữ cho những chuyến đi cùng người thân
-                                ít rủi ro bất ngờ hơn.</p>
+                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">{t('Gia đình', 'Family')}</h3>
+                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">{t('Giữ cho những chuyến đi cùng người thân ít rủi ro bất ngờ hơn.', 'Keep trips with loved ones less risky and more predictable.')}</p>
                         </div>
                         <div className={`card-premium p-8 md:p-10 space-y-6 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-white/5 group-hover:bg-xe-primary/20' : 'bg-xe-bg-light group-hover:bg-xe-primary/10'}`}>
                                 <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">business_center</span>
                             </div>
-                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">Công việc</h3>
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">Xe ổn định để bạn không bị động
-                                vì một lỗi nhỏ thành sự cố lớn.</p>
+                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">{t('Công việc', 'Work')}</h3>
+                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">{t('Xe ổn định để bạn không bị động vì một lỗi nhỏ thành sự cố lớn.', 'A stable car so you\'re not caught off guard by a small error becoming a big problem.')}</p>
                         </div>
                         <div className={`card-premium p-8 md:p-10 space-y-6 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-white/5 group-hover:bg-xe-primary/20' : 'bg-xe-bg-light group-hover:bg-xe-primary/10'}`}>
@@ -186,39 +198,39 @@ export default function XeYeuLanding2() {
                 {/* WHY YOU NEED SECTION */}
                 <section id="giup-gi" className="space-y-12 md:space-y-16 scroll-mt-32">
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Tại sao bạn cần Xế Yêu?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Tại sao bạn cần Xế Yêu?', 'Why do you need Xế Yêu?')}</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className={`card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-xe-primary group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">emergency_home</span>
                             <div>
-                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">Đèn cảnh báo bật sáng</h4>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">Bạn không cần đoán.<br />
-                                    Bạn cần giải thích rõ ràng: nhẹ hay nặng, nên làm gì trước.</p>
+                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">{t('Đèn cảnh báo bật sáng', 'Warning lights on')}</h4>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">{t('Bạn không cần đoán.', 'You don\'t need to guess.')}<br />
+                                    {t('Bạn cần giải thích rõ ràng: nhẹ hay nặng, nên làm gì trước.', 'You need a clear explanation: minor or serious, what to do first.')}</p>
                             </div>
                         </div>
                         <div className={`card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-xe-primary group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">handshake</span>
                             <div>
-                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">Tin tưởng Garage</h4>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">Không phải nghi ngờ ai.<br />
-                                    Chỉ là bạn cần dữ liệu để đối chiếu khi trao đổi.</p>
+                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">{t('Tin tưởng Garage', 'Trust your Garage')}</h4>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">{t('Không phải nghi ngờ ai.', 'Not about doubting anyone.')}<br />
+                                    {t('Chỉ là bạn cần dữ liệu để đối chiếu khi trao đổi.', 'Just that you need data to cross-check when discussing.')}</p>
                             </div>
                         </div>
                         <div className={`card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-xe-primary group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">event_note</span>
                             <div>
-                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">Quên lịch bảo dưỡng</h4>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">Không chỉ nhắc theo thời gian.<br />
-                                    Xế Yêu nhắc theo tình trạng vận hành và thói quen sử dụng.</p>
+                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">{t('Quên lịch bảo dưỡng', 'Forget maintenance schedule')}</h4>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">{t('Không chỉ nhắc theo thời gian.', 'Not just time-based reminders.')}<br />
+                                    {t('Xế Yêu nhắc theo tình trạng vận hành và thói quen sử dụng.', 'Xế Yêu reminds based on operating condition and usage habits.')}</p>
                             </div>
                         </div>
                         <div className={`card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-xe-primary group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">local_gas_station</span>
                             <div>
-                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">Tiêu hao nhiên liệu</h4>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">Khi xe “uống” nhiều hơn, đó là dấu hiệu.<br />
-                                    Xế Yêu giúp bạn tìm nguyên nhân hợp lý để xử lý sớm.</p>
+                                <h4 className="font-bold text-lg md:text-xl mb-1 transition-colors group-hover:text-xe-primary">{t('Tiêu hao nhiên liệu', 'Fuel consumption')}</h4>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">{t('Khi xe "uống" nhiều hơn, đó là dấu hiệu.', 'When your car "drinks" more, that\'s a sign.')}<br />
+                                    {t('Xế Yêu giúp bạn tìm nguyên nhân hợp lý để xử lý sớm.', 'Xế Yêu helps you find reasonable causes to handle early.')}</p>
                             </div>
                         </div>
                     </div>
@@ -227,7 +239,7 @@ export default function XeYeuLanding2() {
                 {/* STEPS SECTION (REFACTORED TO INTERACTIVE TIMELINE) */}
                 <section className="space-y-16">
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">CHỈ 3 BƯỚC ĐỂ “NGHE” XE NÓI</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('CHỈ 3 BƯỚC ĐỂ "NGHE" XE NÓI', 'JUST 3 STEPS TO "HEAR" YOUR CAR SPEAK')}</h2>
                     </div>
 
                     <div className="grid md:grid-cols-[1.3fr_0.7fr] gap-12 md:gap-16 items-center">
@@ -279,10 +291,10 @@ export default function XeYeuLanding2() {
                                                     : (darkMode ? 'text-white' : 'text-xe-dark-accent')
                                                     } group-hover:text-xe-primary`}
                                             >
-                                                {step.title}
+                                                {lang === 'vi' ? step.titleVi : step.titleEn}
                                             </h3>
                                             <p className={`text-base leading-relaxed transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-500'} group-hover:text-opacity-100`}>
-                                                {step.description}
+                                                {lang === 'vi' ? step.descriptionVi : step.descriptionEn}
                                             </p>
                                         </div>
                                     </div>
@@ -322,104 +334,102 @@ export default function XeYeuLanding2() {
                 {/* HARDWARE SECTION */}
                 <section id="thiet-bi" className="space-y-16 scroll-mt-32">
                     <div className="text-center space-y-6">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Lựa chọn phần cứng</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Lựa chọn phần cứng', 'Hardware Options')}</h2>
                         <div className="inline-flex items-center gap-2 px-6 py-2 bg-xe-primary/10 text-xe-dark-accent dark:text-xe-primary font-bold rounded-full border border-xe-primary/30">
                             <span className="material-symbols-outlined text-sm">info</span>
-                            Xế Yêu không bán thiết bị
+                            {t('Xế Yêu không bán thiết bị', 'Xế Yêu does not sell devices')}
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"> Bạn nhập Hãng xe – Dòng xe – Đời xe trong ứng dụng.
-                            Xế Yêu sẽ gợi ý 3 lựa chọn thiết bị phù hợp.
-                            Bạn tự quyết định và mua từ bên thứ ba theo nhu cầu.</p>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">{t('Bạn nhập Hãng xe – Dòng xe – Đời xe trong ứng dụng. Xế Yêu sẽ gợi ý 3 lựa chọn thiết bị phù hợp. Bạn tự quyết định và mua từ bên thứ ba theo nhu cầu.', 'Enter your car brand, model, and year in the app. Xế Yêu will suggest 3 suitable device options. You decide and purchase from third parties as needed.')}</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className={`card-premium p-8 flex flex-col ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <div className="mb-8">
-                                <h4 className="text-2xl font-bold">Cơ bản</h4>
-                                <p className="text-xe-primary font-bold mt-2 text-xl">200 – 500 nghìn đồng</p>
+                                <h4 className="text-2xl font-bold">{t('Cơ bản', 'Basic')}</h4>
+                                <p className="text-xe-primary font-bold mt-2 text-xl">{t('200 – 500 nghìn đồng', '200 – 500 thousand VND')}</p>
                             </div>
                             <ul className="space-y-4 mb-10 flex-1">
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Phù hợp nhu cầu cơ bản
+                                    {t('Phù hợp nhu cầu cơ bản', 'Suitable for basic needs')}
                                 </li>
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Hoạt động khi xe đang nổ máy
+                                    {t('Hoạt động khi xe đang nổ máy', 'Works when engine is running')}
                                 </li>
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Có hạn chế về tính năng và độ ổn định
+                                    {t('Có hạn chế về tính năng và độ ổn định', 'Limited features and stability')}
                                 </li>
                             </ul>
                             <button className="w-full py-3.5 rounded-xl border-2 border-xe-dark-accent dark:border-xe-primary text-xe-dark-accent dark:text-xe-primary font-bold hover:bg-xe-dark-accent dark:hover:bg-xe-primary hover:text-white dark:hover:text-xe-dark-accent transition-all duration-300">
-                                Xem link mua
+                                {t('Xem link mua', 'View purchase link')}
                             </button>
                         </div>
                         <div className={`card-premium p-8 flex flex-col relative border-2 border-xe-primary ${darkMode ? 'bg-xe-dark-card shadow-glow' : 'bg-white shadow-xl'}`}>
-                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-xe-primary text-xe-dark-accent px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Khuyên dùng</div>
+                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-xe-primary text-xe-dark-accent px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">{t('Khuyên dùng', 'Recommended')}</div>
                             <div className="mb-8">
-                                <h4 className="text-2xl font-bold">Ổn định</h4>
-                                <p className="text-xe-primary font-bold mt-2 text-xl">1,2 – 2,5 triệu đồng</p>
+                                <h4 className="text-2xl font-bold">{t('Ổn định', 'Stable')}</h4>
+                                <p className="text-xe-primary font-bold mt-2 text-xl">{t('1,2 – 2,5 triệu đồng', '1.2 – 2.5 million VND')}</p>
                             </div>
                             <ul className="space-y-4 mb-10 flex-1">
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Ổn định hơn, đủ tính năng cho đa số người dùng
+                                    {t('Ổn định hơn, đủ tính năng cho đa số người dùng', 'More stable, sufficient features for most users')}
                                 </li>
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Có thể hoạt động liên tục, kể cả khi xe không nổ máy (tùy mẫu)
+                                    {t('Có thể hoạt động liên tục, kể cả khi xe không nổ máy (tùy mẫu)', 'Can operate continuously, even when engine is off (model dependent)')}
                                 </li>
                             </ul>
                             <button className="w-full py-3.5 rounded-xl bg-xe-primary text-xe-dark-accent font-bold shadow-glow hover:scale-105 transition-all duration-300">
-                                Xem link mua
+                                {t('Xem link mua', 'View purchase link')}
                             </button>
                         </div>
                         <div className={`card-premium p-8 flex flex-col ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <div className="mb-8">
-                                <h4 className="text-2xl font-bold">Chuyên sâu</h4>
-                                <p className="text-xe-primary font-bold mt-2 text-xl">Trên 3 triệu đồng</p>
+                                <h4 className="text-2xl font-bold">{t('Chuyên sâu', 'Advanced')}</h4>
+                                <p className="text-xe-primary font-bold mt-2 text-xl">{t('Trên 3 triệu đồng', 'Over 3 million VND')}</p>
                             </div>
                             <ul className="space-y-4 mb-10 flex-1">
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Dành cho xe cao cấp (BMW, Mercedes Benz, Porsche…)
+                                    {t('Dành cho xe cao cấp (BMW, Mercedes Benz, Porsche…)', 'For luxury cars (BMW, Mercedes Benz, Porsche…)')}
                                 </li>
                                 <li className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="material-symbols-outlined text-xe-primary text-xl">check_circle</span>
-                                    Ổn định nhất, dữ liệu đầy đủ hơn
+                                    {t('Ổn định nhất, dữ liệu đầy đủ hơn', 'Most stable, more complete data')}
                                 </li>
                             </ul>
                             <button className="w-full py-3.5 rounded-xl border-2 border-xe-dark-accent dark:border-xe-primary text-xe-dark-accent dark:text-xe-primary font-bold hover:bg-xe-dark-accent dark:hover:bg-xe-primary hover:text-white dark:hover:text-xe-dark-accent transition-all duration-300">
-                                Xem link mua
+                                {t('Xem link mua', 'View purchase link')}
                             </button>
                         </div>
                     </div>
                     <div className={`max-w-4xl mx-auto card-premium p-8 md:p-10 border-2 border-xe-primary/20 ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                         <div className="text-center mb-8">
-                            <h4 className="text-lg font-bold">Chọn xe để gợi ý OBD</h4>
+                            <h4 className="text-lg font-bold">{t('Chọn xe để gợi ý OBD', 'Select car to suggest OBD')}</h4>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <select className={`input-field-xe border-2 ${darkMode ? 'bg-xe-dark-accent text-white border-white/5' : 'bg-white text-xe-dark-accent border-xe-dark-accent/10'}`}>
-                                <option disabled defaultValue>Hãng xe</option>
+                                <option disabled defaultValue>{t('Hãng xe', 'Car Brand')}</option>
                                 <option>Toyota</option>
                                 <option>Honda</option>
                                 <option>Mazda</option>
                                 <option>Kia/Hyundai</option>
                             </select>
                             <select className={`input-field-xe border-2 ${darkMode ? 'bg-xe-dark-accent text-white border-white/5' : 'bg-white text-xe-dark-accent border-xe-dark-accent/10'}`}>
-                                <option disabled defaultValue>Dòng xe</option>
+                                <option disabled defaultValue>{t('Dòng xe', 'Car Model')}</option>
                                 <option>Vios</option>
                                 <option>City</option>
                                 <option>CX-5</option>
                                 <option>Santa Fe</option>
                             </select>
                             <select className={`input-field-xe border-2 ${darkMode ? 'bg-xe-dark-accent text-white border-white/5' : 'bg-white text-xe-dark-accent border-xe-dark-accent/10'}`}>
-                                <option disabled defaultValue>Năm sản xuất</option>
+                                <option disabled defaultValue>{t('Năm sản xuất', 'Year')}</option>
                                 <option>2024</option>
                                 <option>2023</option>
                                 <option>2022</option>
-                                <option>Trước 2020</option>
+                                <option>{t('Trước 2020', 'Before 2020')}</option>
                             </select>
                         </div>
                     </div>
@@ -430,49 +440,49 @@ export default function XeYeuLanding2() {
                     <div className="absolute bottom-0 right-0 w-64 h-64 bg-xe-primary/20 blur-[100px] rounded-full"></div>
                     <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
                         <div className="flex-1 space-y-6 text-left">
-                            <h2 className="text-3xl md:text-4xl font-bold leading-tight">Chăm xe không chỉ có bạn – hãy mời gara bạn tin tưởng cùng tham gia.</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold leading-tight">{t('Chăm xe không chỉ có bạn – hãy mời gara bạn tin tưởng cùng tham gia.', 'Car care isn\'t just you – invite your trusted garage to join.')}</h2>
                             <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                                Bạn đã từng đến một hay vài gara quen. Hãy kết nối, chia sẻ dữ liệu sức khỏe và cách bạn vận hành xe, để gara cùng bạn chăm sóc xe của mình. Bạn là chủ của toàn bộ dữ liệu xe, bạn chỉ cần chia sẻ một phần dữ liệu và không ảnh hưởng tới quyền riêng tư. Xế Yêu luôn tôn trọng và bảo vệ quyền riêng tư của bạn.
+                                {t('Bạn đã từng đến một hay vài gara quen. Hãy kết nối, chia sẻ dữ liệu sức khỏe và cách bạn vận hành xe, để gara cùng bạn chăm sóc xe của mình. Bạn là chủ của toàn bộ dữ liệu xe, bạn chỉ cần chia sẻ một phần dữ liệu và không ảnh hưởng tới quyền riêng tư. Xế Yêu luôn tôn trọng và bảo vệ quyền riêng tư của bạn.', 'You\'ve been to one or a few familiar garages. Connect and share your car\'s health data and how you operate it, so the garage can care for your car with you. You own all the car data, you only need to share part of the data without affecting privacy. Xế Yêu always respects and protects your privacy.')}
                             </p>
                             <div className="flex items-center gap-4 text-xe-primary font-bold">
                                 <span className="material-symbols-outlined">person_shield</span>
-                                <span>Bạn giữ quyền dữ liệu</span>
+                                <span>{t('Bạn giữ quyền dữ liệu', 'You retain data rights')}</span>
                             </div>
                             <div className="flex items-center gap-4 text-xe-primary font-bold">
                                 <span className="material-symbols-outlined">car_repair</span>
-                                <span>Gara hiểu rõ tình trạng xe trước khi sửa</span>
+                                <span>{t('Gara hiểu rõ tình trạng xe trước khi sửa', 'Garage understands car condition before repair')}</span>
                             </div>
                             <div className="flex items-center gap-4 text-xe-primary font-bold">
                                 <span className="material-symbols-outlined">query_stats</span>
-                                <span>Hai bên nói chuyện bằng dữ liệu, không cảm tính</span>
+                                <span>{t('Hai bên nói chuyện bằng dữ liệu, không cảm tính', 'Both sides communicate with data, not emotions')}</span>
                             </div>
 
                             <div className="pt-4 mt-6 border-t border-white/10">
                                 <p className="text-sm text-gray-400 italic leading-relaxed">
-                                    Xế Yêu không thay thế gara. <br />
-                                    Xế Yêu giúp bạn và gara hiểu xe giống nhau hơn.
+                                    {t('Xế Yêu không thay thế gara.', 'Xế Yêu does not replace garages.')}<br />
+                                    {t('Xế Yêu giúp bạn và gara hiểu xe giống nhau hơn.', 'Xế Yêu helps you and the garage understand the car better together.')}
                                 </p>
                             </div>
                         </div>
                         <div className="flex-1 space-y-8 bg-white/5 p-8 md:p-10 rounded-[32px] border border-white/10 backdrop-blur-sm">
                             <div className="space-y-2">
-                                <h3 className="text-xe-primary text-sm font-black uppercase tracking-widest">Cách kết nối</h3>
-                                <p className="text-xl font-bold">Chỉ 1 phút để mời gara:</p>
+                                <h3 className="text-xe-primary text-sm font-black uppercase tracking-widest">{t('Cách kết nối', 'How to Connect')}</h3>
+                                <p className="text-xl font-bold">{t('Chỉ 1 phút để mời gara:', 'Just 1 minute to invite garage:')}</p>
                             </div>
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4 group">
                                     <div className="w-8 h-8 rounded-full bg-xe-primary/20 border border-xe-primary/30 flex items-center justify-center text-xe-primary font-bold text-sm transition-all group-hover:scale-110 group-hover:bg-xe-primary group-hover:text-xe-dark-accent">1</div>
-                                    <p className="text-gray-300 font-medium">Mở app Xế Yêu</p>
+                                    <p className="text-gray-300 font-medium">{t('Mở app Xế Yêu', 'Open Xế Yêu app')}</p>
                                 </div>
                                 <div className="flex items-center gap-4 group">
                                     <div className="w-8 h-8 rounded-full bg-xe-primary/20 border border-xe-primary/30 flex items-center justify-center text-xe-primary font-bold text-sm transition-all group-hover:scale-110 group-hover:bg-xe-primary group-hover:text-xe-dark-accent">2</div>
-                                    <p className="text-gray-300 font-medium">Chọn “Mời gara chăm sóc xe”</p>
+                                    <p className="text-gray-300 font-medium">{t('Chọn "Mời gara chăm sóc xe"', 'Select "Invite garage to care for car"')}</p>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-4 group">
                                         <div className="w-8 h-8 rounded-full bg-xe-primary/20 border border-xe-primary/30 flex items-center justify-center text-xe-primary font-bold text-sm transition-all group-hover:scale-110 group-hover:bg-xe-primary group-hover:text-xe-dark-accent">3</div>
-                                        <p className="text-gray-300 font-medium">Gửi lời mời qua:</p>
+                                        <p className="text-gray-300 font-medium">{t('Gửi lời mời qua:', 'Send invitation via:')}</p>
                                     </div>
                                     <div className="grid grid-cols-2 gap-3 ml-12">
                                         <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-sm font-bold text-xe-primary cursor-pointer hover:bg-white/10 transition-colors">
@@ -487,7 +497,7 @@ export default function XeYeuLanding2() {
 
                             <div className={`mt-8 pt-6 border-t border-white/10 text-xs md:text-sm text-gray-400 italic flex items-center gap-2`}>
                                 <span className="material-symbols-outlined text-xe-primary text-lg">info</span>
-                                Gara nhận link → cài app gara → pairing với xe của bạn.
+                                {t('Gara nhận link → cài app gara → pairing với xe của bạn.', 'Garage receives link → installs garage app → pairs with your car.')}
                             </div>
                         </div>
                     </div>
@@ -496,16 +506,16 @@ export default function XeYeuLanding2() {
                 {/* PRICING SECTION */}
                 <section id="gia" className="space-y-16 scroll-mt-32">
                     <div className="text-center space-y-4">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Giá phần mềm</h2>
-                        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg"> Phần mềm Xế Yêu giúp bạn hiểu xe, cảnh báo sớm <br />
-                            và lưu lại lịch sử để chủ động và minh bạch khi chăm sóc xe.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Giá phần mềm', 'Software Pricing')}</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg">{t('Phần mềm Xế Yêu giúp bạn hiểu xe, cảnh báo sớm và lưu lại lịch sử để chủ động và minh bạch khi chăm sóc xe.', 'Xế Yêu software helps you understand your car, get early warnings, and save history for proactive and transparent car care.')}<br />
+                        </p>
                     </div>
                     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
                         <div className={`md:col-span-3 card-premium p-8 md:p-12 space-y-10 ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                             <div className="flex justify-between items-start">
                                 <div className="text-left">
-                                    <h3 className="text-2xl font-bold">Giá chính thức</h3>
-                                    <p className="text-gray-400 text-sm mt-1">Đầy đủ tính năng, không giới hạn</p>
+                                    <h3 className="text-2xl font-bold">{t('Giá chính thức', 'Official Price')}</h3>
+                                    <p className="text-gray-400 text-sm mt-1">{t('Đầy đủ tính năng, không giới hạn', 'Full features, unlimited')}</p>
                                 </div>
                                 <span className="material-symbols-outlined text-4xl text-xe-primary">workspace_premium</span>
                             </div>
@@ -514,8 +524,8 @@ export default function XeYeuLanding2() {
                                     <input defaultChecked className="hidden peer" name="plan" type="radio" />
                                     <div className={`flex items-center justify-between p-6 rounded-2xl border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary/5 ${darkMode ? 'border-white/10' : 'border-gray-100'}`}>
                                         <div className="text-left">
-                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Gói Tháng</p>
-                                            <p className="text-2xl font-bold">199.000 đồng <span className="text-base font-normal text-gray-400">/ tháng</span></p>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{t('Gói Tháng', 'Monthly Plan')}</p>
+                                            <p className="text-2xl font-bold">{t('199.000 đồng', '199,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ tháng', '/ month')}</span></p>
                                         </div>
                                         <div className={`size-6 rounded-full border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary flex items-center justify-center ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                                             <div className="size-2 bg-white rounded-full"></div>
@@ -525,10 +535,10 @@ export default function XeYeuLanding2() {
                                 <label className="block cursor-pointer group">
                                     <input className="hidden peer" name="plan" type="radio" />
                                     <div className={`flex items-center justify-between p-6 rounded-2xl border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary/5 relative ${darkMode ? 'border-white/10' : 'border-gray-100'}`}>
-                                        <span className="absolute -top-3 right-8 bg-xe-dark-accent text-xe-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">Tiết kiệm 20%</span>
+                                        <span className="absolute -top-3 right-8 bg-xe-dark-accent text-xe-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{t('Tiết kiệm 20%', 'Save 20%')}</span>
                                         <div className="text-left">
-                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Gói 3 Năm</p>
-                                            <p className="text-2xl font-bold">5.999.000 đồng <span className="text-base font-normal text-gray-400">/ 3 năm</span></p>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{t('Gói 3 Năm', '3-Year Plan')}</p>
+                                            <p className="text-2xl font-bold">{t('5.999.000 đồng', '5,999,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ 3 năm', '/ 3 years')}</span></p>
                                         </div>
                                         <div className={`size-6 rounded-full border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary flex items-center justify-center ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                                             <div className="size-2 bg-white rounded-full"></div>
@@ -536,25 +546,24 @@ export default function XeYeuLanding2() {
                                     </div>
                                 </label>
                             </div>
-                            <button className="w-full btn-primary-xe py-5 text-lg">Kích hoạt ngay</button>
+                            <button className="w-full btn-primary-xe py-5 text-lg">{t('Kích hoạt ngay', 'Activate Now')}</button>
                         </div>
                         <div className={`md:col-span-2 rounded-2xl p-8 md:p-10 text-white flex flex-col justify-center gap-8 shadow-2xl relative overflow-hidden border transition-colors ${darkMode ? 'bg-xe-dark-card border-white/5' : 'bg-xe-dark-accent border-transparent'}`}>
                             <div className="absolute top-0 left-0 w-full h-1 bg-xe-primary"></div>
                             <div className="space-y-4 text-left">
-                                <span className="inline-block px-3 py-1 bg-xe-primary/10 text-xe-primary text-[10px] font-black uppercase tracking-widest rounded-md">Ưu đãi ra mắt</span>
-                                <h4 className="text-3xl font-bold leading-tight">Miễn phí trọn đời cho 500 chủ xe</h4>
+                                <span className="inline-block px-3 py-1 bg-xe-primary/10 text-xe-primary text-[10px] font-black uppercase tracking-widest rounded-md">{t('Ưu đãi ra mắt', 'Launch Offer')}</span>
+                                <h4 className="text-3xl font-bold leading-tight">{t('Miễn phí trọn đời cho 500 chủ xe', 'Free for Life for 500 Car Owners')}</h4>
                                 <p className="text-gray-400 text-sm leading-relaxed">
-                                    500 người đầu tiên tải và cài đặt Xế Yêu thành công
-                                    sẽ được sử dụng phần mềm trọn đời, không mất phí.
+                                    {t('500 người đầu tiên tải và cài đặt Xế Yêu thành công sẽ được sử dụng phần mềm trọn đời, không mất phí.', 'The first 500 people to download and successfully install Xế Yêu will get lifetime software access, free of charge.')}
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                                     <div className="h-full bg-xe-primary w-[85%]"></div>
                                 </div>
-                                <p className="text-[11px] text-gray-500 font-bold text-right">Chỉ còn 72 suất</p>
+                                <p className="text-[11px] text-gray-500 font-bold text-right">{t('Chỉ còn 72 suất', 'Only 72 slots left')}</p>
                             </div>
-                            <button className="w-full bg-xe-primary text-xe-dark-accent py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-glow">Nhận suất trọn đời</button>
+                            <button className="w-full bg-xe-primary text-xe-dark-accent py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-glow">{t('Nhận suất trọn đời', 'Get Lifetime Access')}</button>
                         </div>
                     </div>
                 </section>
@@ -564,51 +573,52 @@ export default function XeYeuLanding2() {
                     <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y transition-colors ${darkMode ? 'border-white/5' : 'border-gray-100'}`}>
                         <div className="text-center space-y-4 group">
                             <span className="material-symbols-outlined text-xe-primary text-4xl transition-transform group-hover:scale-110">person_shield</span>
-                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">Quyền dữ liệu thuộc<br /> về bạn</p>
+                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">{t('Quyền dữ liệu thuộc', 'Data rights belong')}<br />{t('về bạn', 'to you')}</p>
                         </div>
                         <div className="text-center space-y-4 group">
                             <span className="material-symbols-outlined text-xe-primary text-4xl transition-transform group-hover:scale-110">handshake</span>
-                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">Minh bạch khi làm việc<br /> với garage</p>
+                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">{t('Minh bạch khi làm việc', 'Transparent when working')}<br />{t('với garage', 'with garage')}</p>
                         </div>
                         <div className="text-center space-y-4 group">
                             <span className="material-symbols-outlined text-xe-primary text-4xl transition-transform group-hover:scale-110">notifications_active</span>
-                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">Cảnh báo sớm<br /> không bị động</p>
+                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">{t('Cảnh báo sớm', 'Early warnings')}<br />{t('không bị động', 'not passive')}</p>
                         </div>
                         <div className="text-center space-y-4 group">
                             <span className="material-symbols-outlined text-xe-primary text-4xl transition-transform group-hover:scale-110">update</span>
-                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">Cập nhật định kỳ</p>
+                            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 uppercase font-bold tracking-[0.15em]">{t('Cập nhật định kỳ', 'Regular updates')}</p>
                         </div>
                     </div>
 
                     {/* FAQ SECTION */}
                     <div id="faq" className="max-w-3xl mx-auto space-y-8 scroll-mt-32">
-                        <h3 className="text-3xl font-bold text-center">Câu hỏi thường gặp</h3>
+                        <h3 className="text-3xl font-bold text-center">{t('Câu hỏi thường gặp', 'Frequently Asked Questions')}</h3>
                         <div className="space-y-4">
                             <details className={`group card-premium p-6 cursor-pointer ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`} open>
                                 <summary className="flex items-center justify-between font-bold list-none text-left">
-                                    Xế Yêu có bán kèm thiết bị OBD không?
+                                    {t('Xế Yêu có bán kèm thiết bị OBD không?', 'Does Xế Yêu sell OBD devices?')}
                                     <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                                 </summary>
                                 <p className="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm text-left">
-                                    Không. Xế Yêu chỉ phát triển phần mềm.<br />
-                                    Bạn có thể mua thiết bị OBD-II tại các cửa hàng phụ kiện hoặc sàn TMĐT.                                </p>
+                                    {t('Không. Xế Yêu chỉ phát triển phần mềm. Bạn có thể mua thiết bị OBD-II tại các cửa hàng phụ kiện hoặc sàn TMĐT.', 'No. Xế Yêu only develops software. You can buy OBD-II devices at accessory stores or e-commerce platforms.')}<br />
+                                </p>
                             </details>
                             <details className={`group card-premium p-6 cursor-pointer ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                                 <summary className="flex items-center justify-between font-bold list-none text-left">
-                                    Xe đã đồng hành nhiều năm có dùng được không?
+                                    {t('Xe đã đồng hành nhiều năm có dùng được không?', 'Can older cars use it?')}
                                     <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                                 </summary>
                                 <p className="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm text-left">
-                                    Hầu hết xe có cổng OBD-II (thường từ năm 2005 trở về sau) đều tương thích.                                </p>
+                                    {t('Hầu hết xe có cổng OBD-II (thường từ năm 2005 trở về sau) đều tương thích.', 'Most cars with OBD-II ports (usually from 2005 onwards) are compatible.')}
+                                </p>
                             </details>
                             <details className={`group card-premium p-6 cursor-pointer ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
                                 <summary className="flex items-center justify-between font-bold list-none text-left">
-                                    Xế Yêu có nhiều gói phần mềm không?
+                                    {t('Xế Yêu có nhiều gói phần mềm không?', 'Does Xế Yêu have multiple software packages?')}
                                     <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                                 </summary>
                                 <p className="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm text-left">
-                                    Không. Chỉ có 10 USD/tháng hoặc 249 USD/3 năm.<br />
-                                    Ưu đãi trọn đời áp dụng cho 500 người đầu tiên cài đặt thành công.                                </p>
+                                    {t('Không. Chỉ có 10 USD/tháng hoặc 249 USD/3 năm. Ưu đãi trọn đời áp dụng cho 500 người đầu tiên cài đặt thành công.', 'No. Only 10 USD/month or 249 USD/3 years. Lifetime offer applies to the first 500 successful installations.')}<br />
+                                </p>
                             </details>
                         </div>
                     </div>
@@ -620,21 +630,21 @@ export default function XeYeuLanding2() {
                         <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #a4ec13 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
                         <div className="relative z-10 space-y-6">
                             <h2 className="text-2xl md:text-5xl font-bold max-w-4xl mx-auto leading-tight">
-                                Chiếc xe đã đồng hành cùng bạn nhiều năm. <br />
-                                <span className="text-xe-primary">Bạn có muốn nghe nó nói không?</span>
+                                {t('Chiếc xe đã đồng hành cùng bạn nhiều năm.', 'The car that has been with you for many years.')}<br />
+                                <span className="text-xe-primary">{t('Bạn có muốn nghe nó nói không?', 'Do you want to hear it speak?')}</span>
                             </h2>
                             <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                                Đừng đợi đến khi xe buộc bạn phải dừng lại. <br />
-                                Nghe sớm, hiểu đúng, xử lý kịp lúc.
+                                {t('Đừng đợi đến khi xe buộc bạn phải dừng lại.', 'Don\'t wait until the car forces you to stop.')}<br />
+                                {t('Nghe sớm, hiểu đúng, xử lý kịp lúc.', 'Hear early, understand correctly, handle in time.')}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-8">
                                 <button className="bg-xe-primary text-xe-dark-accent px-8 md:px-10 py-4 rounded-full font-bold text-base md:text-lg shadow-glow hover:scale-105 transition-all flex items-center justify-center gap-2">
                                     <span className="material-symbols-outlined">download</span>
-                                    Tải app – kiểm tra suất trọn đời
+                                    {t('Tải app – kiểm tra suất trọn đời', 'Download app – check lifetime slots')}
                                 </button>
                                 <button className={`px-8 md:px-10 py-4 rounded-full font-bold text-base md:text-lg transition-all flex items-center justify-center gap-2 border bg-white/5 border-white/10 text-xe-primary hover:bg-white/10 hover:scale-105`}>
                                     <span className="material-symbols-outlined">play_circle</span>
-                                    Xem video hướng dẫn
+                                    {t('Xem video hướng dẫn', 'Watch tutorial video')}
                                 </button>
                             </div>
                         </div>
@@ -653,22 +663,22 @@ export default function XeYeuLanding2() {
                             <span className="font-bold text-2xl tracking-tight dark:text-white">Xế Yêu</span>
                         </div>
                         <p className="text-gray-400 max-w-sm leading-relaxed text-sm">
-                            Ứng dụng hàng đầu Việt Nam về chăm sóc sức khỏe ô tô qua dữ liệu OBD-II. Giúp chủ xe thấu hiểu người bạn đồng hành hơn bao giờ hết.
+                            {t('Ứng dụng hàng đầu Việt Nam về chăm sóc sức khỏe ô tô qua dữ liệu OBD-II. Giúp chủ xe thấu hiểu người bạn đồng hành hơn bao giờ hết.', 'Vietnam\'s leading app for car health care via OBD-II data. Helps car owners understand their companion better than ever.')}
                         </p>
                     </div>
                     <div className="space-y-6 text-left">
-                        <h5 className="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">Liên kết</h5>
+                        <h5 className="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">{t('Liên kết', 'Links')}</h5>
                         <div className="flex flex-col gap-3 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <a className="hover:text-xe-primary transition-colors" href="#">Tính năng</a>
-                            <a className="hover:text-xe-primary transition-colors" href="#">Phần cứng</a>
-                            <a className="hover:text-xe-primary transition-colors" href="#">Bảng giá</a>
+                            <a className="hover:text-xe-primary transition-colors" href="#">{t('Tính năng', 'Features')}</a>
+                            <a className="hover:text-xe-primary transition-colors" href="#">{t('Phần cứng', 'Hardware')}</a>
+                            <a className="hover:text-xe-primary transition-colors" href="#">{t('Bảng giá', 'Pricing')}</a>
                         </div>
                     </div>
                     <div className="space-y-6 text-left">
-                        <h5 className="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">Pháp lý</h5>
+                        <h5 className="font-bold uppercase text-[10px] tracking-[0.2em] text-gray-400">{t('Pháp lý', 'Legal')}</h5>
                         <div className="flex flex-col gap-3 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <a className="hover:text-xe-primary transition-colors" href="#">Điều khoản sử dụng</a>
-                            <a className="hover:text-xe-primary transition-colors" href="#">Chính sách bảo mật</a>
+                            <a className="hover:text-xe-primary transition-colors" href="#">{t('Điều khoản sử dụng', 'Terms of Service')}</a>
+                            <a className="hover:text-xe-primary transition-colors" href="#">{t('Chính sách bảo mật', 'Privacy Policy')}</a>
                             <p className="mt-4 text-xs text-gray-500 font-normal">© 2024 Xế Yêu • xeyeu.x18.io <br />
                                 Developed by x18 Technology</p>
                         </div>
