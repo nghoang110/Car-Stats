@@ -99,10 +99,10 @@ const MyGaraLanding2 = () => {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="relative z-10">
                                 <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 text-slate-900 dark:text-white">
-                                    {t('Khách đã đến sẽ còn quay lại', 'Customers who come will stay')}
+                                    {t('Khách đã đến sẽ còn quay lại', 'Customers who come once will come back')}
                                 </h1>
                                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl font-medium leading-relaxed">
-                                    {t('Phần mềm giúp gara liên tục nhận dữ liệu từ xe của khách hàng sau khi rời gara, nhắc bảo dưỡng đúng lúc, giảm sửa chữa “chữa cháy”, tăng việc đều đặn', "Software that helps garages continuously receive data from customers' vehicles after leaving, reminding maintenance on time, reducing \"firefighting\" repairs, and increasing steady workflow")}
+                                    {t('Phần mềm giúp gara liên tục nhận dữ liệu từ xe của khách hàng sau khi rời gara, nhắc bảo dưỡng đúng lúc, giảm sửa chữa “chữa cháy”, tăng việc đều đặn', "Software that helps workshops continuously receive vehicle data from customers after they leave the workshop, send timely maintenance reminders, reduce “firefighting” repairs, and create steady work.")}
                                 </p>
                                 <ul className="space-y-4 mb-10">
                                     <li className="flex items-center gap-4">
@@ -126,10 +126,10 @@ const MyGaraLanding2 = () => {
                                 </ul>
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <button className={styles.btnPrimary + " h-14 px-8 text-lg"}>
-                                        {t('Đăng ký MyGara cho gara', 'Register MyGara for Garage')}
+                                        {t('Đăng ký MyGara cho gara', 'Register MyGara for workshops')}
                                     </button>
                                     <button className={styles.btnOutline + " h-14 px-8 text-lg"}>
-                                        {t('Xem cách mời khách cài Xế Yêu', 'How to invite customers to Xế Yêu')}
+                                        {t('Xem cách mời khách cài Xế Yêu', 'See how to invite customers to install Xe Yeu')}
                                     </button>
                                 </div>
                             </div>
@@ -160,14 +160,14 @@ const MyGaraLanding2 = () => {
                 <section className="py-24" id="problems">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-                            {t('Thực tế mà gara nào cũng gặp', 'Realities every garage faces')}
+                            {t('Thực tế mà gara nào cũng gặp', 'Real problems every workshop faces')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                             {[
-                                { icon: 'person_off', color: 'red', vi: 'Khách không quay lại', en: "Customers don't return", viDesc: 'Xong việc là mất liên lạc. Đến kỳ bảo dưỡng, khách đi nơi khác', enDesc: 'Garages lose all contact after the customer pays and leaves the workshop', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
-                                { icon: 'car_repair', color: 'orange', vi: 'Xe hỏng bất ngờ', en: 'Unexpected breakdowns', viDesc: 'Khách gặp sự cố nhưng không nhớ gara quen để gọi', enDesc: "Customers have issues on the road but don't remember your hotline number", bg: 'bg-orange-100 dark:bg-orange-900/20', text: 'text-orange-600' },
-                                { icon: 'database', color: 'blue', vi: 'Thiếu thông tin xe', en: 'Lack of vehicle info', viDesc: 'Xe quay lại nhưng gara không biết trước tình trạng', enDesc: 'Not knowing maintenance history makes consultations passive', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' },
-                                { icon: 'leak_remove', color: 'purple', vi: 'Mất kết nối sau sửa', en: 'Disconnected after repair', viDesc: 'Gara chỉ gặp khách khi có vấn đề', enDesc: 'Difficulty in reminding customers about oil changes or periodic maintenance', bg: 'bg-purple-100 dark:bg-purple-900/20', text: 'text-purple-600' }
+                                { icon: 'person_off', color: 'red', vi: 'Khách không quay lại', en: "Customers do not return", viDesc: 'Xong việc là mất liên lạc. Đến kỳ bảo dưỡng, khách đi nơi khác', enDesc: 'The workshop loses contact completely after customers pay and leave.', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
+                                { icon: 'car_repair', color: 'orange', vi: 'Xe hỏng bất ngờ', en: 'Unexpected breakdowns', viDesc: 'Khách gặp sự cố nhưng không nhớ gara quen để gọi', enDesc: "Customers encounter problems on the road but do not remember your workshop.", bg: 'bg-orange-100 dark:bg-orange-900/20', text: 'text-orange-600' },
+                                { icon: 'database', color: 'blue', vi: 'Thiếu thông tin xe', en: 'Lack of vehicle information  ', viDesc: 'Xe quay lại nhưng gara không biết trước tình trạng', enDesc: 'Not knowing maintenance history makes consultations passive', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' },
+                                { icon: 'leak_remove', color: 'purple', vi: 'Mất kết nối sau sửa', en: 'Lost connection after repair ', viDesc: 'Gara chỉ gặp khách khi có vấn đề', enDesc: 'Difficulty reminding customers about oil changes and periodic maintenance.', bg: 'bg-purple-100 dark:bg-purple-900/20', text: 'text-purple-600' }
                             ].map((item, i) => (
                                 <div key={i} className={styles.surfaceCard + " p-8 hover:-translate-y-1"}>
                                     <div className={`w-12 h-12 rounded-lg ${item.bg} ${item.text} flex items-center justify-center mb-6`}>
@@ -180,7 +180,7 @@ const MyGaraLanding2 = () => {
                         </div>
                         <div className="max-w-3xl mx-auto p-8 rounded-xl bg-mg-primary/5 border-l-4 border-mg-primary italic text-center">
                             <p className="text-lg font-medium text-slate-700 dark:text-slate-300">
-                                {t('"Gara mất việc không phải vì tay nghề, mà vì mất kết nối với xe của khách"', '"Garages often lose all connection with customers immediately after they pay and leave the workshop"')}
+                                {t('"Gara mất việc không phải vì tay nghề, mà vì mất kết nối với xe của khách"', '"Workshops do not lose jobs because of skill, but because they lose connection with customer vehicles"')}
                             </p>
                         </div>
                     </div>
@@ -189,18 +189,18 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-white dark:bg-mg-surface-dark/30" id="features">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-black text-center mb-16 text-slate-900 dark:text-white">
-                            {t('MyGara giúp gara làm được những việc này', 'What MyGara helps your garage achieve')}
+                            {t('MyGara giúp gara làm được những việc này', 'WMyGara helps workshops do these things')}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[
                                 {
                                     icon: 'monitoring',
                                     vi: '1. Theo dõi xe của khách',
-                                    en: '1. Monitor customer vehicles',
+                                    en: '1. Track customer vehicles ',
                                     noteVi: '(Khi khách đồng ý kết nối qua Xế Yêu)',
                                     noteEn: '(When customers agree to connect via Xế Yêu)',
                                     bulletsVi: ['Biết xe có lỗi, có đèn báo', 'Biết xe sắp đến kỳ chăm sóc', 'Không cần đợi xe hỏng mới biết'],
-                                    bulletsEn: ['Know if the car has faults/warning lights', 'Know when the car is due for care', "Don't wait for breakdown to know"]
+                                    bulletsEn: ['Know if the car has faults/warning lights', 'Knowing your car is due for maintenance soon', "Don't wait for breakdown to know"]
                                 },
                                 {
                                     icon: 'notifications_active',
@@ -247,7 +247,7 @@ const MyGaraLanding2 = () => {
                     <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight text-slate-900 dark:text-white">
-                                {t('Vì sao MyGara giúp gara giữ chân khách hàng', 'Why MyGara helps garages retain customers')}
+                                {t('Vì sao MyGara giúp gara giữ chân khách hàng', 'Why does MyGara help workshops retain customers')}
                             </h2>
                             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
                                 {t('MyGara làm được điều này không phải nhờ thiết bị phức tạp, mà nhờ kết nối trực tiếp với app Xế Yêu của khách hàng.', 'MyGara achieves this not through complicated equipment, but through a direct connection with the customer\'s Xế Yêu app.')}
@@ -302,7 +302,7 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-white dark:bg-mg-bg-dark">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-black text-center mb-24 text-slate-900 dark:text-white">
-                            {t('MyGara và Xế Yêu đi cùng nhau', 'MyGara and Xế Yêu go together')}
+                            {t('MyGara và Xế Yêu đi cùng nhau', 'MyGara and Xe Yeu work together')}
                         </h2>
                         <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative max-w-5xl mx-auto">
                             {/* Horizontal Line */}
@@ -352,7 +352,7 @@ const MyGaraLanding2 = () => {
                                 </p>
                                 <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-md rounded-2xl border border-white/30 font-bold text-xl">
                                     <span className="material-symbols-outlined">payments</span>
-                                    {t('Liên hệ để nhận báo giá cá nhân hóa', 'Contact us for a personalized quote')}
+                                    {t('Liên hệ để nhận báo giá cá nhân hóa', 'Contact us for personalized pricing')}
                                 </div>
                             </div>
                             <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
@@ -368,7 +368,7 @@ const MyGaraLanding2 = () => {
                         </h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[
-                                { titleVi: 'Quyền lợi', titleEn: 'Benefits', itemsVi: ['Doanh thu từ gói Xế Yêu', 'Việc đều từ bảo dưỡng định kỳ', 'Nâng tầm hình ảnh gara'], itemsEn: ['Revenue from Xế Yêu packages', 'Steady workflow from periodic maintenance', 'Elevate garage image'] },
+                                { titleVi: 'Quyền lợi', titleEn: 'Benefits', itemsVi: ['Doanh thu từ gói Xế Yêu', 'Việc đều từ bảo dưỡng định kỳ', 'Nâng tầm hình ảnh gara'], itemsEn: ['Revenue from Xế Yêu packages', 'Steady workflow from periodic maintenance', 'Co-marketing support'] },
                                 { titleVi: 'Trách nhiệm', titleEn: 'Responsibilities', itemsVi: ['Hướng dẫn khách cài Xế Yêu', 'Hỗ trợ kết nối cơ bản', 'Đảm bảo chất lượng sửa chữa'], itemsEn: ['Guide customers to install Xế Yêu', 'Support basic connection', 'Ensure repair quality'] },
                                 { titleVi: 'Vai trò x18', titleEn: 'x18 role', itemsVi: ['Cung cấp & cập nhật phần mềm', 'Đào tạo sử dụng & tư vấn', 'Hỗ trợ truyền thông cho gara'], itemsEn: ['Provide & update software', 'Usage training & consulting', 'Marketing support for garages'] }
                             ].map((col, i) => (
@@ -391,7 +391,7 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-mg-primary text-white text-center relative overflow-hidden">
                     <div className="max-w-5xl mx-auto px-4 relative z-10">
                         <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
-                            {t('Bắt đầu từ những khách quen của bạn', 'Start with your regular customers')}
+                            {t('Bắt đầu từ những khách quen của bạn', 'Start with your existing customers')}
                         </h2>
                         <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-2xl mx-auto font-medium">
                             {t('Đừng để khách quen rời đi chỉ vì không nhắc đúng lúc.', 'Don\'t let regular customers leave just because you didn\'t remind them in time.')}
