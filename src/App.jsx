@@ -8,6 +8,7 @@ import XeYeuLanding from './components/XeYeuLanding'
 import XeYeuLanding2 from './components/XeYeuLanding2'
 import MyGaraLanding from './components/MyGaraLanding'
 import MyGaraLanding2 from './components/MyGaraLanding2'
+import PasswordProtection from './components/PasswordProtection'
 
 export default function App() {
   const location = useLocation()
@@ -17,13 +18,45 @@ export default function App() {
     <div className="min-h-screen bg-gray-50">
       {!isLandingPage && <Navbar />}
       <Routes>
+        {/* Trang không cần mật khẩu */}
         <Route path="/" element={<HomePage />} />
         <Route path="/car-dashboard" element={<DashboardPage />} />
         <Route path="/car-dtcs" element={<DTCStatsPage />} />
-        <Route path="/landing-xe-yeu" element={<XeYeuLanding />} />
-        <Route path="/landing-xe-yeu-2" element={<XeYeuLanding2 />} />
-        <Route path="/landing-my-gara" element={<MyGaraLanding />} />
-        <Route path="/landing-my-gara-2" element={<MyGaraLanding2 />} />
+
+        {/* Các landing pages CÓ mật khẩu */}
+        <Route
+          path="/landing-xe-yeu"
+          element={
+            <PasswordProtection password="infinieye">
+              <XeYeuLanding />
+            </PasswordProtection>
+          }
+        />
+        <Route
+          path="/landing-xe-yeu-2"
+          element={
+            <PasswordProtection password="infinieye">
+              <XeYeuLanding2 />
+            </PasswordProtection>
+          }
+        />
+        <Route
+          path="/landing-my-gara"
+          element={
+            <PasswordProtection password="infinieye">
+              <MyGaraLanding />
+            </PasswordProtection>
+          }
+        />
+        <Route
+          path="/landing-my-gara-2"
+          element={
+            <PasswordProtection password="infinieye">
+              <MyGaraLanding2 />
+            </PasswordProtection>
+          }
+        />
+
         {/* Redirect unknown routes to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

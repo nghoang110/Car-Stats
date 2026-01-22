@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logoX18 from '../assets/landing/logo-x18.png';
 
 const MyGaraLanding2 = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -43,8 +44,13 @@ const MyGaraLanding2 = () => {
             <header className={styles.glassHeader}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-mg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-mg-primary/20">
-                            <span className="material-symbols-outlined text-sm">directions_car</span>
+                        {/* Dark theme: không có nền */}
+                        <div className="hidden dark:flex">
+                            <img src={logoX18} alt="x18 Logo" className="h-10 w-auto" />
+                        </div>
+                        {/* Light theme: có nền tròn dark */}
+                        <div className="flex dark:hidden w-12 h-12 bg-slate-800 rounded-full items-center justify-center p-2 shadow-lg">
+                            <img src={logoX18} alt="x18 Logo" className="w-full h-full object-contain" />
                         </div>
                         <span className="text-xl font-extrabold tracking-tight text-mg-primary">MyGara</span>
                     </div>
@@ -285,7 +291,7 @@ const MyGaraLanding2 = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <a className="flex items-center justify-center gap-3 w-full bg-slate-900 dark:bg-mg-primary text-white py-5 rounded-2xl font-black hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg text-center" href="https://xeyeu.x18.io" target="_blank" rel="noreferrer">
+                            <a className="flex items-center justify-center gap-3 w-full bg-slate-900 dark:bg-mg-primary text-white py-5 rounded-2xl font-black hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg text-center" href="https://hoanguyen.online/landing-xe-yeu-2" target="_blank" rel="noreferrer">
                                 {t('Xem chi tiết app Xế Yêu', 'View Xế Yêu App Details')}
                                 <span className="material-symbols-outlined">arrow_forward</span>
                             </a>
@@ -305,7 +311,7 @@ const MyGaraLanding2 = () => {
                             {/* Item 1 */}
                             <div className="text-center group relative z-10 bg-white dark:bg-mg-bg-dark px-10">
                                 <div className="w-32 h-32 rounded-full border-4 border-slate-50 dark:border-slate-800 flex items-center justify-center mx-auto mb-8 group-hover:border-mg-primary transition-all duration-300 bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none">
-                                    <span className="material-symbols-outlined text-5xl text-mg-primary transition-transform group-hover:scale-110">storefront</span>
+                                    <span className="material-symbols-outlined text-7xl text-mg-primary transition-transform group-hover:scale-110">storefront</span>
                                 </div>
                                 <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Gara cài MyGara', 'Garage installs MyGara')}</h4>
                                 <p className="text-sm text-slate-500 font-medium max-w-[200px] mx-auto">{t('Tạo tài khoản, thiết lập gara, phân quyền cho thợ', 'Create account, set up garage, set mechanic permissions')}</p>
@@ -314,7 +320,7 @@ const MyGaraLanding2 = () => {
                             {/* Item 2 */}
                             <div className="text-center group relative z-10 bg-white dark:bg-mg-bg-dark px-10">
                                 <div className="w-40 h-40 rounded-full bg-mg-primary/5 border-4 border-mg-primary flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-mg-primary/20 transition-transform group-hover:scale-105">
-                                    <span className="material-symbols-outlined text-7xl text-mg-primary">person_add</span>
+                                    <span className="material-symbols-outlined text-9xl text-mg-primary">person_add</span>
                                 </div>
                                 <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Mời khách cài Xế Yêu', 'Invite customers to install Xế Yêu')}</h4>
                                 <p className="text-sm text-slate-500 font-medium max-w-[200px] mx-auto">{t('Gửi link mời khi bàn giao xe. Khách tự cài trong vài phút', 'Send invite link on vehicle delivery. Customers install in minutes')}</p>
@@ -323,7 +329,7 @@ const MyGaraLanding2 = () => {
                             {/* Item 3 */}
                             <div className="text-center group relative z-10 bg-white dark:bg-mg-bg-dark px-10">
                                 <div className="w-32 h-32 rounded-full border-4 border-slate-50 dark:border-slate-800 flex items-center justify-center mx-auto mb-8 group-hover:border-mg-primary transition-all duration-300 bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none">
-                                    <span className="material-symbols-outlined text-5xl text-mg-primary transition-transform group-hover:scale-110">event_repeat</span>
+                                    <span className="material-symbols-outlined text-7xl text-mg-primary transition-transform group-hover:scale-110">event_repeat</span>
                                 </div>
                                 <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Khách quay lại đều', 'Regular customer returns')}</h4>
                                 <p className="text-sm text-slate-500 font-medium max-w-[200px] mx-auto">{t('Bảo dưỡng định kỳ, sửa chữa đúng lúc', 'Periodic maintenance, timely repairs')}</p>
@@ -412,8 +418,13 @@ const MyGaraLanding2 = () => {
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-12">
                     <div className="max-w-md">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 bg-mg-primary rounded flex items-center justify-center text-white">
-                                <span className="material-symbols-outlined text-sm">directions_car</span>
+                            {/* Dark theme: không có nền */}
+                            <div className="hidden dark:flex">
+                                <img src={logoX18} alt="x18 Logo" className="h-10 w-auto" />
+                            </div>
+                            {/* Light theme: có nền tròn dark */}
+                            <div className="flex dark:hidden w-12 h-12 bg-slate-800 rounded-full items-center justify-center p-2 shadow-lg">
+                                <img src={logoX18} alt="x18 Logo" className="w-full h-full object-contain" />
                             </div>
                             <span className="font-black text-2xl text-mg-primary tracking-tighter">MyGara</span>
                         </div>
