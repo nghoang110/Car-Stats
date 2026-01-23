@@ -24,7 +24,7 @@ export default function XeYeuLanding2() {
         },
         {
             titleVi: "Mở ứng dụng Xế Yêu",
-            titleEn: "Open Xế Yêu app",
+            titleEn: "Open Xe Yeu app",
             descriptionVi: "Ứng dụng phiên dịch tín hiệu ECU thành thông tin dễ hiểu: xe đang ổn hay có gì cần chú ý.",
             descriptionEn: "The app translates ECU signals into easy-to-understand information: whether your car is fine or needs attention.",
             image: deviceImg
@@ -56,7 +56,7 @@ export default function XeYeuLanding2() {
 
     useEffect(() => {
         localStorage.setItem('lang', lang);
-        document.title = lang === 'vi' ? 'Xế Yêu - Trợ lý thông minh cho xe' : 'Xế Yêu - Smart Assistant for Your Car';
+        document.title = lang === 'vi' ? 'Xế Yêu - Trợ lý thông minh cho xe' : 'Xe Yeu - Smart Assistant for Your Car';
     }, [lang]);
 
     const t = (vi, en) => (lang === 'vi' ? vi : en);
@@ -80,7 +80,7 @@ export default function XeYeuLanding2() {
                             <div className={`size-12 rounded-full flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-transparent' : 'bg-xe-dark-accent'}`}>
                                 <img src={logoX18} alt="Xế Yêu Logo" className="size-9 object-contain transition-transform group-hover:scale-110" />
                             </div>
-                            <h1 className="text-xl md:text-2xl font-bold tracking-tight">Xế Yêu</h1>
+                            <h1 className="text-xl md:text-2xl font-bold tracking-tight"> {t('Xế Yêu', 'Xe Yeu')}</h1>
                         </a>
                     </div>
 
@@ -137,11 +137,11 @@ export default function XeYeuLanding2() {
                                     {t('Xe của bạn', 'Your car')} <br /><span className="text-gray-400">{t('biết nói', 'can speak')}</span>
                                 </h2>
                                 <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
-                                    {t('Các thiết bị bên trong xe trao đổi 2,5–5 triệu bản tin mỗi ngày. Bạn không nghe thấy. Và dữ liệu đó thường không được lưu lại để bạn hiểu. Xế Yêu ghi nhận, phiên dịch và cảnh báo bằng ngôn ngữ dễ hiểu, để bạn hành động kịp lúc.', 'Devices inside your car exchange 2.5–5 million messages every day. You don\'t hear them. And that data is usually not saved for you to understand. Xế Yêu records, translates, and alerts in easy-to-understand language, so you can act in time.')}
+                                    {t('Các thiết bị bên trong xe trao đổi 2,5–5 triệu bản tin mỗi ngày. Bạn không nghe thấy. Và dữ liệu đó thường không được lưu lại để bạn hiểu. Xế Yêu ghi nhận, phiên dịch và cảnh báo bằng ngôn ngữ dễ hiểu, để bạn hành động kịp lúc.', 'Devices inside your car exchange 2.5–5 million messages every day. You don\'t hear them. And that data is usually not saved for you to understand. Xe Yeu records, translates, and alerts in easy-to-understand language, so you can act in time.')}
                                 </p>
                                 <div className="space-y-4">
                                     <button className="btn-primary-xe text-base md:text-lg w-full md:w-auto">
-                                        {t('Tải Xế Yêu – Miễn phí trọn đời', 'Download Xế Yêu – Free for Life')}
+                                        {t('Tải Xế Yêu – Miễn phí trọn đời', 'Download Xe Yeu – Free for Life')}
                                     </button>
                                     <p className="text-xs text-gray-400 font-medium md:ml-4 italic">
                                         {t('Áp dụng cho 500 chủ xe đầu tiên cài đặt thành công.', 'For the first 500 car owners who successfully install.')}
@@ -165,9 +165,9 @@ export default function XeYeuLanding2() {
                 {/* CONNECTION HIGHLIGHT SECTION */}
                 <section className="space-y-12 md:space-y-16">
                     <div className="text-center space-y-4">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Xe là người bạn đường lâu năm</h2>
-                        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg"> Không phải để “thông minh hơn”.<br />
-                            Để hiểu nhau hơn.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight"> {t('Xe là người bạn đường lâu năm', 'Cars are long-time companions')}</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg"> {t('Không phải để “thông minh hơn”.', 'Not to be "smarter"')}<br />
+                            {t('Để hiểu nhau hơn', 'To understand each other better')}</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                         <div className={`card-premium p-8 md:p-10 space-y-6 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
@@ -188,9 +188,8 @@ export default function XeYeuLanding2() {
                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-white/5 group-hover:bg-xe-primary/20' : 'bg-xe-bg-light group-hover:bg-xe-primary/10'}`}>
                                 <span className="material-symbols-outlined text-3xl text-xe-dark-accent dark:text-xe-primary transition-transform group-hover:scale-110">explore</span>
                             </div>
-                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">Đường dài</h3>
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">Đi xa, đi vắng: có cảnh báo sớm để bạn
-                                quyết định trước, không phải “đến lúc mới biết”.</p>
+                            <h3 className="text-xl font-bold transition-colors group-hover:text-xe-primary">{t('Đường dài', 'Long Distance')}</h3>
+                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">{t('Đi xa, đi vắng: có cảnh báo sớm để bạn quyết định trước, không phải “đến lúc mới biết”.', 'Going away, being absent: early warnings allow you to make decisions in advance, not "find it at the last minute".')}</p>
                         </div>
                     </div>
                 </section>
@@ -198,7 +197,7 @@ export default function XeYeuLanding2() {
                 {/* WHY YOU NEED SECTION */}
                 <section id="giup-gi" className="space-y-12 md:space-y-16 scroll-mt-32">
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Tại sao bạn cần Xế Yêu?', 'Why do you need Xế Yêu?')}</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Tại sao bạn cần Xế Yêu?', 'Why do you need Xe Yeu?')}</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className={`card-premium p-6 md:p-8 flex gap-6 md:gap-8 items-center border-l-4 border-l-xe-primary group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
@@ -337,9 +336,9 @@ export default function XeYeuLanding2() {
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t('Lựa chọn phần cứng', 'Hardware Options')}</h2>
                         <div className="inline-flex items-center gap-2 px-6 py-2 bg-xe-primary/10 text-xe-dark-accent dark:text-xe-primary font-bold rounded-full border border-xe-primary/30">
                             <span className="material-symbols-outlined text-sm">info</span>
-                            {t('Xế Yêu không bán thiết bị', 'Xế Yêu does not sell devices')}
+                            {t('Xế Yêu không bán thiết bị', 'Xe Yeu does not sell devices')}
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">{t('Bạn nhập Hãng xe – Dòng xe – Đời xe trong ứng dụng. Xế Yêu sẽ gợi ý 3 lựa chọn thiết bị phù hợp. Bạn tự quyết định và mua từ bên thứ ba theo nhu cầu.', 'Enter your car brand, model, and year in the app. Xế Yêu will suggest 3 suitable device options. You decide and purchase from third parties as needed.')}</p>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">{t('Bạn nhập Hãng xe – Dòng xe – Đời xe trong ứng dụng. Xế Yêu sẽ gợi ý 3 lựa chọn thiết bị phù hợp. Bạn tự quyết định và mua từ bên thứ ba theo nhu cầu.', 'Enter your car brand, model, and year in the app. Xe Yeu will suggest 3 suitable device options. You decide and purchase from third parties as needed.')}</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className={`card-premium p-8 flex flex-col ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
@@ -473,7 +472,7 @@ export default function XeYeuLanding2() {
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4 group">
                                     <div className="w-8 h-8 rounded-full bg-xe-primary/20 border border-xe-primary/30 flex items-center justify-center text-xe-primary font-bold text-sm transition-all group-hover:scale-110 group-hover:bg-xe-primary group-hover:text-xe-dark-accent">1</div>
-                                    <p className="text-gray-300 font-medium">{t('Mở app Xế Yêu', 'Open Xế Yêu app')}</p>
+                                    <p className="text-gray-300 font-medium">{t('Mở app Xế Yêu', 'Open Xe Yeu app')}</p>
                                 </div>
                                 <div className="flex items-center gap-4 group">
                                     <div className="w-8 h-8 rounded-full bg-xe-primary/20 border border-xe-primary/30 flex items-center justify-center text-xe-primary font-bold text-sm transition-all group-hover:scale-110 group-hover:bg-xe-primary group-hover:text-xe-dark-accent">2</div>
@@ -486,7 +485,7 @@ export default function XeYeuLanding2() {
                                     </div>
                                     <div className="grid grid-cols-2 gap-3 ml-12">
                                         <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-sm font-bold text-xe-primary cursor-pointer hover:bg-white/10 transition-colors">
-                                            <span className="material-symbols-outlined text-lg">call</span> SĐT
+                                            <span className="material-symbols-outlined text-lg">call</span> {t('SĐT', 'Phone')}
                                         </div>
                                         <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-sm font-bold text-xe-primary cursor-pointer hover:bg-white/10 transition-colors">
                                             <span className="material-symbols-outlined text-lg">chat</span> Zalo
@@ -595,11 +594,11 @@ export default function XeYeuLanding2() {
                         <div className="space-y-4">
                             <details className={`group card-premium p-6 cursor-pointer ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`} open>
                                 <summary className="flex items-center justify-between font-bold list-none text-left">
-                                    {t('Xế Yêu có bán kèm thiết bị OBD không?', 'Does Xế Yêu sell OBD devices?')}
+                                    {t('Xế Yêu có bán kèm thiết bị OBD không?', 'Does Xe Yeu sell OBD devices?')}
                                     <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                                 </summary>
                                 <p className="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm text-left">
-                                    {t('Không. Xế Yêu chỉ phát triển phần mềm. Bạn có thể mua thiết bị OBD-II tại các cửa hàng phụ kiện hoặc sàn TMĐT.', 'No. Xế Yêu only develops software. You can buy OBD-II devices at accessory stores or e-commerce platforms.')}<br />
+                                    {t('Không. Xế Yêu chỉ phát triển phần mềm. Bạn có thể mua thiết bị OBD-II tại các cửa hàng phụ kiện hoặc sàn TMĐT.', 'No. Xe Yeu only develops software. You can buy OBD-II devices at accessory stores or e-commerce platforms.')}<br />
                                 </p>
                             </details>
                             <details className={`group card-premium p-6 cursor-pointer ${darkMode ? 'bg-xe-dark-card' : 'bg-white'}`}>
@@ -660,7 +659,7 @@ export default function XeYeuLanding2() {
                             <div className={`size-12 rounded-full flex items-center justify-center transition-all duration-300 ${darkMode ? 'bg-transparent' : 'bg-xe-dark-accent'}`}>
                                 <img src={logoX18} alt="Xế Yêu Logo" className="size-9 object-contain" />
                             </div>
-                            <span className="font-bold text-2xl tracking-tight dark:text-white">Xế Yêu</span>
+                            <span className="font-bold text-2xl tracking-tight dark:text-white">{t('Xế Yêu', 'Xe Yeu')}</span>
                         </div>
                         <p className="text-gray-400 max-w-sm leading-relaxed text-sm">
                             {t('Ứng dụng hàng đầu Việt Nam về chăm sóc sức khỏe ô tô qua dữ liệu OBD-II. Giúp chủ xe thấu hiểu người bạn đồng hành hơn bao giờ hết.', 'Vietnam\'s leading app for car health care via OBD-II data. Helps car owners understand their companion better than ever.')}
