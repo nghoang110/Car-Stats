@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import logoX18 from '../assets/landing/logo-x18.png';
+import bannerMyGara from '../assets/landing/banner-mygara.png';
 
 const MyGaraLanding2 = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -133,22 +134,9 @@ const MyGaraLanding2 = () => {
                                     </button>
                                 </div>
                             </div>
-                            <div className="relative">
-                                <div className="bg-mg-surface-light dark:bg-mg-surface-dark p-6 aspect-video flex flex-col items-center justify-center relative border-2 border-mg-primary/10 overflow-hidden shadow-2xl rounded-2xl">
-                                    <div className="w-24 h-24 bg-mg-primary/5 rounded-full flex items-center justify-center text-mg-primary/20 mb-4">
-                                        <span className="material-symbols-outlined text-[100px]">analytics</span>
-                                    </div>
-                                    <div className="text-center px-6 relative z-10">
-                                        <div className="font-black text-3xl text-mg-primary mb-2">
-                                            {t('Gia tăng 40% tỷ lệ quay lại', 'Increase retention by 40%')}
-                                        </div>
-                                        <div className="text-sm text-slate-500 font-medium">
-                                            {t('Dựa trên dữ liệu thực tế từ các đối tác sử dụng MyGara', 'Based on real data from MyGara partners')}
-                                        </div>
-                                    </div>
-                                    <div className="absolute top-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider shadow-lg">
-                                        {t('Đối tác tin dùng', 'Trusted Partner')}
-                                    </div>
+                            <div className="relative lg:scale-110 lg:translate-x-4 transition-transform duration-500">
+                                <div className="overflow-hidden shadow-2xl rounded-2xl">
+                                    <img src={bannerMyGara} alt="MyGara Banner" className="w-full h-auto object-cover" />
                                 </div>
                                 <div className="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-mg-primary/10 blur-[80px] rounded-full"></div>
                                 <div className="absolute -z-10 -bottom-10 -left-10 w-48 h-48 bg-blue-400/10 blur-[60px] rounded-full"></div>
