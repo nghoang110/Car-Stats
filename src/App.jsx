@@ -4,9 +4,7 @@ import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import DashboardPage from './components/DashboardPage'
 import DTCStatsPage from './components/DTCStatsPage'
-import XeYeuLanding from './components/XeYeuLanding'
 import XeYeuLanding2 from './components/XeYeuLanding2'
-import MyGaraLanding from './components/MyGaraLanding'
 import MyGaraLanding2 from './components/MyGaraLanding2'
 import PasswordProtection from './components/PasswordProtection'
 
@@ -24,14 +22,7 @@ export default function App() {
         <Route path="/car-dtcs" element={<DTCStatsPage />} />
 
         {/* Các landing pages CÓ mật khẩu */}
-        <Route
-          path="/landing-xe-yeu"
-          element={
-            <PasswordProtection password="infinieye">
-              <XeYeuLanding />
-            </PasswordProtection>
-          }
-        />
+
         <Route
           path="/landing-xe-yeu-2"
           element={
@@ -40,14 +31,7 @@ export default function App() {
             </PasswordProtection>
           }
         />
-        <Route
-          path="/landing-my-gara"
-          element={
-            <PasswordProtection password="infinieye">
-              <MyGaraLanding />
-            </PasswordProtection>
-          }
-        />
+
         <Route
           path="/landing-my-gara-2"
           element={

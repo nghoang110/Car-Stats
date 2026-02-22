@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logoX18 from '../assets/landing/logo-x18.png';
 
-const MyGaraLanding2 = () => {
+const BertaLanding2 = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [lang, setLang] = useState(() => {
         const saved = localStorage.getItem('lang');
@@ -27,7 +27,7 @@ const MyGaraLanding2 = () => {
 
     useEffect(() => {
         localStorage.setItem('lang', lang);
-        document.title = lang === 'vi' ? 'MyGara - Giải pháp quản lý Gara' : 'MyGara - Garage Management Solution';
+        document.title = lang === 'vi' ? 'BERTA - Giải pháp quản lý Gara' : 'BERTA - Garage Management Solution';
     }, [lang]);
 
     const t = (vi, en) => (lang === 'vi' ? vi : en);
@@ -52,10 +52,10 @@ const MyGaraLanding2 = () => {
                         <div className="flex dark:hidden w-12 h-12 bg-slate-800 rounded-full items-center justify-center p-2 shadow-lg">
                             <img src={logoX18} alt="x18 Logo" className="w-full h-full object-contain" />
                         </div>
-                        <span className="text-xl font-extrabold tracking-tight text-mg-primary">MyGara</span>
+                        <span className="text-xl font-extrabold tracking-tight text-mg-primary">BERTA</span>
                     </div>
                     <nav className="hidden lg:flex items-center gap-8">
-                        {['problems', 'features', 'xeyeu-connection', 'pricing'].map((id) => (
+                        {['problems', 'features', 'ben-connection', 'pricing'].map((id) => (
                             <a
                                 key={id}
                                 className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-mg-primary dark:hover:text-mg-primary transition-colors"
@@ -63,7 +63,7 @@ const MyGaraLanding2 = () => {
                             >
                                 {id === 'problems' && t('Vấn đề', 'Problems')}
                                 {id === 'features' && t('Tính năng', 'Features')}
-                                {id === 'xeyeu-connection' && t('Kết nối', 'Connection')}
+                                {id === 'ben-connection' && t('Kết nối', 'Connection')}
                                 {id === 'pricing' && t('Giá cả', 'Pricing')}
                             </a>
                         ))}
@@ -87,7 +87,7 @@ const MyGaraLanding2 = () => {
                             <span className="material-symbols-outlined hidden dark:block">light_mode</span>
                         </button>
                         <a className="hidden sm:inline-flex bg-mg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity" href="#">
-                            {t('Đăng ký MyGara', 'Register MyGara')}
+                            {t('Đăng ký BERTA', 'Register BERTA')}
                         </a>
                     </div>
                 </div>
@@ -126,10 +126,10 @@ const MyGaraLanding2 = () => {
                                 </ul>
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <button className={styles.btnPrimary + " h-14 px-8 text-lg"}>
-                                        {t('Đăng ký MyGara cho gara', 'Register MyGara for workshops')}
+                                        {t('Đăng ký BERTA cho gara', 'Register BERTA for workshops')}
                                     </button>
                                     <button className={styles.btnOutline + " h-14 px-8 text-lg"}>
-                                        {t('Xem cách mời khách cài Xế Yêu', 'See how to invite customers to install Xe Yeu')}
+                                        {t('Xem cách mời khách cài BEN', 'See how to invite customers to install BEN')}
                                     </button>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@ const MyGaraLanding2 = () => {
                                             {t('Gia tăng 40% tỷ lệ quay lại', 'Increase retention by 40%')}
                                         </div>
                                         <div className="text-sm text-slate-500 font-medium">
-                                            {t('Dựa trên dữ liệu thực tế từ các đối tác sử dụng MyGara', 'Based on real data from MyGara partners')}
+                                            {t('Dựa trên dữ liệu thực tế từ các đối tác sử dụng BERTA', 'Based on real data from BERTA partners')}
                                         </div>
                                     </div>
                                     <div className="absolute top-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider shadow-lg">
@@ -189,7 +189,7 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-white dark:bg-mg-surface-dark/30" id="features">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-black text-center mb-16 text-slate-900 dark:text-white">
-                            {t('MyGara giúp gara làm được những việc này', 'WMyGara helps workshops do these things')}
+                            {t('BERTA giúp gara làm được những việc này', 'BERTA helps workshops do these things')}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[
@@ -197,8 +197,8 @@ const MyGaraLanding2 = () => {
                                     icon: 'monitoring',
                                     vi: '1. Theo dõi xe của khách',
                                     en: '1. Track customer vehicles ',
-                                    noteVi: '(Khi khách đồng ý kết nối qua Xế Yêu)',
-                                    noteEn: '(When customers agree to connect via Xế Yêu)',
+                                    noteVi: '(Khi khách đồng ý kết nối qua BEN)',
+                                    noteEn: '(When customers agree to connect via BEN)',
                                     bulletsVi: ['Biết xe có lỗi, có đèn báo', 'Biết xe sắp đến kỳ chăm sóc', 'Không cần đợi xe hỏng mới biết'],
                                     bulletsEn: ['Know if the car has faults/warning lights', 'Knowing your car is due for maintenance soon', "Don't wait for breakdown to know"]
                                 },
@@ -243,21 +243,21 @@ const MyGaraLanding2 = () => {
                     </div>
                 </section>
 
-                <section className="py-24 bg-mg-primary/5 dark:bg-blue-900/5 border-y border-mg-primary/10" id="xeyeu-connection">
+                <section className="py-24 bg-mg-primary/5 dark:bg-blue-900/5 border-y border-mg-primary/10" id="ben-connection">
                     <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight text-slate-900 dark:text-white">
-                                {t('Vì sao MyGara giúp gara giữ chân khách hàng', 'Why does MyGara help workshops retain customers')}
+                                {t('Vì sao BERTA giúp gara giữ chân khách hàng', 'Why does BERTA help workshops retain customers')}
                             </h2>
                             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                                {t('MyGara làm được điều này không phải nhờ thiết bị phức tạp, mà nhờ kết nối trực tiếp với app Xế Yêu của khách hàng.', 'MyGara achieves this not through complicated equipment, but through a direct connection with the customer\'s Xế Yêu app.')}
+                                {t('BERTA làm được điều này không phải nhờ thiết bị phức tạp, mà nhờ kết nối trực tiếp với app BEN của khách hàng.', 'BERTA achieves this not through complicated equipment, but through a direct connection with the customer\'s BEN app.')}
                             </p>
                             <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed font-medium">
-                                {t('Khi khách dùng Xế Yêu, gara có thể theo dõi tình trạng xe sau khi rời gara (khi khách đồng ý) để chăm sóc đúng lúc', 'When customers use Xế Yêu, the garage can monitor the vehicle\'s condition after leaving (with consent) to provide timely care.')}
+                                {t('Khi khách dùng BEN, gara có thể theo dõi tình trạng xe sau khi rời gara (khi khách đồng ý) để chăm sóc đúng lúc', 'When customers use BEN, the garage can monitor the vehicle\'s condition after leaving (with consent) to provide timely care.')}
                             </p>
 
                             <h3 className="text-2xl font-black mb-8 text-mg-primary">
-                                {t('Xế Yêu là “trợ lý số thông minh” cho chủ xe', 'Xế Yêu is a "smart digital assistant" for car owners')}
+                                {t('BEN là “trợ lý số thông minh” cho chủ xe', 'BEN is a "smart digital assistant" for car owners')}
                             </h3>
 
                             <div className="grid sm:grid-cols-2 gap-6">
@@ -277,7 +277,7 @@ const MyGaraLanding2 = () => {
 
                         <div className="bg-white dark:bg-mg-surface-dark p-10 border-2 border-mg-primary shadow-2xl relative overflow-hidden rounded-3xl">
                             <h3 className="text-xl font-black mb-10 text-slate-900 dark:text-white leading-tight">
-                                {t('Khi chủ xe tin và dùng Xế Yêu mỗi ngày, MyGara trở thành cầu nối để gara', 'When car owners trust and use Xế Yêu every day, MyGara becomes a bridge for the garage')}
+                                {t('Khi chủ xe tin và dùng BEN mỗi ngày, BERTA trở thành cầu nối để gara', 'When car owners trust and use BEN every day, BERTA becomes a bridge for the garage')}
                             </h3>
                             <ul className="space-y-6 mb-12">
                                 {[
@@ -292,7 +292,7 @@ const MyGaraLanding2 = () => {
                                 ))}
                             </ul>
                             <a className="flex items-center justify-center gap-3 w-full bg-slate-900 dark:bg-mg-primary text-white py-5 rounded-2xl font-black hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg text-center" href="https://hoanguyen.online/landing-xe-yeu-2" target="_blank" rel="noreferrer">
-                                {t('Xem chi tiết app Xế Yêu', 'View Xế Yêu App Details')}
+                                {t('Xem chi tiết app BEN', 'View BEN App Details')}
                                 <span className="material-symbols-outlined">arrow_forward</span>
                             </a>
                         </div>
@@ -302,7 +302,7 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-white dark:bg-mg-bg-dark">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-black text-center mb-24 text-slate-900 dark:text-white">
-                            {t('MyGara và Xế Yêu đi cùng nhau', 'MyGara and Xe Yeu work together')}
+                            {t('BERTA và BEN đi cùng nhau', 'BERTA and BEN work together')}
                         </h2>
                         <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative max-w-5xl mx-auto">
                             {/* Horizontal Line */}
@@ -313,7 +313,7 @@ const MyGaraLanding2 = () => {
                                 <div className="w-32 h-32 rounded-full border-4 border-slate-50 dark:border-slate-800 flex items-center justify-center mx-auto mb-8 group-hover:border-mg-primary transition-all duration-300 bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none">
                                     <span className="material-symbols-outlined text-7xl text-mg-primary transition-transform group-hover:scale-110">storefront</span>
                                 </div>
-                                <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Gara cài MyGara', 'Garage installs MyGara')}</h4>
+                                <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Gara cài BERTA', 'Garage installs BERTA')}</h4>
                                 <p className="text-sm text-slate-500 font-medium max-w-[200px] mx-auto">{t('Tạo tài khoản, thiết lập gara, phân quyền cho thợ', 'Create account, set up garage, set mechanic permissions')}</p>
                             </div>
 
@@ -322,7 +322,7 @@ const MyGaraLanding2 = () => {
                                 <div className="w-40 h-40 rounded-full bg-mg-primary/5 border-4 border-mg-primary flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-mg-primary/20 transition-transform group-hover:scale-105">
                                     <span className="material-symbols-outlined text-9xl text-mg-primary">person_add</span>
                                 </div>
-                                <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Mời khách cài Xế Yêu', 'Invite customers to install Xế Yêu')}</h4>
+                                <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">{t('Mời khách cài BEN', 'Invite customers to install BEN')}</h4>
                                 <p className="text-sm text-slate-500 font-medium max-w-[200px] mx-auto">{t('Gửi link mời khi bàn giao xe. Khách tự cài trong vài phút', 'Send invite link on vehicle delivery. Customers install in minutes')}</p>
                             </div>
 
@@ -343,10 +343,10 @@ const MyGaraLanding2 = () => {
                         <div className="max-w-4xl mx-auto bg-mg-primary text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
                             <div className="relative z-10">
                                 <h2 className="text-3xl md:text-5xl font-black mb-8">
-                                    {t('MyGara chỉ thu phí khi gara có lợi', 'MyGara only charges when the garage profits')}
+                                    {t('BERTA chỉ thu phí khi gara có lợi', 'BERTA only charges when the garage profits')}
                                 </h2>
                                 <p className="text-white/90 text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
-                                    {t('MyGara áp dụng Value-based Pricing.', 'MyGara applies Value-based Pricing.')}
+                                    {t('BERTA áp dụng Value-based Pricing.', 'BERTA applies Value-based Pricing.')}
                                     <br />
                                     {t('Gara chỉ trả phí sau khi đã kết nối đủ khách hàng và thấy rõ hiệu quả kinh doanh', 'Garages only pay after connecting enough customers and seeing clear business results')}
                                 </p>
@@ -364,12 +364,12 @@ const MyGaraLanding2 = () => {
                 <section className="py-24 bg-white dark:bg-mg-bg-dark">
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl md:text-4xl font-black text-center mb-16 text-slate-900 dark:text-white">
-                            {t('Gara trở thành đối tác phân phối Xế Yêu', 'Garage becomes a Xế Yêu distribution partner')}
+                            {t('Gara trở thành đối tác phân phối BEN', 'Garage becomes a BEN distribution partner')}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[
-                                { titleVi: 'Quyền lợi', titleEn: 'Benefits', itemsVi: ['Doanh thu từ gói Xế Yêu', 'Việc đều từ bảo dưỡng định kỳ', 'Nâng tầm hình ảnh gara'], itemsEn: ['Revenue from Xế Yêu packages', 'Steady workflow from periodic maintenance', 'Co-marketing support'] },
-                                { titleVi: 'Trách nhiệm', titleEn: 'Responsibilities', itemsVi: ['Hướng dẫn khách cài Xế Yêu', 'Hỗ trợ kết nối cơ bản', 'Đảm bảo chất lượng sửa chữa'], itemsEn: ['Guide customers to install Xế Yêu', 'Support basic connection', 'Ensure repair quality'] },
+                                { titleVi: 'Quyền lợi', titleEn: 'Benefits', itemsVi: ['Doanh thu từ gói BEN', 'Việc đều từ bảo dưỡng định kỳ', 'Nâng tầm hình ảnh gara'], itemsEn: ['Revenue from BEN packages', 'Steady workflow from periodic maintenance', 'Co-marketing support'] },
+                                { titleVi: 'Trách nhiệm', titleEn: 'Responsibilities', itemsVi: ['Hướng dẫn khách cài BEN', 'Hỗ trợ kết nối cơ bản', 'Đảm bảo chất lượng sửa chữa'], itemsEn: ['Guide customers to install BEN', 'Support basic connection', 'Ensure repair quality'] },
                                 { titleVi: 'Vai trò x18', titleEn: 'x18 role', itemsVi: ['Cung cấp & cập nhật phần mềm', 'Đào tạo sử dụng & tư vấn', 'Hỗ trợ truyền thông cho gara'], itemsEn: ['Provide & update software', 'Usage training & consulting', 'Marketing support for garages'] }
                             ].map((col, i) => (
                                 <div key={i} className="bg-slate-50 dark:bg-mg-surface-dark p-10 rounded-3xl border border-slate-100 dark:border-mg-border-dark transition-transform hover:-translate-y-1">
@@ -400,7 +400,7 @@ const MyGaraLanding2 = () => {
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">
                             <button className="bg-white text-mg-primary px-10 py-5 rounded-2xl font-black shadow-2xl hover:scale-105 active:scale-100 transition-all text-xl">
-                                {t('Đăng ký MyGara', 'Register MyGara')}
+                                {t('Đăng ký BERTA', 'Register BERTA')}
                             </button>
                             <button className="bg-white/10 border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-black hover:bg-white/20 transition-all text-xl">
                                 {t('Tìm hiểu đại lý', 'Learn about agency')}
@@ -426,7 +426,7 @@ const MyGaraLanding2 = () => {
                             <div className="flex dark:hidden w-12 h-12 bg-slate-800 rounded-full items-center justify-center p-2 shadow-lg">
                                 <img src={logoX18} alt="x18 Logo" className="w-full h-full object-contain" />
                             </div>
-                            <span className="font-black text-2xl text-mg-primary tracking-tighter">MyGara</span>
+                            <span className="font-black text-2xl text-mg-primary tracking-tighter">BERTA</span>
                         </div>
                         <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
                             {t('Giải pháp chuyển đổi số cho ngành dịch vụ ô tô Việt Nam. Tăng trưởng bền vững dựa trên niềm tin khách hàng', 'Digital transformation solution for the Vietnamese automotive service industry. Sustainable growth based on customer trust')}
@@ -460,4 +460,4 @@ const MyGaraLanding2 = () => {
     );
 };
 
-export default MyGaraLanding2;
+export default BertaLanding2;

@@ -25,10 +25,8 @@ export default function Navbar() {
       label: 'Landing Page',
       isLink: false,
       children: [
-        { path: '/landing-xe-yeu', label: 'Xế Yêu' },
-        { path: '/landing-xe-yeu-2', label: 'Xế Yêu 2' },
-        { path: '/landing-my-gara', label: 'My Gara' },
-        { path: '/landing-my-gara-2', label: 'My Gara 2' },
+        { path: '/landing-xe-yeu-2', label: 'BEN' },
+        { path: '/landing-my-gara-2', label: 'BERTA' },
       ]
     },
     { path: '/car-dashboard', label: 'Dashboard', isLink: true },
