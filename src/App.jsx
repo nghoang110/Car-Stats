@@ -24,7 +24,7 @@ export default function App() {
         {/* Các landing pages CÓ mật khẩu */}
 
         <Route
-          path="/landing-xe-yeu-2"
+          path="/landing-ben"
           element={
             <PasswordProtection pageId="ben" password="infinieye">
               <XeYeuLanding2 />
@@ -33,7 +33,7 @@ export default function App() {
         />
 
         <Route
-          path="/landing-my-gara-2"
+          path="/landing-berta"
           element={
             <PasswordProtection pageId="berta" password="infinieye">
               <MyGaraLanding2 />

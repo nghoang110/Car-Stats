@@ -279,7 +279,7 @@ const BertaLanding2 = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <a className="flex items-center justify-center gap-3 w-full bg-slate-900 dark:bg-mg-primary text-white py-5 rounded-2xl font-black hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg text-center" href="https://hoanguyen.online/landing-xe-yeu-2" target="_blank" rel="noreferrer">
+                            <a className="flex items-center justify-center gap-3 w-full bg-slate-900 dark:bg-mg-primary text-white py-5 rounded-2xl font-black hover:scale-[1.02] active:scale-100 transition-all shadow-xl text-lg text-center" href="/landing-ben" target="_blank" rel="noreferrer">
                                 {t('Xem chi tiết app BEN', 'View BEN App Details')}
                                 <span className="material-symbols-outlined">arrow_forward</span>
                             </a>
