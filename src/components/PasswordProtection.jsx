@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
-const PasswordProtection = ({ children, password = "infinieye" }) => {
+const PasswordProtection = ({ children, pageId, password = "infinieye" }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [inputPassword, setInputPassword] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const storageKey = `isAuthenticated_${pageId}`;
+
     // Kiểm tra xem đã đăng nhập chưa khi component mount
     useEffect(() => {
-        const authStatus = sessionStorage.getItem('isAuthenticated');
+        const authStatus = sessionStorage.getItem(storageKey);
         if (authStatus === 'true') {
             setIsAuthenticated(true);
         }
-    }, []);
+    }, [storageKey]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (inputPassword === password) {
             setIsAuthenticated(true);
-            sessionStorage.setItem('isAuthenticated', 'true');
+            sessionStorage.setItem(storageKey, 'true');
             setError('');
         } else {
             setError('Mật khẩu không đúng. Vui lòng thử lại.');
@@ -29,7 +31,7 @@ const PasswordProtection = ({ children, password = "infinieye" }) => {
 
     const handleLogout = () => {
         setIsAuthenticated(false);
-        sessionStorage.removeItem('isAuthenticated');
+        sessionStorage.removeItem(storageKey);
         setInputPassword('');
     };
 

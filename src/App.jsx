@@ -26,7 +26,7 @@ export default function App() {
         <Route
           path="/landing-xe-yeu-2"
           element={
-            <PasswordProtection password="infinieye">
+            <PasswordProtection pageId="ben" password="infinieye">
               <XeYeuLanding2 />
             </PasswordProtection>
           }
@@ -35,7 +35,7 @@ export default function App() {
         <Route
           path="/landing-my-gara-2"
           element={
-            <PasswordProtection password="infinieye">
+            <PasswordProtection pageId="berta" password="infinieye">
               <MyGaraLanding2 />
             </PasswordProtection>
           }
