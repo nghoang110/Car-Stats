@@ -524,7 +524,7 @@ export default function XeYeuLanding2() {
                                     <div className={`flex items-center justify-between p-6 rounded-2xl border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary/5 ${darkMode ? 'border-white/10' : 'border-gray-100'}`}>
                                         <div className="text-left">
                                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{t('Gói Tháng', 'Monthly Plan')}</p>
-                                            <p className="text-2xl font-bold">{t('199.000 đồng', '199,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ tháng', '/ month')}</span></p>
+                                            <p className="text-2xl font-bold">{t('59.000 đồng', '59,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ tháng', '/ month')}</span></p>
                                         </div>
                                         <div className={`size-6 rounded-full border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary flex items-center justify-center ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                                             <div className="size-2 bg-white rounded-full"></div>
@@ -534,10 +534,23 @@ export default function XeYeuLanding2() {
                                 <label className="block cursor-pointer group">
                                     <input className="hidden peer" name="plan" type="radio" />
                                     <div className={`flex items-center justify-between p-6 rounded-2xl border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary/5 relative ${darkMode ? 'border-white/10' : 'border-gray-100'}`}>
-                                        <span className="absolute -top-3 right-8 bg-xe-dark-accent text-xe-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{t('Tiết kiệm 20%', 'Save 20%')}</span>
+                                        <span className="absolute -top-3 right-8 bg-xe-dark-accent text-xe-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{t('Tiết kiệm 15%', 'Save 15%')}</span>
+                                        <div className="text-left">
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{t('Gói 1 Năm', '1-Year Plan')}</p>
+                                            <p className="text-2xl font-bold">{t('599.000 đồng', '599,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ năm', '/ year')}</span></p>
+                                        </div>
+                                        <div className={`size-6 rounded-full border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary flex items-center justify-center ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+                                            <div className="size-2 bg-white rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label className="block cursor-pointer group">
+                                    <input className="hidden peer" name="plan" type="radio" />
+                                    <div className={`flex items-center justify-between p-6 rounded-2xl border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary/5 relative ${darkMode ? 'border-white/10' : 'border-gray-100'}`}>
+                                        <span className="absolute -top-3 right-8 bg-xe-dark-accent text-xe-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{t('Tiết kiệm 25%', 'Save 25%')}</span>
                                         <div className="text-left">
                                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{t('Gói 3 Năm', '3-Year Plan')}</p>
-                                            <p className="text-2xl font-bold">{t('5.999.000 đồng', '5,999,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ 3 năm', '/ 3 years')}</span></p>
+                                            <p className="text-2xl font-bold">{t('1.599.000 đồng', '1,599,000 VND')} <span className="text-base font-normal text-gray-400">{t('/ 3 năm', '/ 3 years')}</span></p>
                                         </div>
                                         <div className={`size-6 rounded-full border-2 transition-all peer-checked:border-xe-primary peer-checked:bg-xe-primary flex items-center justify-center ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                                             <div className="size-2 bg-white rounded-full"></div>
@@ -616,7 +629,7 @@ export default function XeYeuLanding2() {
                                     <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                                 </summary>
                                 <p className="mt-4 text-gray-500 dark:text-gray-400 leading-relaxed text-sm text-left">
-                                    {t('Không. Chỉ có 199.000đ/tháng hoặc 5.999.000đ/3 năm. Ưu đãi trọn đời áp dụng cho 500 người đầu tiên cài đặt thành công.', 'No. Only 199,000 VND/month or 5,999,000 VND/3 years. Lifetime offer applies to the first 500 successful installations.')}<br />
+                                    {t('Không. Chỉ có 59.000đ/tháng, 599.000đ/1 năm hoặc 1.599.000đ/3 năm. Ưu đãi trọn đời áp dụng cho 500 người đầu tiên cài đặt thành công.', 'No. Only 59,000 VND/month, 599,000 VND/1 year or 1,599,000 VND/3 years. Lifetime offer applies to the first 500 successful installations.')}<br />
                                 </p>
                             </details>
                         </div>
